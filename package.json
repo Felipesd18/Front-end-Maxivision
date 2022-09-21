@@ -10,7 +10,7 @@
     "lint:prettier": "prettier --check .",
     "lint": "npm run lint:prettier",
     "lintfix": "prettier --write --list-different .",
-    "heroku-postbuild": "npm run dev"
+    "heroku-postbuild": "npm run start"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
