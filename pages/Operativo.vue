@@ -1,9 +1,11 @@
 <template>
-  <div>
+  <div >
     <h1>Operativo</h1>
     <sidebar-menu />
   </div>
+ 
 </template>
+
 
 <script>
 import sidebarMenu from '../components/sidebar-menu.vue'
@@ -11,7 +13,9 @@ export default {
   components: { sidebarMenu },
   data() {
     return {}
+    
   },
+  
 }
 </script>
 
