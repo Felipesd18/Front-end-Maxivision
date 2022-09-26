@@ -128,7 +128,7 @@ export default {
           icon: 'bx-cabinet',
         },
         {
-          link: '/Orden',
+          link: '/ListadoOrdenes',
           name: 'Orden',
           tooltip: 'Orden',
           icon: 'bx-glasses-alt',

@@ -1,39 +1,25 @@
 <template>
-  <div class="inventario-container">
+  <div class="inventario-marco-container">
     <sidebar-menu />
-    <div class="inventario-inventario">
-      <span class="inventario-text"><span>Inventario</span></span>
-      <div class="inventario-frame6">
-        <span class="inventario-text02">
-          <span>
-            <span>Inventario</span>
-            <br />
-            <span>Existencias</span>
-            <br />
-            <span>Marcos</span>
-          </span>
-        </span>
-        <div class="inventario-visualizar">
-          <nuxt-link to="/InventarioMarco">
-            <span class="inventario-text09"><span>Visualizar</span></span>
-          </nuxt-link>
+    <div class="inventario-marco-inventario-marco">
+      <span class="inventario-marco-text"><span>Inventario Marcos</span></span>
+      <nuxt-link to="/Inventario">
+        <div class="inventario-marco-visualizar">
+          <span class="inventario-marco-text02"><span>Volver</span></span>
         </div>
-      </div>
-      <div class="inventario-frame7">
-        <span class="inventario-text11">
-          <span>
-            <span>Inventario</span>
-            <br />
-            <span>Existencias</span>
-            <br />
-            <span>Cristales</span>
+      </nuxt-link>
+      <nuxt-link to="/AgregarMarco">
+        <div class="inventario-marco-ingresar-marco">
+          <span class="inventario-marco-text04">
+            <span>Ingresar Nuevo Marco</span>
           </span>
-        </span>
-        <div class="inventario-visualizar1">
-          <nuxt-link to="/InventarioCristales">
-            <span class="inventario-text18"><span>Visualizar</span></span>
-          </nuxt-link>
         </div>
+      </nuxt-link>
+      <span class="inventario-marco-text06"><span>Listado</span></span>
+      <div class="inventario-marco-descargar">
+        <span class="inventario-marco-text08">
+          <span>Descargar inventario para proovedores</span>
+        </span>
       </div>
     </div>
   </div>
@@ -41,7 +27,7 @@
 
 <script>
 export default {
-  name: 'Inventario',
+  name: 'InventarioMarco',
   head: {
     title: 'exported project',
   },
@@ -49,10 +35,10 @@ export default {
 </script>
 
 <style scoped>
-.inventario-container {
+.inventario-marco-container {
   min-height: 100vh;
 }
-.inventario-inventario {
+.inventario-marco-inventario-marco {
   width: 100%;
   height: 1080px;
   display: flex;
@@ -66,9 +52,9 @@ export default {
   border-radius: 0px 0px 0px 0px;
   background-color: rgba(255, 255, 255, 1);
 }
-.inventario-text {
+.inventario-marco-text {
   top: 14px;
-  left: 19px;
+  left: 20px;
   color: rgba(0, 0, 0, 1);
   height: auto;
   position: absolute;
@@ -84,47 +70,9 @@ export default {
   margin-bottom: 0;
   text-decoration: none;
 }
-.inventario-frame6 {
-  top: 213px;
-  left: 314px;
-  width: 571px;
-  height: 654px;
-  display: flex;
-  overflow: hidden;
-  position: absolute;
-  box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.25);
-  box-sizing: border-box;
-  align-items: flex-start;
-  flex-shrink: 0;
-  border-color: rgba(17, 16, 29, 1);
-  border-style: solid;
-  border-width: 1px;
-  margin-right: 0;
-  border-radius: 15px;
-  margin-bottom: 0;
-  background-color: var(--dl-color-default-formbackground);
-}
-.inventario-text02 {
-  top: 97px;
-  left: 99px;
-  color: rgba(0, 0, 0, 1);
-  height: auto;
-  position: absolute;
-  font-size: 64px;
-  align-self: auto;
-  font-style: Bold;
-  text-align: center;
-  font-family: Poppins;
-  font-weight: 700;
-  line-height: normal;
-  font-stretch: normal;
-  margin-right: 0;
-  margin-bottom: 0;
-  text-decoration: none;
-}
-.inventario-visualizar {
-  top: 449px;
-  left: 177px;
+.inventario-marco-visualizar {
+  top: 170px;
+  left: 20px;
   width: 218px;
   height: 83px;
   display: flex;
@@ -139,9 +87,9 @@ export default {
   margin-bottom: 0;
   background-color: var(--dl-color-default-defaultstroke);
 }
-.inventario-text09 {
+.inventario-marco-text02 {
   top: 18px;
-  left: 33px;
+  left: 59px;
   color: rgba(255, 255, 255, 1);
   height: auto;
   position: absolute;
@@ -157,48 +105,10 @@ export default {
   margin-bottom: 0;
   text-decoration: none;
 }
-.inventario-frame7 {
-  top: 213px;
-  left: 1034px;
-  width: 571px;
-  height: 654px;
-  display: flex;
-  overflow: hidden;
-  position: absolute;
-  box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.25);
-  box-sizing: border-box;
-  align-items: flex-start;
-  flex-shrink: 0;
-  border-color: rgba(17, 16, 29, 1);
-  border-style: solid;
-  border-width: 1px;
-  margin-right: 0;
-  border-radius: 15px;
-  margin-bottom: 0;
-  background-color: var(--dl-color-default-formbackground);
-}
-.inventario-text11 {
-  top: 97px;
-  left: 99px;
-  color: rgba(0, 0, 0, 1);
-  height: auto;
-  position: absolute;
-  font-size: 64px;
-  align-self: auto;
-  font-style: Bold;
-  text-align: center;
-  font-family: Poppins;
-  font-weight: 700;
-  line-height: normal;
-  font-stretch: normal;
-  margin-right: 0;
-  margin-bottom: 0;
-  text-decoration: none;
-}
-.inventario-visualizar1 {
-  top: 449px;
-  left: 177px;
-  width: 218px;
+.inventario-marco-ingresar-marco {
+  top: 170px;
+  left: 320px;
+  width: 402px;
   height: 83px;
   display: flex;
   overflow: hidden;
@@ -212,9 +122,62 @@ export default {
   margin-bottom: 0;
   background-color: var(--dl-color-default-defaultstroke);
 }
-.inventario-text18 {
+.inventario-marco-text04 {
   top: 18px;
-  left: 33px;
+  left: 25px;
+  color: rgba(255, 255, 255, 1);
+  height: auto;
+  position: absolute;
+  font-size: 32px;
+  align-self: auto;
+  font-style: Regular;
+  text-align: center;
+  font-family: Poppins;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  margin-right: 0;
+  margin-bottom: 0;
+  text-decoration: none;
+}
+.inventario-marco-text06 {
+  top: 335px;
+  left: 20px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 24px;
+  align-self: auto;
+  font-style: Bold;
+  text-align: left;
+  font-family: Poppins;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  margin-right: 0;
+  margin-bottom: 0;
+  text-decoration: none;
+}
+.inventario-marco-descargar {
+  top: 170px;
+  left: 1121px;
+  width: 679px;
+  height: 83px;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  box-sizing: border-box;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: transparent;
+  margin-right: 0;
+  border-radius: 15px;
+  margin-bottom: 0;
+  background-color: var(--dl-color-default-defaultstroke);
+}
+.inventario-marco-text08 {
+  top: 18px;
+  left: 23px;
   color: rgba(255, 255, 255, 1);
   height: auto;
   position: absolute;
