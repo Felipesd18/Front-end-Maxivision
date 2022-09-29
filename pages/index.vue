@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1>Hola mundo</h1>
     <sidebar-menu />
+    <h1>Hola mundo</h1>
   </div>
 </template>
 

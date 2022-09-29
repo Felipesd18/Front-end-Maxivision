@@ -6,6 +6,11 @@
         <span>Ingreso Cristal a Inventario</span>
       </span>
       <span class="agregar-cristal-text02"><span>Tipo</span></span>
+      <select class="custom-select">
+        <option value="0">Seleccione un tipo de Cristal</option>
+        <option value="1">Lejos</option>
+        <option value="2">Cerca</option>
+      </select>
       <div class="agregar-cristal-tabla-a-d-d">
         <img
           src="/playground_assets/rectangle234623-a8od-200h.png"
@@ -23,8 +28,16 @@
           class="agregar-cristal-rectangle25"
         />
         <span class="agregar-cristal-text04"><span>ADD</span></span>
-        <span class="agregar-cristal-text06"><span>Input</span></span>
-        <span class="agregar-cristal-text08"><span>Input</span></span>
+        <input
+          class="agregar-cristal-text06"
+          type="number"
+          placeholder="Ingrese"
+        />
+        <input
+          class="agregar-cristal-text08"
+          type="number"
+          placeholder="Ingrese"
+        />
       </div>
       <div class="agregar-cristal-tabla">
         <img
@@ -104,12 +117,36 @@
         <span class="agregar-cristal-text18"><span>CR o MIN</span></span>
         <span class="agregar-cristal-text20"><span>FOTO o AR</span></span>
         <span class="agregar-cristal-text22"><span>OD</span></span>
-        <span class="agregar-cristal-text24"><span>Input</span></span>
-        <span class="agregar-cristal-text26"><span>Input</span></span>
-        <span class="agregar-cristal-text28"><span>Input</span></span>
-        <span class="agregar-cristal-text30"><span>Input</span></span>
-        <span class="agregar-cristal-text32"><span>Input</span></span>
-        <span class="agregar-cristal-text34"><span>Input</span></span>
+        <input
+          class="agregar-cristal-text24"
+          type="number"
+          placeholder="Ingrese"
+        />
+        <input
+          class="agregar-cristal-text26"
+          type="number"
+          placeholder="Ingrese"
+        />
+        <input
+          class="agregar-cristal-text28"
+          type="number"
+          placeholder="Ingrese"
+        />
+        <input
+          class="agregar-cristal-text30"
+          type="number"
+          placeholder="Ingrese"
+        />
+        <input
+          class="agregar-cristal-text32"
+          type="number"
+          placeholder="Ingrese"
+        />
+        <input
+          class="agregar-cristal-text34"
+          type="number"
+          placeholder="Ingrese"
+        />
       </div>
       <nuxt-link to="/InventarioCristales">
         <div class="agregar-cristal-cancelar">
@@ -188,6 +225,75 @@ export default {
   margin-bottom: 0;
   text-decoration: none;
 }
+/*Estilo Selector */
+.custom-select {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 15px;
+  top: 200px;
+  left: 20px;
+  color: rgba(0, 0, 0, 1);
+  width: 360px;
+  height: 40px;
+  position: absolute;
+  font-size: 24px;
+  align-self: auto;
+  font-style: Bold;
+  text-align: left;
+  font-family: Poppins;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  margin-right: 0;
+  margin-bottom: 0;
+  text-decoration: none;
+}
+.custom-select select {
+  display: none;
+}
+
+.select-selected {
+  background-color: var(--dl-color-default-defaultstroke);
+}
+
+.select-selected:after {
+  position: absolute;
+  content: '';
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+.select-items div,
+.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+}
+.select-items {
+  position: absolute;
+  background-color: var(--dl-color-default-defaultstroke);
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+.select-hide {
+  display: none;
+}
+.select-items div:hover,
+.same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
 .agregar-cristal-tabla-a-d-d {
   top: 537px;
   left: 20px;
@@ -282,6 +388,7 @@ export default {
   text-decoration: none;
 }
 .agregar-cristal-text08 {
+  top: 1px;
   left: 954px;
   color: rgba(0, 0, 0, 1);
   width: 248px;
