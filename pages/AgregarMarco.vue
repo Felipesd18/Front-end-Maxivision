@@ -2,34 +2,97 @@
   <div class="agregar-marco-container">
     <sidebar-menu />
     <div class="agregar-marco-agregar-marco">
-      <span class="agregar-marco-text"><span>Agregar Marco</span></span>
-      <span class="agregar-marco-text02"><span>Modelo</span></span>
-      <span class="agregar-marco-text04"><span>Codigo del Color</span></span>
-      <div class="agregar-marco-group2">
-        <span class="agregar-marco-text06"><span>Alias del Color</span></span>
-        <div class="agregar-marco-frame5">
-          <span class="agregar-marco-text08">
-            <span>Ingrese Alias del Color</span>
-          </span>
+      <form @submit.prevent="handleSubmitForm">
+        <span class="agregar-marco-text"><span>Agregar Marco</span></span>
+        <span class="agregar-marco-text02"><span>Modelo</span></span>
+        <select
+          class="custom-select"
+          id="modeloSelecionado"
+          v-model="newMarco.modelo"
+        >
+          <option disabled>Selecione un modelo</option>
+          <option>Modelo 1</option>
+          <option>Modelo 2</option>
+        </select>
+        <span class="agregar-marco-text04"><span>Codigo del Color</span></span>
+        <select
+          class="custom-select2"
+          id="codigoSelecionado"
+          v-model="newMarco.codigo_color"
+        >
+          <option disabled>Seleccione codigo Color</option>
+          <option>Color 1</option>
+          <option>Color 2</option>
+        </select>
+        <div class="agregar-marco-group2">
+          <span class="agregar-marco-text06"><span>Alias del Color</span></span>
+          <div class="agregar-marco-frame5">
+            <input
+              class="agregar-marco-text08"
+              placeholder="Ingrese alias color"
+            />
+          </div>
         </div>
-      </div>
-      <nuxt-link to="/InventarioMarco">
-        <div class="agregar-marco-cancelar">
-          <span class="agregar-marco-text10"><span>Cancelar</span></span>
+        <nuxt-link to="/InventarioMarco">
+          <div class="agregar-marco-cancelar">
+            <span class="agregar-marco-text10"><span>Cancelar</span></span>
+          </div>
+        </nuxt-link>
+        <div class="agregar-marco-ingresar">
+          <button type="submit" class="agregar-marco-text12">
+            <span>Ingresar</span>
+          </button>
         </div>
-      </nuxt-link>
-      <div class="agregar-marco-ingresar">
-        <span class="agregar-marco-text12"><span>Ingresar</span></span>
-      </div>
+      </form>
     </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'AgregarMarco',
   head: {
     title: 'exported project',
+  },
+  data: function () {
+    return {
+      modeloSeleccionado: '',
+      codigoSeleccionado: '',
+      aliasColor: '',
+      respuesta: '',
+      newMarco: {
+        modelo: 'Selecione un Modelo',
+        codigo_color: '',
+        alias_color: '',
+        estado_de_marco: 'En inventario',
+        id_sucursal: '',
+        id_orden: '',
+      },
+    }
+  },
+  methods: {
+    handleSubmitForm() {
+      let apiURL = 'http://localhost:8080/marco'
+      axios
+        .post(apiURL, {
+          modelo: this.newMarco.modelo,
+          codigo_color: this.newMarco.codigo_color,
+          aliasColor: this.newMarco.alias_color,
+          estado_de_marco: this.newMarco.estado_de_marco,
+          id_sucursal: this.newMarco.id_sucursal,
+          id_orden: this.newMarco.id_orden,
+        })
+        .then((res) => {
+          this.respuesta = 'Se ha agregado correctamente el Marco'
+          alert(this.respuesta)
+          //.post dentro de aqui
+        })
+        .catch((error) => {
+          alert(error)
+          console.log(error)
+        })
+    },
   },
 }
 </script>
@@ -89,6 +152,75 @@ export default {
   margin-bottom: 0;
   text-decoration: none;
 }
+/*Estilo Selector */
+.custom-select {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 15px;
+  top: 156px;
+  left: 20px;
+  color: rgba(0, 0, 0, 1);
+  width: 360px;
+  height: 40px;
+  position: absolute;
+  font-size: 24px;
+  align-self: auto;
+  text-align: left;
+  font-family: Poppins;
+  font-style: Thin;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  margin-right: 0;
+  margin-bottom: 0;
+  text-decoration: none;
+}
+.custom-select select {
+  display: none;
+}
+
+.select-selected {
+  background-color: var(--dl-color-default-defaultstroke);
+}
+
+.select-selected:after {
+  position: absolute;
+  content: '';
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+.select-items div,
+.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+}
+.select-items {
+  position: absolute;
+  background-color: var(--dl-color-default-defaultstroke);
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+.select-hide {
+  display: none;
+}
+.select-items div:hover,
+.same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
 .agregar-marco-text04 {
   top: 270px;
   left: 20px;
@@ -100,6 +232,28 @@ export default {
   font-style: Bold;
   text-align: left;
   font-family: Poppins;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  margin-right: 0;
+  margin-bottom: 0;
+  text-decoration: none;
+}
+.custom-select2 {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 15px;
+  top: 306px;
+  left: 20px;
+  color: rgba(0, 0, 0, 1);
+  width: 360px;
+  height: 40px;
+  position: absolute;
+  font-size: 24px;
+  align-self: auto;
+  text-align: left;
+  font-family: Poppins;
+  font-style: Thin;
   font-weight: 700;
   line-height: normal;
   font-stretch: normal;
@@ -144,10 +298,14 @@ export default {
   text-decoration: none;
 }
 .agregar-marco-frame5 {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 15px;
+  color: rgba(0, 0, 0, 1);
   top: 36px;
   left: 0px;
-  width: 420px;
-  height: 30px;
+  width: 360px;
+  height: 40px;
   display: flex;
   overflow: hidden;
   position: absolute;
@@ -156,27 +314,23 @@ export default {
   flex-shrink: 0;
   border-color: rgba(17, 16, 29, 1);
   border-style: solid;
-  border-width: 1px;
-  border-radius: 15px;
   background-color: var(--dl-color-default-formbackground);
 }
 .agregar-marco-text08 {
-  top: -3px;
-  left: 9px;
+  border-width: 1px;
+  border-radius: 15px;
+  top: 0px;
+  left: 0px;
   color: rgba(0, 0, 0, 1);
-  width: 409px;
-  height: auto;
-  position: absolute;
+  width: 360px;
+  height: 40;
   font-size: 24px;
-  align-self: auto;
   font-style: Thin;
   text-align: left;
   font-family: Poppins;
   font-weight: 100;
   line-height: normal;
   font-stretch: normal;
-  margin-right: 0;
-  margin-bottom: 0;
   text-decoration: none;
 }
 .agregar-marco-cancelar {
