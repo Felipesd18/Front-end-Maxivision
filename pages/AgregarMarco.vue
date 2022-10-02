@@ -2,13 +2,14 @@
   <div class="agregar-marco-container">
     <sidebar-menu />
     <div class="agregar-marco-agregar-marco">
-      <form @submit.prevent="handleSubmitForm">
+      <form @submit.prevent="handleSubmitForm" id="formulario">
         <span class="agregar-marco-text"><span>Agregar Marco</span></span>
         <span class="agregar-marco-text02"><span>Modelo</span></span>
         <select
           class="custom-select"
           id="modeloSelecionado"
           v-model="newMarco.modelo"
+          required
         >
           <option disabled>Selecione un modelo</option>
           <option>Modelo 1</option>
@@ -19,6 +20,7 @@
           class="custom-select2"
           id="codigoSelecionado"
           v-model="newMarco.codigo_color"
+          required
         >
           <option disabled>Seleccione codigo Color</option>
           <option>Color 1</option>
@@ -29,7 +31,10 @@
           <div class="agregar-marco-frame5">
             <input
               class="agregar-marco-text08"
+              id="aliasColor"
+              v-model="newMarco.alias_color"
               placeholder="Ingrese alias color"
+              required
             />
           </div>
         </div>
@@ -39,7 +44,11 @@
           </div>
         </nuxt-link>
         <div class="agregar-marco-ingresar">
-          <button type="submit" class="agregar-marco-text12">
+          <button
+            type="submit"
+            class="agregar-marco-text12"
+            onclick="location.reload()"
+          >
             <span>Ingresar</span>
           </button>
         </div>
@@ -75,18 +84,10 @@ export default {
     handleSubmitForm() {
       let apiURL = 'http://localhost:8080/marco'
       axios
-        .post(apiURL, {
-          modelo: this.newMarco.modelo,
-          codigo_color: this.newMarco.codigo_color,
-          aliasColor: this.newMarco.alias_color,
-          estado_de_marco: this.newMarco.estado_de_marco,
-          id_sucursal: this.newMarco.id_sucursal,
-          id_orden: this.newMarco.id_orden,
-        })
+        .post(apiURL, this.newMarco) //Se realiza post con el objeto newMarco como parametro asimilando el formato json
         .then((res) => {
           this.respuesta = 'Se ha agregado correctamente el Marco'
           alert(this.respuesta)
-          //.post dentro de aqui
         })
         .catch((error) => {
           alert(error)
