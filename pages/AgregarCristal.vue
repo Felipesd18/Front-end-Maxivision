@@ -7,167 +7,202 @@
       </span>
       <span class="agregar-cristal-text02"><span>Tipo</span></span>
       <select class="custom-select">
-        <option value="0">Seleccione un tipo de Cristal</option>
-        <option value="1">Lejos</option>
-        <option value="2">Cerca</option>
+        <option disabled >Seleccione un tipo de Cristal</option>
+        <option>Lejos</option>
+        <option>Cerca</option>
       </select>
+      <!-- Seccion correspondiente a tabla ADD-->
       <div class="agregar-cristal-tabla-a-d-d">
         <img
           src="/playground_assets/rectangle234623-a8od-200h.png"
           alt="Rectangle234623"
-          class="agregar-cristal-rectangle23"
+          class="agregar-cristal-volver"
         />
         <img
           src="/playground_assets/rectangle244623-u2fs-200h.png"
           alt="Rectangle244623"
-          class="agregar-cristal-rectangle24"
+          class="agregar-cristal-rectangulo1-24"
         />
-        <img
-          src="/playground_assets/rectangle254624-7phs-200h.png"
-          alt="Rectangle254624"
-          class="agregar-cristal-rectangle25"
-        />
+        
         <span class="agregar-cristal-text04"><span>ADD</span></span>
         <input
           class="agregar-cristal-text06"
           type="number"
           placeholder="Ingrese"
         />
-        <input
-          class="agregar-cristal-text08"
-          type="number"
-          placeholder="Ingrese"
-        />
+        <!-- Fin tabla ADD-->
+        
+        <!-- Inicio de tabla OD junto a columnas -->
       </div>
       <div class="agregar-cristal-tabla">
-        <img
-          src="/playground_assets/rectangle24628-s5ln-200h.png"
-          alt="Rectangle24628"
-          class="agregar-cristal-rectangle2"
-        />
+        
         <img
           src="/playground_assets/rectangle224613-dj7-200h.png"
           alt="Rectangle224613"
-          class="agregar-cristal-rectangle22"
+          class="agregar-cristal-rectangulo1-1"
+        />
+        <img
+          src="/playground_assets/rectangle24628-s5ln-200h.png"
+          alt="Rectangle24628"
+          class="agregar-cristal-rectangulo1-2"
         />
         <img
           src="/playground_assets/rectangle34634-0e2b-200h.png"
           alt="Rectangle34634"
-          class="agregar-cristal-rectangle3"
+          class="agregar-cristal-rectangulo1-3"
         />
         <img
           src="/playground_assets/rectangle44635-of8m-200h.png"
           alt="Rectangle44635"
-          class="agregar-cristal-rectangle4"
+          class="agregar-cristal-rectangulo1-4"
         />
         <img
           src="/playground_assets/rectangle54636-0166-200h.png"
           alt="Rectangle54636"
-          class="agregar-cristal-rectangle5"
+          class="agregar-cristal-rectangulo1-5"
         />
         <img
           src="/playground_assets/rectangle64637-gxb0j-200h.png"
           alt="Rectangle64637"
-          class="agregar-cristal-rectangle6"
+          class="agregar-cristal-rectangulo1-6"
         />
         <img
           src="/playground_assets/rectangle74638-770y-200h.png"
           alt="Rectangle74638"
-          class="agregar-cristal-rectangle7"
+          class="agregar-cristal-rectangulo1-7"
         />
         <img
           src="/playground_assets/rectangle84639-qbwc-200h.png"
           alt="Rectangle84639"
-          class="agregar-cristal-rectangle8"
+          class="agregar-cristal-rectangulo2-1"
         />
         <img
           src="/playground_assets/rectangle104641-8t6-200h.png"
           alt="Rectangle104641"
-          class="agregar-cristal-rectangle10"
+          class="agregar-cristal-rectangulo2-2"
         />
         <img
           src="/playground_assets/rectangle124643-omhj-200h.png"
           alt="Rectangle124643"
-          class="agregar-cristal-rectangle12"
+          class="agregar-cristal-rectangulo2-3"
         />
         <img
           src="/playground_assets/rectangle144645-0fyi-200h.png"
           alt="Rectangle144645"
-          class="agregar-cristal-rectangle14"
+          class="agregar-cristal-rectangulo2-4"
         />
         <img
           src="/playground_assets/rectangle164648-6rqn-200h.png"
           alt="Rectangle164648"
-          class="agregar-cristal-rectangle16"
+          class="agregar-cristal-rectangulo2-5"
         />
         <img
           src="/playground_assets/rectangle184650-stjg-200h.png"
           alt="Rectangle184650"
-          class="agregar-cristal-rectangle18"
+          class="agregar-cristal-rectangulo2-6"
         />
         <img
           src="/playground_assets/rectangle204652-91jy-200h.png"
           alt="Rectangle204652"
-          class="agregar-cristal-rectangle20"
+          class="agregar-cristal-rectangulo2-7"
         />
-        <span class="agregar-cristal-text10"><span>Esfera</span></span>
-        <span class="agregar-cristal-text12"><span>Cilindro</span></span>
-        <span class="agregar-cristal-text14"><span>Eje</span></span>
-        <span class="agregar-cristal-text16"><span>DP</span></span>
-        <span class="agregar-cristal-text18"><span>CR o MIN</span></span>
-        <span class="agregar-cristal-text20"><span>FOTO o AR</span></span>
-        <span class="agregar-cristal-text22"><span>OD</span></span>
+        <span class="agregar-esfera"><span>Esfera</span></span>
+        <span class="agregar-cilindro"><span>Cilindro</span></span>
+        <span class="agregar-eje"><span>Eje</span></span>
+        <span class="agregar-dp"><span>DP</span></span>
+        <span class="agregar-cr-min"><span>CR/MIN</span></span>
+        <span class="agregar-foto-ar"><span>FOTO/AR</span></span>
+        <span class="agregar-od"><span>OD</span></span>
         <input
-          class="agregar-cristal-text24"
+          class="valor-esfera"
           type="number"
-          placeholder="Ingrese"
-        />
-        <input
-          class="agregar-cristal-text26"
-          type="number"
-          placeholder="Ingrese"
+          placeholder="esfera"
         />
         <input
-          class="agregar-cristal-text28"
+          class="valor-cilindro"
           type="number"
-          placeholder="Ingrese"
+          placeholder="cilindro"
         />
         <input
-          class="agregar-cristal-text30"
+          class="valor-eje"
           type="number"
-          placeholder="Ingrese"
+          placeholder="eje"
         />
         <input
-          class="agregar-cristal-text32"
+          class="valor-dp"
           type="number"
-          placeholder="Ingrese"
+          placeholder="dp"
         />
         <input
-          class="agregar-cristal-text34"
+          class="valor-cr-min"
           type="number"
-          placeholder="Ingrese"
+          placeholder="cr-min"
+        />
+        <input
+          class="valor-foto-ar"
+          type="number"
+          placeholder="0"
         />
       </div>
+      <!-- Fin columna 1 y 2-->
       <nuxt-link to="/InventarioCristales">
         <div class="agregar-cristal-cancelar">
-          <span class="agregar-cristal-text36"><span>Cancelar</span></span>
+          <span class="cancelar-cristal"><span>Cancelar</span></span>
         </div>
       </nuxt-link>
       <div class="agregar-cristal-ingresar">
-        <span class="agregar-cristal-text38"><span>Ingresar</span></span>
+        <span class="ingresar-cristal"><span>Ingresar</span></span>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'AgregarCristal',
-  head: {
-    title: 'exported project',
-  },
-}
-</script>
+  import axios from 'axios'
+  export default {
+    name: 'AgregarCristal',
+    head: {
+      title: 'exported project',
+    },
+    data: function () {
+      return {
+        tipoCristal: '',
+        esfera: '',
+        cilindrico: '',
+        fotoAr:'',
+        ojodi:'',
+        addicional:'',
+        tipolc:'',
+        newCristal: {
+          tipo: 'Selecione un tipo de cristal',
+          esferico: '',
+          cilindro: '',
+          foto_ar:'',
+          ojo_d_i:'',
+          add:'',
+          tipo_lejos_cerca:'',
+          estado_proceso: 'En inventario',
+          lote:'',
+        },
+      }
+    },
+    methods: {
+      handleSubmitForm() {
+        let apiURL = 'http://localhost:8080/InventarioCristales'
+        axios
+          .post(apiURL, this.newMarco) //Se realiza post con el objeto newMarco como parametro asimilando el formato json
+          .then((res) => {
+            this.respuesta = 'Se ha agregado correctamente el cristal'
+            alert(this.respuesta)
+          })
+          .catch((error) => {
+            alert(error)
+            console.log(error)
+          })
+      },
+    },
+  }
+  </script>
 
 <style scoped>
 .agregar-cristal-container {
@@ -316,7 +351,7 @@ export default {
   justify-content: flex-start;
   background-color: transparent;
 }
-.agregar-cristal-rectangle23 {
+.agregar-cristal-volver {
   top: 0px;
   left: 0px;
   width: 192px;
@@ -328,7 +363,7 @@ export default {
   border-width: 1px;
   border-radius: 15px 0 0 15px;
 }
-.agregar-cristal-rectangle24 {
+.agregar-cristal-rectangulo1-24 {
   top: 0px;
   left: 191px;
   width: 763px;
@@ -339,7 +374,7 @@ export default {
   border-style: solid;
   border-width: 1px;
 }
-.agregar-cristal-rectangle25 {
+.agregar-cristal-rectangulo1-25 {
   top: 0px;
   left: 953px;
   width: 250px;
@@ -355,7 +390,7 @@ export default {
   top: 1px;
   left: 1px;
   color: rgba(0, 0, 0, 1);
-  width: 190px;
+  width: 150px;
   bottom: 1px;
   height: auto;
   position: absolute;
@@ -427,21 +462,11 @@ export default {
   justify-content: flex-start;
   background-color: transparent;
 }
-.agregar-cristal-rectangle2 {
-  top: 0px;
-  left: 189px;
-  width: 255px;
-  height: 59px;
-  position: absolute;
-  box-sizing: border-box;
-  border-color: rgba(17, 16, 29, 1);
-  border-style: solid;
-  border-width: 1px;
-}
-.agregar-cristal-rectangle22 {
+
+.agregar-cristal-rectangulo1-1 {
   top: 0px;
   left: 0px;
-  width: 190px;
+  width: 150px;
   height: 59px;
   position: absolute;
   box-sizing: border-box;
@@ -450,10 +475,11 @@ export default {
   border-width: 1px;
   border-radius: 15px 0 0;
 }
-.agregar-cristal-rectangle3 {
+
+.agregar-cristal-rectangulo1-2 {
   top: 0px;
-  left: 443px;
-  width: 255px;
+  left: 150px;
+  width: 150px;
   height: 59px;
   position: absolute;
   box-sizing: border-box;
@@ -461,10 +487,10 @@ export default {
   border-style: solid;
   border-width: 1px;
 }
-.agregar-cristal-rectangle4 {
+.agregar-cristal-rectangulo1-3 {
   top: 0px;
-  left: 697px;
-  width: 255px;
+  left: 300px;
+  width: 150px;
   height: 59px;
   position: absolute;
   box-sizing: border-box;
@@ -472,10 +498,10 @@ export default {
   border-style: solid;
   border-width: 1px;
 }
-.agregar-cristal-rectangle5 {
+.agregar-cristal-rectangulo1-4 {
   top: 0px;
-  left: 951px;
-  width: 255px;
+  left: 450px;
+  width: 150px;
   height: 59px;
   position: absolute;
   box-sizing: border-box;
@@ -483,10 +509,10 @@ export default {
   border-style: solid;
   border-width: 1px;
 }
-.agregar-cristal-rectangle6 {
+.agregar-cristal-rectangulo1-5 {
   top: 0px;
-  left: 1205px;
-  width: 255px;
+  left: 600px;
+  width: 150px;
   height: 59px;
   position: absolute;
   box-sizing: border-box;
@@ -494,10 +520,21 @@ export default {
   border-style: solid;
   border-width: 1px;
 }
-.agregar-cristal-rectangle7 {
+.agregar-cristal-rectangulo1-6 {
   top: 0px;
-  left: 1458px;
-  width: 222px;
+  left: 750px;
+  width: 150px;
+  height: 59px;
+  position: absolute;
+  box-sizing: border-box;
+  border-color: rgba(17, 16, 29, 1);
+  border-style: solid;
+  border-width: 1px;
+}
+.agregar-cristal-rectangulo1-7 {
+  top: 0px;
+  left: 900px;
+  width: 160px;
   height: 59px;
   position: absolute;
   box-sizing: border-box;
@@ -506,10 +543,10 @@ export default {
   border-width: 1px;
   border-radius: 0 15px 0 0;
 }
-.agregar-cristal-rectangle8 {
+.agregar-cristal-rectangulo2-1 {
   top: 58px;
   left: 0px;
-  width: 190px;
+  width: 150px;
   height: 78px;
   position: absolute;
   box-sizing: border-box;
@@ -518,10 +555,10 @@ export default {
   border-width: 1px;
   border-radius: 0 0 0 15px;
 }
-.agregar-cristal-rectangle10 {
+.agregar-cristal-rectangulo2-2 {
   top: 58px;
-  left: 189px;
-  width: 255px;
+  left: 150px;
+  width: 150px;
   height: 78px;
   position: absolute;
   box-sizing: border-box;
@@ -529,10 +566,10 @@ export default {
   border-style: solid;
   border-width: 1px;
 }
-.agregar-cristal-rectangle12 {
+.agregar-cristal-rectangulo2-3 {
   top: 58px;
-  left: 443px;
-  width: 255px;
+  left: 300px;
+  width: 150px;
   height: 78px;
   position: absolute;
   box-sizing: border-box;
@@ -540,10 +577,10 @@ export default {
   border-style: solid;
   border-width: 1px;
 }
-.agregar-cristal-rectangle14 {
+.agregar-cristal-rectangulo2-4 {
   top: 58px;
-  left: 697px;
-  width: 255px;
+  left: 450px;
+  width: 150px;
   height: 78px;
   position: absolute;
   box-sizing: border-box;
@@ -551,10 +588,10 @@ export default {
   border-style: solid;
   border-width: 1px;
 }
-.agregar-cristal-rectangle16 {
+.agregar-cristal-rectangulo2-5 {
   top: 58px;
-  left: 951px;
-  width: 255px;
+  left: 600px;
+  width: 150px;
   height: 78px;
   position: absolute;
   box-sizing: border-box;
@@ -562,10 +599,10 @@ export default {
   border-style: solid;
   border-width: 1px;
 }
-.agregar-cristal-rectangle18 {
+.agregar-cristal-rectangulo2-6 {
   top: 58px;
-  left: 1205px;
-  width: 255px;
+  left: 750px;
+  width: 150px;
   height: 78px;
   position: absolute;
   box-sizing: border-box;
@@ -573,10 +610,10 @@ export default {
   border-style: solid;
   border-width: 1px;
 }
-.agregar-cristal-rectangle20 {
+.agregar-cristal-rectangulo2-7 {
   top: 58px;
-  left: 1458px;
-  width: 222px;
+  left: 900px;
+  width: 160px;
   height: 78px;
   position: absolute;
   box-sizing: border-box;
@@ -585,9 +622,9 @@ export default {
   border-width: 1px;
   border-radius: 0 0 15px;
 }
-.agregar-cristal-text10 {
+.agregar-esfera {
   top: 1px;
-  left: 190px;
+  left: 100px;
   color: rgba(0, 0, 0, 1);
   width: 253px;
   bottom: 77px;
@@ -603,9 +640,9 @@ export default {
   font-stretch: normal;
   text-decoration: none;
 }
-.agregar-cristal-text12 {
+.agregar-cilindro {
   top: 1px;
-  left: 444px;
+  left: 250px;
   color: rgba(0, 0, 0, 1);
   width: 253px;
   bottom: 77px;
@@ -621,9 +658,9 @@ export default {
   font-stretch: normal;
   text-decoration: none;
 }
-.agregar-cristal-text14 {
+.agregar-eje {
   top: 1px;
-  left: 698px;
+  left: 400px;
   color: rgba(0, 0, 0, 1);
   width: 253px;
   bottom: 77px;
@@ -639,9 +676,9 @@ export default {
   font-stretch: normal;
   text-decoration: none;
 }
-.agregar-cristal-text16 {
+.agregar-dp {
   top: 1px;
-  left: 952px;
+  left: 550px;
   color: rgba(0, 0, 0, 1);
   width: 253px;
   bottom: 77px;
@@ -657,9 +694,9 @@ export default {
   font-stretch: normal;
   text-decoration: none;
 }
-.agregar-cristal-text18 {
+.agregar-cr-min {
   top: 1px;
-  left: 1206px;
+  left: 700px;
   color: rgba(0, 0, 0, 1);
   width: 252px;
   bottom: 77px;
@@ -675,9 +712,9 @@ export default {
   font-stretch: normal;
   text-decoration: none;
 }
-.agregar-cristal-text20 {
+.agregar-foto-ar {
   top: 1px;
-  left: 1459px;
+  left: 870px;
   color: rgba(0, 0, 0, 1);
   width: 220px;
   bottom: 77px;
@@ -693,7 +730,7 @@ export default {
   font-stretch: normal;
   text-decoration: none;
 }
-.agregar-cristal-text22 {
+.agregar-od {
   top: 59px;
   left: 1px;
   color: rgba(0, 0, 0, 1);
@@ -711,9 +748,9 @@ export default {
   font-stretch: normal;
   text-decoration: none;
 }
-.agregar-cristal-text24 {
+.valor-esfera {
   top: 59px;
-  left: 190px;
+  left: 100px;
   color: rgba(0, 0, 0, 1);
   width: 253px;
   bottom: 1px;
@@ -729,9 +766,9 @@ export default {
   font-stretch: normal;
   text-decoration: none;
 }
-.agregar-cristal-text26 {
+.valor-cilindro {
   top: 59px;
-  left: 444px;
+  left: 250px;
   color: rgba(0, 0, 0, 1);
   width: 253px;
   bottom: 1px;
@@ -747,9 +784,9 @@ export default {
   font-stretch: normal;
   text-decoration: none;
 }
-.agregar-cristal-text28 {
+.valor-eje {
   top: 59px;
-  left: 698px;
+  left: 400px;
   color: rgba(0, 0, 0, 1);
   width: 253px;
   bottom: 1px;
@@ -765,9 +802,9 @@ export default {
   font-stretch: normal;
   text-decoration: none;
 }
-.agregar-cristal-text30 {
+.valor-dp {
   top: 59px;
-  left: 952px;
+  left: 550px;
   color: rgba(0, 0, 0, 1);
   width: 253px;
   bottom: 1px;
@@ -783,9 +820,9 @@ export default {
   font-stretch: normal;
   text-decoration: none;
 }
-.agregar-cristal-text32 {
+.valor-cr-min {
   top: 59px;
-  left: 1206px;
+  left: 700px;
   color: rgba(0, 0, 0, 1);
   width: 253px;
   bottom: 1px;
@@ -801,9 +838,9 @@ export default {
   font-stretch: normal;
   text-decoration: none;
 }
-.agregar-cristal-text34 {
+.valor-foto-ar {
   top: 59px;
-  left: 1459px;
+  left: 870px;
   color: rgba(0, 0, 0, 1);
   width: 220px;
   bottom: 1px;
@@ -834,9 +871,9 @@ export default {
   margin-right: 0;
   border-radius: 15px;
   margin-bottom: 0;
-  background-color: var(--dl-color-default-defaultstroke);
+  background-color: red;
 }
-.agregar-cristal-text36 {
+.cancelar-cristal {
   top: 18px;
   left: 35px;
   color: rgba(255, 255, 255, 1);
@@ -856,7 +893,7 @@ export default {
 }
 .agregar-cristal-ingresar {
   top: 658px;
-  left: 1582px;
+  left: 1000px;
   width: 218px;
   height: 83px;
   display: flex;
@@ -869,9 +906,9 @@ export default {
   margin-right: 0;
   border-radius: 15px;
   margin-bottom: 0;
-  background-color: var(--dl-color-default-defaultstroke);
+  background-color: green;
 }
-.agregar-cristal-text38 {
+.ingresar-cristal {
   top: 18px;
   left: 43px;
   color: rgba(255, 255, 255, 1);
