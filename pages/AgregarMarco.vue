@@ -44,11 +44,7 @@
           </div>
         </nuxt-link>
         <div class="agregar-marco-ingresar">
-          <button
-            type="submit"
-            class="agregar-marco-text12"
-            onclick="location.reload()"
-          >
+          <button type="submit" class="agregar-marco-text12">
             <span>Ingresar</span>
           </button>
         </div>
@@ -87,6 +83,7 @@ export default {
         .post(apiURL, this.newMarco) //Se realiza post con el objeto newMarco como parametro asimilando el formato json
         .then((res) => {
           this.respuesta = 'Se ha agregado correctamente el Marco'
+          window.location.reload()
           alert(this.respuesta)
         })
         .catch((error) => {

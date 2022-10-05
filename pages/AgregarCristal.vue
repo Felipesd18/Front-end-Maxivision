@@ -2,207 +2,221 @@
   <div class="agregar-cristal-container">
     <sidebar-menu />
     <div class="agregar-cristal-agregar-cristal">
-      <span class="agregar-cristal-text">
-        <span>Ingreso Cristal a Inventario</span>
-      </span>
-      <span class="agregar-cristal-text02"><span>Tipo</span></span>
-      <select class="custom-select">
-        <option disabled >Seleccione un tipo de Cristal</option>
-        <option>Lejos</option>
-        <option>Cerca</option>
-      </select>
-      <!-- Seccion correspondiente a tabla ADD-->
-      <div class="agregar-cristal-tabla-a-d-d">
-        <img
-          src="/playground_assets/rectangle234623-a8od-200h.png"
-          alt="Rectangle234623"
-          class="agregar-cristal-volver"
-        />
-        <img
-          src="/playground_assets/rectangle244623-u2fs-200h.png"
-          alt="Rectangle244623"
-          class="agregar-cristal-rectangulo1-24"
-        />
-        
-        <span class="agregar-cristal-text04"><span>ADD</span></span>
-        <input
-          class="agregar-cristal-text06"
-          type="number"
-          placeholder="Ingrese"
-        />
-        <!-- Fin tabla ADD-->
-        
-        <!-- Inicio de tabla OD junto a columnas -->
-      </div>
-      <div class="agregar-cristal-tabla">
-        
-        <img
-          src="/playground_assets/rectangle224613-dj7-200h.png"
-          alt="Rectangle224613"
-          class="agregar-cristal-rectangulo1-1"
-        />
-        <img
-          src="/playground_assets/rectangle24628-s5ln-200h.png"
-          alt="Rectangle24628"
-          class="agregar-cristal-rectangulo1-2"
-        />
-        <img
-          src="/playground_assets/rectangle34634-0e2b-200h.png"
-          alt="Rectangle34634"
-          class="agregar-cristal-rectangulo1-3"
-        />
-        <img
-          src="/playground_assets/rectangle44635-of8m-200h.png"
-          alt="Rectangle44635"
-          class="agregar-cristal-rectangulo1-4"
-        />
-        <img
-          src="/playground_assets/rectangle54636-0166-200h.png"
-          alt="Rectangle54636"
-          class="agregar-cristal-rectangulo1-5"
-        />
-        <img
-          src="/playground_assets/rectangle64637-gxb0j-200h.png"
-          alt="Rectangle64637"
-          class="agregar-cristal-rectangulo1-6"
-        />
-        <img
-          src="/playground_assets/rectangle74638-770y-200h.png"
-          alt="Rectangle74638"
-          class="agregar-cristal-rectangulo1-7"
-        />
-        <img
-          src="/playground_assets/rectangle84639-qbwc-200h.png"
-          alt="Rectangle84639"
-          class="agregar-cristal-rectangulo2-1"
-        />
-        <img
-          src="/playground_assets/rectangle104641-8t6-200h.png"
-          alt="Rectangle104641"
-          class="agregar-cristal-rectangulo2-2"
-        />
-        <img
-          src="/playground_assets/rectangle124643-omhj-200h.png"
-          alt="Rectangle124643"
-          class="agregar-cristal-rectangulo2-3"
-        />
-        <img
-          src="/playground_assets/rectangle144645-0fyi-200h.png"
-          alt="Rectangle144645"
-          class="agregar-cristal-rectangulo2-4"
-        />
-        <img
-          src="/playground_assets/rectangle164648-6rqn-200h.png"
-          alt="Rectangle164648"
-          class="agregar-cristal-rectangulo2-5"
-        />
-        <img
-          src="/playground_assets/rectangle184650-stjg-200h.png"
-          alt="Rectangle184650"
-          class="agregar-cristal-rectangulo2-6"
-        />
-        <img
-          src="/playground_assets/rectangle204652-91jy-200h.png"
-          alt="Rectangle204652"
-          class="agregar-cristal-rectangulo2-7"
-        />
-        <span class="agregar-esfera"><span>Esfera</span></span>
-        <span class="agregar-cilindro"><span>Cilindro</span></span>
-        <span class="agregar-eje"><span>Eje</span></span>
-        <span class="agregar-dp"><span>DP</span></span>
-        <span class="agregar-cr-min"><span>CR/MIN</span></span>
-        <span class="agregar-foto-ar"><span>FOTO/AR</span></span>
-        <span class="agregar-od"><span>Armazón</span></span>
-        <input
-          class="valor-esfera"
-          type="number"
-          placeholder="0"
-        />
-        <input
-          class="valor-cilindro"
-          type="number"
-          placeholder="0"
-        />
-        <input
-          class="valor-eje"
-          type="number"
-          placeholder="0"
-        />
-        <input
-          class="valor-dp"
-          type="number"
-          placeholder="0"
-        />
-        <input
-          class="valor-cr-min"
-          type="number"
-          placeholder="0"
-        />
-        <input
-          class="valor-foto-ar"
-          type="number"
-          placeholder="0"
-        />
-      </div>
-      <!-- Fin columna 1 y 2-->
-      <nuxt-link to="/InventarioCristales">
-        <div class="agregar-cristal-cancelar">
-          <span class="cancelar-cristal"><span>Cancelar</span></span>
+      <form @submit.prevent="handleSubmitForm">
+        <span class="agregar-cristal-text">
+          <span>Ingreso Cristal a Inventario</span>
+        </span>
+        <span class="agregar-cristal-text02"><span>Tipo</span></span>
+        <select class="custom-select" v-model="newCristal.tipo" required>
+          <option disabled>Seleccione un tipo de Cristal</option>
+          <option>Lejos</option>
+          <option>Cerca</option>
+        </select>
+        <!-- Seccion correspondiente a tabla ADD-->
+        <div class="agregar-cristal-tabla-a-d-d">
+          <img
+            src="/playground_assets/rectangle234623-a8od-200h.png"
+            alt="Rectangle234623"
+            class="agregar-cristal-volver"
+          />
+          <img
+            src="/playground_assets/rectangle244623-u2fs-200h.png"
+            alt="Rectangle244623"
+            class="agregar-cristal-rectangulo1-24"
+          />
+
+          <span class="agregar-cristal-text04"><span>ADD</span></span>
+          <input
+            class="agregar-cristal-text06"
+            type="number"
+            placeholder="Ingrese"
+            v-model="newCristal.add"
+          />
+          <!-- Fin tabla ADD-->
+
+          <!-- Inicio de tabla OD junto a columnas -->
         </div>
-      </nuxt-link>
-      <div class="agregar-cristal-ingresar">
-        <span class="ingresar-cristal"><span>Ingresar</span></span>
-      </div>
+        <div class="agregar-cristal-tabla">
+          <img
+            src="/playground_assets/rectangle224613-dj7-200h.png"
+            alt="Rectangle224613"
+            class="agregar-cristal-rectangulo1-1"
+          />
+          <img
+            src="/playground_assets/rectangle24628-s5ln-200h.png"
+            alt="Rectangle24628"
+            class="agregar-cristal-rectangulo1-2"
+          />
+          <img
+            src="/playground_assets/rectangle34634-0e2b-200h.png"
+            alt="Rectangle34634"
+            class="agregar-cristal-rectangulo1-3"
+          />
+          <img
+            src="/playground_assets/rectangle44635-of8m-200h.png"
+            alt="Rectangle44635"
+            class="agregar-cristal-rectangulo1-4"
+          />
+          <img
+            src="/playground_assets/rectangle54636-0166-200h.png"
+            alt="Rectangle54636"
+            class="agregar-cristal-rectangulo1-5"
+          />
+          <img
+            src="/playground_assets/rectangle64637-gxb0j-200h.png"
+            alt="Rectangle64637"
+            class="agregar-cristal-rectangulo1-6"
+          />
+          <img
+            src="/playground_assets/rectangle74638-770y-200h.png"
+            alt="Rectangle74638"
+            class="agregar-cristal-rectangulo1-7"
+          />
+          <img
+            src="/playground_assets/rectangle84639-qbwc-200h.png"
+            alt="Rectangle84639"
+            class="agregar-cristal-rectangulo2-1"
+          />
+          <img
+            src="/playground_assets/rectangle104641-8t6-200h.png"
+            alt="Rectangle104641"
+            class="agregar-cristal-rectangulo2-2"
+          />
+          <img
+            src="/playground_assets/rectangle124643-omhj-200h.png"
+            alt="Rectangle124643"
+            class="agregar-cristal-rectangulo2-3"
+          />
+          <img
+            src="/playground_assets/rectangle144645-0fyi-200h.png"
+            alt="Rectangle144645"
+            class="agregar-cristal-rectangulo2-4"
+          />
+          <img
+            src="/playground_assets/rectangle164648-6rqn-200h.png"
+            alt="Rectangle164648"
+            class="agregar-cristal-rectangulo2-5"
+          />
+          <img
+            src="/playground_assets/rectangle184650-stjg-200h.png"
+            alt="Rectangle184650"
+            class="agregar-cristal-rectangulo2-6"
+          />
+          <img
+            src="/playground_assets/rectangle204652-91jy-200h.png"
+            alt="Rectangle204652"
+            class="agregar-cristal-rectangulo2-7"
+          />
+          <span class="agregar-esfera"><span>Esfera</span></span>
+          <span class="agregar-cilindro"><span>Cilindro</span></span>
+          <span class="agregar-eje"><span>Eje</span></span>
+          <span class="agregar-dp"><span>DP</span></span>
+          <span class="agregar-cr-min"><span>CR/MIN</span></span>
+          <span class="agregar-foto-ar"><span>FOTO/AR</span></span>
+          <span class="agregar-od"><span>Cristal</span></span>
+          <input
+            class="valor-esfera"
+            type="number"
+            placeholder="0"
+            v-model="newCristal.esferico"
+            required
+          />
+          <input
+            class="valor-cilindro"
+            type="number"
+            placeholder="0"
+            v-model="newCristal.cilindro"
+            required
+          />
+          <input
+            class="valor-eje"
+            type="number"
+            placeholder="0"
+            v-model="newCristal.eje"
+            required
+          />
+          <input
+            class="valor-dp"
+            type="number"
+            placeholder="0"
+            v-model="newCristal.dp"
+            required
+          />
+          <input
+            class="valor-cr-min"
+            style="text-transform: uppercase"
+            type="text"
+            placeholder="CR/MIN"
+            v-model="newCristal.cr_min"
+          />
+          <input
+            class="valor-foto-ar"
+            style="text-transform: uppercase"
+            type="text"
+            placeholder="FOTO/AR"
+            v-model="newCristal.foto_ar"
+            required
+          />
+        </div>
+        <!-- Fin columna 1 y 2-->
+        <nuxt-link to="/InventarioCristales">
+          <div class="agregar-cristal-cancelar">
+            <span class="cancelar-cristal"><span>Cancelar</span></span>
+          </div>
+        </nuxt-link>
+        <div class="agregar-cristal-ingresar">
+          <button class="ingresar-cristal" type="submit">
+            <span>Ingresar</span>
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 </template>
 
 <script>
-  import axios from 'axios'
-  export default {
-    name: 'AgregarCristal',
-    head: {
-      title: 'exported project',
-    },
-    data: function () {
-      return {
-        tipoCristal: '',
-        esfera: '',
-        cilindrico: '',
-        fotoAr:'',
-        ojodi:'',
-        addicional:'',
-        tipolc:'',
-        newCristal: {
-          tipo: 'Selecione un tipo de cristal',
-          esferico: '',
-          cilindro: '',
-          foto_ar:'',
-          ojo_d_i:'',
-          add:'',
-          tipo_lejos_cerca:'',
-          estado_proceso: 'En inventario',
-          lote:'',
-        },
-      }
-    },
-    methods: {
-      handleSubmitForm() {
-        let apiURL = 'http://localhost:8080/InventarioCristales'
-        axios
-          .post(apiURL, this.newMarco) //Se realiza post con el objeto newMarco como parametro asimilando el formato json
-          .then((res) => {
-            this.respuesta = 'Se ha agregado correctamente el cristal'
-            alert(this.respuesta)
-          })
-          .catch((error) => {
-            alert(error)
-            console.log(error)
-          })
+import axios from 'axios'
+export default {
+  name: 'AgregarCristal',
+  head: {
+    title: 'exported project',
+  },
+  data: function () {
+    return {
+      newCristal: {
+        tipo: '',
+        esferico: null,
+        cilindro: null,
+        eje: null,
+        dp: null,
+        cr_min: '',
+        foto_ar: '',
+        ojo_d_i: '',
+        add: null,
+        tipo_lejos_cerca: '',
+        estado_proceso: 'En inventario',
+        lote: null,
       },
+    }
+  },
+  methods: {
+    handleSubmitForm() {
+      let apiURL = 'http://localhost:8080/cristal'
+      axios
+        .post(apiURL, this.newCristal) //Se realiza post con el objeto newCristal como parametro asimilando el formato json
+        .then((res) => {
+          this.respuesta = 'Se ha agregado correctamente el Cristal'
+          window.location.reload()
+          alert(this.respuesta)
+        })
+        .catch((error) => {
+          alert(error)
+          console.log(error)
+        })
     },
-  }
-  </script>
+  },
+}
+</script>
 
 <style scoped>
 .agregar-cristal-container {
@@ -284,7 +298,7 @@
   text-decoration: none;
 }
 .custom-select select {
-  left:10px;
+  left: 10px;
   display: none;
 }
 
