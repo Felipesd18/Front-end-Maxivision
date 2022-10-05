@@ -112,31 +112,31 @@
         <span class="agregar-dp"><span>DP</span></span>
         <span class="agregar-cr-min"><span>CR/MIN</span></span>
         <span class="agregar-foto-ar"><span>FOTO/AR</span></span>
-        <span class="agregar-od"><span>OD</span></span>
+        <span class="agregar-od"><span>Armazón</span></span>
         <input
           class="valor-esfera"
           type="number"
-          placeholder="esfera"
+          placeholder="0"
         />
         <input
           class="valor-cilindro"
           type="number"
-          placeholder="cilindro"
+          placeholder="0"
         />
         <input
           class="valor-eje"
           type="number"
-          placeholder="eje"
+          placeholder="0"
         />
         <input
           class="valor-dp"
           type="number"
-          placeholder="dp"
+          placeholder="0"
         />
         <input
           class="valor-cr-min"
           type="number"
-          placeholder="cr-min"
+          placeholder="0"
         />
         <input
           class="valor-foto-ar"
@@ -284,6 +284,7 @@
   text-decoration: none;
 }
 .custom-select select {
+  left:10px;
   display: none;
 }
 
@@ -331,7 +332,7 @@
 
 .agregar-cristal-tabla-a-d-d {
   top: 537px;
-  left: 20px;
+  left: 10px;
   width: 1203px;
   height: 77px;
   display: flex;
@@ -442,7 +443,7 @@
 }
 .agregar-cristal-tabla {
   top: 362px;
-  left: 20px;
+  left: 10px;
   width: 1680px;
   height: 136px;
   display: flex;
@@ -475,74 +476,6 @@
   border-width: 1px;
   border-radius: 15px 0 0;
 }
-
-.agregar-cristal-rectangulo1-2 {
-  top: 0px;
-  left: 150px;
-  width: 150px;
-  height: 59px;
-  position: absolute;
-  box-sizing: border-box;
-  border-color: rgba(17, 16, 29, 1);
-  border-style: solid;
-  border-width: 1px;
-}
-.agregar-cristal-rectangulo1-3 {
-  top: 0px;
-  left: 300px;
-  width: 150px;
-  height: 59px;
-  position: absolute;
-  box-sizing: border-box;
-  border-color: rgba(17, 16, 29, 1);
-  border-style: solid;
-  border-width: 1px;
-}
-.agregar-cristal-rectangulo1-4 {
-  top: 0px;
-  left: 450px;
-  width: 150px;
-  height: 59px;
-  position: absolute;
-  box-sizing: border-box;
-  border-color: rgba(17, 16, 29, 1);
-  border-style: solid;
-  border-width: 1px;
-}
-.agregar-cristal-rectangulo1-5 {
-  top: 0px;
-  left: 600px;
-  width: 150px;
-  height: 59px;
-  position: absolute;
-  box-sizing: border-box;
-  border-color: rgba(17, 16, 29, 1);
-  border-style: solid;
-  border-width: 1px;
-}
-.agregar-cristal-rectangulo1-6 {
-  top: 0px;
-  left: 750px;
-  width: 150px;
-  height: 59px;
-  position: absolute;
-  box-sizing: border-box;
-  border-color: rgba(17, 16, 29, 1);
-  border-style: solid;
-  border-width: 1px;
-}
-.agregar-cristal-rectangulo1-7 {
-  top: 0px;
-  left: 900px;
-  width: 160px;
-  height: 59px;
-  position: absolute;
-  box-sizing: border-box;
-  border-color: rgba(17, 16, 29, 1);
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 0 15px 0 0;
-}
 .agregar-cristal-rectangulo2-1 {
   top: 58px;
   left: 0px;
@@ -555,10 +488,22 @@
   border-width: 1px;
   border-radius: 0 0 0 15px;
 }
+
+.agregar-cristal-rectangulo1-2 {
+  top: 0px;
+  left: 150px;
+  width: 170px;
+  height: 59px;
+  position: absolute;
+  box-sizing: border-box;
+  border-color: rgba(17, 16, 29, 1);
+  border-style: solid;
+  border-width: 1px;
+}
 .agregar-cristal-rectangulo2-2 {
   top: 58px;
   left: 150px;
-  width: 150px;
+  width: 170px;
   height: 78px;
   position: absolute;
   box-sizing: border-box;
@@ -566,32 +511,66 @@
   border-style: solid;
   border-width: 1px;
 }
+.agregar-cristal-rectangulo1-3 {
+  top: 0px;
+  left: 320px;
+  width: 170px;
+  height: 59px;
+  position: absolute;
+  box-sizing: border-box;
+  border-color: rgba(17, 16, 29, 1);
+  border-style: solid;
+  border-width: 1px;
+}
+
 .agregar-cristal-rectangulo2-3 {
   top: 58px;
-  left: 300px;
-  width: 150px;
+  left: 320px;
+  width: 170px;
   height: 78px;
   position: absolute;
   box-sizing: border-box;
   border-color: rgba(0, 0, 0, 1);
+  border-style: solid;
+  border-width: 1px;
+}
+.agregar-cristal-rectangulo1-4 {
+  top: 0px;
+  left: 490px;
+  width: 100px;
+  height: 59px;
+  position: absolute;
+  box-sizing: border-box;
+  border-color: rgba(17, 16, 29, 1);
   border-style: solid;
   border-width: 1px;
 }
 .agregar-cristal-rectangulo2-4 {
   top: 58px;
-  left: 450px;
-  width: 150px;
+  left: 490px;
+  width: 100px;
   height: 78px;
   position: absolute;
   box-sizing: border-box;
   border-color: rgba(0, 0, 0, 1);
+  border-style: solid;
+  border-width: 1px;
+}
+.agregar-cristal-rectangulo1-5 {
+  top: 0px;
+  left: 590px;
+  width: 100px;
+  height: 59px;
+  position: absolute;
+  box-sizing: border-box;
+  border-color: rgba(17, 16, 29, 1);
   border-style: solid;
   border-width: 1px;
 }
 .agregar-cristal-rectangulo2-5 {
   top: 58px;
-  left: 600px;
-  width: 150px;
+  left: 590px;
+  width: 100px;
   height: 78px;
   position: absolute;
   box-sizing: border-box;
@@ -599,10 +578,22 @@
   border-style: solid;
   border-width: 1px;
 }
+.agregar-cristal-rectangulo1-6 {
+  top: 0px;
+  left: 690px;
+  width: 200px;
+  height: 59px;
+  position: absolute;
+  box-sizing: border-box;
+  border-color: rgba(17, 16, 29, 1);
+  border-style: solid;
+  border-width: 1px;
+}
+
 .agregar-cristal-rectangulo2-6 {
   top: 58px;
-  left: 750px;
-  width: 150px;
+  left: 690px;
+  width: 200px;
   height: 78px;
   position: absolute;
   box-sizing: border-box;
@@ -610,10 +601,23 @@
   border-style: solid;
   border-width: 1px;
 }
+.agregar-cristal-rectangulo1-7 {
+  top: 0px;
+  left: 890px;
+  width: 190px;
+  height: 59px;
+  position: absolute;
+  box-sizing: border-box;
+  border-color: rgba(17, 16, 29, 1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0 15px 0 0;
+}
+
 .agregar-cristal-rectangulo2-7 {
   top: 58px;
-  left: 900px;
-  width: 160px;
+  left: 890px;
+  width: 190px;
   height: 78px;
   position: absolute;
   box-sizing: border-box;
@@ -624,7 +628,7 @@
 }
 .agregar-esfera {
   top: 1px;
-  left: 100px;
+  left: 110px;
   color: rgba(0, 0, 0, 1);
   width: 253px;
   bottom: 77px;
@@ -642,7 +646,7 @@
 }
 .agregar-cilindro {
   top: 1px;
-  left: 250px;
+  left: 280px;
   color: rgba(0, 0, 0, 1);
   width: 253px;
   bottom: 77px;
@@ -660,7 +664,7 @@
 }
 .agregar-eje {
   top: 1px;
-  left: 400px;
+  left: 420px;
   color: rgba(0, 0, 0, 1);
   width: 253px;
   bottom: 77px;
@@ -678,7 +682,7 @@
 }
 .agregar-dp {
   top: 1px;
-  left: 550px;
+  left: 515px;
   color: rgba(0, 0, 0, 1);
   width: 253px;
   bottom: 77px;
@@ -696,7 +700,7 @@
 }
 .agregar-cr-min {
   top: 1px;
-  left: 700px;
+  left: 660px;
   color: rgba(0, 0, 0, 1);
   width: 252px;
   bottom: 77px;
@@ -732,13 +736,13 @@
 }
 .agregar-od {
   top: 59px;
-  left: 1px;
+  left: -15px;
   color: rgba(0, 0, 0, 1);
   width: 188px;
   bottom: 1px;
   height: auto;
   position: absolute;
-  font-size: 36px;
+  font-size: 30px;
   align-self: auto;
   font-style: ExtraLight;
   text-align: center;
@@ -750,9 +754,9 @@
 }
 .valor-esfera {
   top: 59px;
-  left: 100px;
+  left: 150px;
   color: rgba(0, 0, 0, 1);
-  width: 253px;
+  width: 200px;
   bottom: 1px;
   height: auto;
   position: absolute;
@@ -768,9 +772,9 @@
 }
 .valor-cilindro {
   top: 59px;
-  left: 250px;
+  left: 320px;
   color: rgba(0, 0, 0, 1);
-  width: 253px;
+  width: 200px;
   bottom: 1px;
   height: auto;
   position: absolute;
@@ -786,9 +790,9 @@
 }
 .valor-eje {
   top: 59px;
-  left: 400px;
+  left: 450px;
   color: rgba(0, 0, 0, 1);
-  width: 253px;
+  width: 200px;
   bottom: 1px;
   height: auto;
   position: absolute;
@@ -806,7 +810,7 @@
   top: 59px;
   left: 550px;
   color: rgba(0, 0, 0, 1);
-  width: 253px;
+  width: 200px;
   bottom: 1px;
   height: auto;
   position: absolute;
@@ -824,7 +828,7 @@
   top: 59px;
   left: 700px;
   color: rgba(0, 0, 0, 1);
-  width: 253px;
+  width: 200px;
   bottom: 1px;
   height: auto;
   position: absolute;
@@ -840,9 +844,9 @@
 }
 .valor-foto-ar {
   top: 59px;
-  left: 870px;
+  left: 890px;
   color: rgba(0, 0, 0, 1);
-  width: 220px;
+  width: 200px;
   bottom: 1px;
   height: auto;
   position: absolute;
@@ -855,6 +859,7 @@
   line-height: 2;
   font-stretch: normal;
   text-decoration: none;
+  border-radius: 0 0 15px;
 }
 .agregar-cristal-cancelar {
   top: 658px;
