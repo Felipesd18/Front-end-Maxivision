@@ -756,7 +756,7 @@
   top: 59px;
   left: 150px;
   color: rgba(0, 0, 0, 1);
-  width: 200px;
+  width: 170px;
   bottom: 1px;
   height: auto;
   position: absolute;
@@ -774,7 +774,7 @@
   top: 59px;
   left: 320px;
   color: rgba(0, 0, 0, 1);
-  width: 200px;
+  width: 170px;
   bottom: 1px;
   height: auto;
   position: absolute;
@@ -790,9 +790,9 @@
 }
 .valor-eje {
   top: 59px;
-  left: 450px;
+  left: 490px;
   color: rgba(0, 0, 0, 1);
-  width: 200px;
+  width: 100px;
   bottom: 1px;
   height: auto;
   position: absolute;
@@ -808,9 +808,9 @@
 }
 .valor-dp {
   top: 59px;
-  left: 550px;
+  left: 590px;
   color: rgba(0, 0, 0, 1);
-  width: 200px;
+  width: 100px;
   bottom: 1px;
   height: auto;
   position: absolute;
@@ -826,7 +826,7 @@
 }
 .valor-cr-min {
   top: 59px;
-  left: 700px;
+  left: 690px;
   color: rgba(0, 0, 0, 1);
   width: 200px;
   bottom: 1px;
@@ -846,7 +846,7 @@
   top: 59px;
   left: 890px;
   color: rgba(0, 0, 0, 1);
-  width: 200px;
+  width: 190px;
   bottom: 1px;
   height: auto;
   position: absolute;
