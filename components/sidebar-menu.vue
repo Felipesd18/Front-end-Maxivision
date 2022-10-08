@@ -184,11 +184,11 @@ export default {
     //! Styles
     bgColor: {
       type: String,
-      default: '#11101d',
+      default: '#1B4A82',
     },
     secondaryColor: {
       type: String,
-      default: '#1d1b31',
+      default: '#1e3d60',
     },
     homeSectionColor: {
       type: String,

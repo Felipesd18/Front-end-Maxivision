@@ -55,7 +55,7 @@ export default {
 .inventario-marco-text {
   top: 14px;
   left: 20px;
-  color: rgba(0, 0, 0, 1);
+  color: var(--d1-color-texts);
   height: auto;
   position: absolute;
   font-size: 64px;
@@ -143,7 +143,7 @@ export default {
 .inventario-marco-text06 {
   top: 335px;
   left: 20px;
-  color: rgba(0, 0, 0, 1);
+  color: var(--d1-color-texts);
   height: auto;
   position: absolute;
   font-size: 24px;

@@ -45,7 +45,7 @@ export default {
 .listado-ordenes-text {
   top: 14px;
   left: 20px;
-  color: rgba(0, 0, 0, 1);
+  color: var(--d1-color-texts);
   height: auto;
   position: absolute;
   font-size: 64px;
@@ -98,7 +98,7 @@ export default {
 .listado-ordenes-text4 {
   top: 335px;
   left: 20px;
-  color: rgba(0, 0, 0, 1);
+  color: var(--d1-color-texts);
   height: auto;
   position: absolute;
   font-size: 24px;

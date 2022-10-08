@@ -32,7 +32,9 @@
   --dl-space-space-fiveunits: 80px;
   --dl-space-space-fourunits: 64px;
   --dl-space-space-threeunits: 48px;
-  --dl-color-default-defaultstroke: rgba(17, 16, 29, 1);
+  --d1-color-cancel-button: #821616;
+  --d1-color-texts: #1B4A82;
+  --dl-color-default-defaultstroke: #1e3d60;
   --dl-space-space-oneandhalfunits: 24px;
   --dl-color-default-formbackground: rgba(255, 255, 255, 1);
 }

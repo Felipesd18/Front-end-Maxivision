@@ -239,7 +239,7 @@ export default {
 .agregar-cristal-text {
   top: 14px;
   left: 20px;
-  color: rgba(0, 0, 0, 1);
+  color: var(--d1-color-texts);
   width: 900px;
   height: auto;
   position: absolute;
@@ -258,7 +258,7 @@ export default {
 .agregar-cristal-text02 {
   top: 152px;
   left: 20px;
-  color: rgba(0, 0, 0, 1);
+  color: var(--d1-color-texts);
   width: 60px;
   height: auto;
   position: absolute;
@@ -281,7 +281,7 @@ export default {
   border-radius: 15px;
   top: 200px;
   left: 20px;
-  color: rgba(0, 0, 0, 1);
+  color: var(--dl-color-default-defaultstroke);
   width: 360px;
   height: 40px;
   position: absolute;
@@ -890,7 +890,7 @@ export default {
   margin-right: 0;
   border-radius: 15px;
   margin-bottom: 0;
-  background-color: red;
+  background-color: var(--d1-color-cancel-button);
 }
 .cancelar-cristal {
   top: 18px;
@@ -925,7 +925,7 @@ export default {
   margin-right: 0;
   border-radius: 15px;
   margin-bottom: 0;
-  background-color: green;
+  background-color: var(--dl-color-default-defaultstroke);
 }
 .ingresar-cristal {
   top: 18px;

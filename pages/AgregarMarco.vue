@@ -116,7 +116,7 @@ export default {
 .agregar-marco-text {
   top: 14px;
   left: 19px;
-  color: rgba(0, 0, 0, 1);
+  color: var(--d1-color-texts);
   width: 497px;
   height: auto;
   position: absolute;
@@ -135,7 +135,7 @@ export default {
 .agregar-marco-text02 {
   top: 120px;
   left: 20px;
-  color: rgba(0, 0, 0, 1);
+  color: var(--d1-color-texts);
   height: auto;
   position: absolute;
   font-size: 24px;
@@ -157,7 +157,7 @@ export default {
   border-radius: 15px;
   top: 156px;
   left: 20px;
-  color: rgba(0, 0, 0, 1);
+  color: var(--dl-color-default-defaultstroke);
   width: 360px;
   height: 40px;
   position: absolute;
@@ -222,7 +222,7 @@ export default {
 .agregar-marco-text04 {
   top: 270px;
   left: 20px;
-  color: rgba(0, 0, 0, 1);
+  color: var(--d1-color-texts);
   height: auto;
   position: absolute;
   font-size: 24px;
@@ -243,7 +243,7 @@ export default {
   border-radius: 15px;
   top: 306px;
   left: 20px;
-  color: rgba(0, 0, 0, 1);
+  color: var(--dl-color-default-defaultstroke);
   width: 360px;
   height: 40px;
   position: absolute;
@@ -282,7 +282,7 @@ export default {
   background-color: transparent;
 }
 .agregar-marco-text06 {
-  color: rgba(0, 0, 0, 1);
+  color: var(--d1-color-texts);
   height: auto;
   position: absolute;
   font-size: 24px;
@@ -299,7 +299,7 @@ export default {
   border-style: solid;
   border-width: 1px;
   border-radius: 15px;
-  color: rgba(0, 0, 0, 1);
+  color: var(--dl-color-default-defaultstroke);
   top: 36px;
   left: 0px;
   width: 360px;
@@ -310,7 +310,7 @@ export default {
   box-sizing: border-box;
   align-items: flex-start;
   flex-shrink: 0;
-  border-color: rgba(17, 16, 29, 1);
+  border-color: var(--dl-color-default-defaultstroke);
   border-style: solid;
   background-color: var(--dl-color-default-formbackground);
 }
@@ -319,7 +319,7 @@ export default {
   border-radius: 15px;
   top: 0px;
   left: 0px;
-  color: rgba(0, 0, 0, 1);
+  color: var(--dl-color-default-defaultstroke);
   width: 360px;
   height: 40;
   font-size: 24px;
@@ -346,7 +346,7 @@ export default {
   margin-right: 0;
   border-radius: 15px;
   margin-bottom: 0;
-  background-color: var(--dl-color-default-defaultstroke);
+  background-color: var(--d1-color-cancel-button);
 }
 .agregar-marco-text10 {
   top: 18px;

@@ -69,7 +69,7 @@ export default {
 .inventario-text {
   top: 14px;
   left: 19px;
-  color: rgba(0, 0, 0, 1);
+  color: var(--d1-color-texts);
   height: auto;
   position: absolute;
   font-size: 64px;
@@ -96,7 +96,7 @@ export default {
   box-sizing: border-box;
   align-items: flex-start;
   flex-shrink: 0;
-  border-color: rgba(17, 16, 29, 1);
+  border-color: var(--dl-color-default-defaultstroke);
   border-style: solid;
   border-width: 1px;
   margin-right: 0;
@@ -107,7 +107,7 @@ export default {
 .inventario-text02 {
   top: 97px;
   left: 99px;
-  color: rgba(0, 0, 0, 1);
+  color: var(--d1-color-texts);
   height: auto;
   position: absolute;
   font-size: 64px;
@@ -169,7 +169,7 @@ export default {
   box-sizing: border-box;
   align-items: flex-start;
   flex-shrink: 0;
-  border-color: rgba(17, 16, 29, 1);
+  border-color: var(--dl-color-default-defaultstroke);
   border-style: solid;
   border-width: 1px;
   margin-right: 0;
@@ -180,7 +180,7 @@ export default {
 .inventario-text11 {
   top: 97px;
   left: 99px;
-  color: rgba(0, 0, 0, 1);
+  color: var(--d1-color-texts);
   height: auto;
   position: absolute;
   font-size: 64px;

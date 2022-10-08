@@ -1508,7 +1508,7 @@ export default {
   margin-right: 0;
   border-radius: 15px;
   margin-bottom: 0;
-  background-color: var(--dl-color-default-defaultstroke);
+  background-color: var(--d1-color-cancel-button);
 }
 .orden-text82 {
   top: 18px;
