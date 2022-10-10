@@ -227,6 +227,8 @@ export default {
   height: 1080px;
   display: flex;
   overflow: hidden;
+  overflow-x: auto;
+  overflow-y: auto;
   position: relative;
   max-width: 1920px;
   box-sizing: border-box;
