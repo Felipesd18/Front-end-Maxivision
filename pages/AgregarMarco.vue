@@ -15,6 +15,17 @@
           <option>Modelo 1</option>
           <option>Modelo 2</option>
         </select>
+        <span class="marco-sucursal"><span>Sucursal</span></span>
+        <select class="custom-select3" v-model="newMarco.id_sucursal" required>
+          <option disabled>Selecione una Sucursal</option>
+          <option
+            v-for="(sucursal, index) in sucursales"
+            :key="index"
+            :value="sucursal.id"
+          >
+            {{ sucursal.nombre }}
+          </option>
+        </select>
         <span class="agregar-marco-text04"><span>Codigo del Color</span></span>
         <select
           class="custom-select2"
@@ -54,7 +65,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   name: 'AgregarMarco',
   head: {
@@ -66,6 +76,7 @@ export default {
       codigoSeleccionado: '',
       aliasColor: '',
       respuesta: '',
+      sucursales: [],
       newMarco: {
         modelo: 'Selecione un Modelo',
         codigo_color: '',
@@ -78,9 +89,8 @@ export default {
   },
   methods: {
     handleSubmitForm() {
-      let apiURL = 'http://localhost:8080/marco'
-      axios
-        .post(apiURL, this.newMarco) //Se realiza post con el objeto newMarco como parametro asimilando el formato json
+      this.$axios
+        .post('/marco', this.newMarco) //Se realiza post con el objeto newMarco como parametro asimilando el formato json
         .then((res) => {
           this.respuesta = 'Se ha agregado correctamente el Marco'
           window.location.reload()
@@ -91,6 +101,19 @@ export default {
           console.log(error)
         })
     },
+    getData: async function () {
+      try {
+        let response = await this.$axios.get('/sucursal')
+        this.sucursales = response.data
+        // console.log(response) // muestra en consola la data
+      } catch (error) {
+        console.log('Error al obtener las sucursales', error)
+      }
+    },
+  },
+  created: function () {
+    //Inicia las funciones al cargar la pagina
+    this.getData()
   },
 }
 </script>
@@ -152,6 +175,24 @@ export default {
   margin-bottom: 0;
   text-decoration: none;
 }
+.marco-sucursal {
+  top: 120px;
+  left: 470px;
+  color: var(--d1-color-texts);
+  height: auto;
+  position: absolute;
+  font-size: 24px;
+  align-self: auto;
+  font-style: Bold;
+  text-align: left;
+  font-family: Poppins;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  margin-right: 0;
+  margin-bottom: 0;
+  text-decoration: none;
+}
 /*Estilo Selector */
 .custom-select {
   border-style: solid;
@@ -175,6 +216,53 @@ export default {
   margin-bottom: 0;
   text-decoration: none;
 }
+
+.custom-select2 {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 15px;
+  top: 306px;
+  left: 20px;
+  color: var(--dl-color-default-defaultstroke);
+  width: 360px;
+  height: 40px;
+  position: absolute;
+  font-size: 24px;
+  align-self: auto;
+  text-align: left;
+  font-family: Poppins;
+  font-style: Thin;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  margin-right: 0;
+  margin-bottom: 0;
+  text-decoration: none;
+}
+
+.custom-select3 {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 15px;
+  top: 156px;
+  left: 470px;
+  color: var(--dl-color-default-defaultstroke);
+  width: 360px;
+  height: 40px;
+  position: absolute;
+  font-size: 24px;
+  align-self: auto;
+  text-align: left;
+  font-family: Poppins;
+  font-style: Thin;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  margin-right: 0;
+  margin-bottom: 0;
+  text-decoration: none;
+}
+
 .custom-select select {
   display: none;
 }
@@ -232,28 +320,6 @@ export default {
   font-style: Bold;
   text-align: left;
   font-family: Poppins;
-  font-weight: 700;
-  line-height: normal;
-  font-stretch: normal;
-  margin-right: 0;
-  margin-bottom: 0;
-  text-decoration: none;
-}
-.custom-select2 {
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 15px;
-  top: 306px;
-  left: 20px;
-  color: var(--dl-color-default-defaultstroke);
-  width: 360px;
-  height: 40px;
-  position: absolute;
-  font-size: 24px;
-  align-self: auto;
-  text-align: left;
-  font-family: Poppins;
-  font-style: Thin;
   font-weight: 700;
   line-height: normal;
   font-stretch: normal;
