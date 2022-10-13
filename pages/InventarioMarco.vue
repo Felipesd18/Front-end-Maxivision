@@ -18,7 +18,6 @@
       <span class="inventario-marco-text06"><span>Listado</span></span>
 
       <div class="Contenedor">
-
         <div class="Columnas">
           <span class="Columna1">Modelo</span>
           <span class="Columna2">Codigo Color</span>
@@ -27,16 +26,25 @@
           <span class="Columna5">Sucursal</span>
         </div>
 
-        
-          <div class="Columnas" v-for="(marco, index) in listadoMarcos" :key="index">
-            <span class="Columna1">{{ marco.modelo}}</span>
-            <span class="Columna2">{{ marco.codigo_color }}</span>
-            <span class="Columna3">{{ marco.alias_color }}</span>
-            <span class="Columna4">{{ marco.estado_de_marco }}</span>
-            <span class="Columna5">Sucursal</span>
-          </div>
-        
-
+        <div
+          class="Columnas"
+          v-for="(marco, index) in listadoMarcos"
+          :key="index"
+        >
+          <span class="Columna1">{{ marco.modelo }}</span>
+          <span class="Columna2">{{ marco.codigo_color }}</span>
+          <span class="Columna3">{{ marco.alias_color }}</span>
+          <span class="Columna4">{{ marco.estado_de_marco }}</span>
+          <span
+            class="Columna5"
+            v-for="(sucursal, indice) in listadoSucursales"
+            :key="indice"
+          >
+            <span v-if="sucursal.id == marco.id_sucursal">{{
+              sucursal.nombre
+            }}</span>
+          </span>
+        </div>
       </div>
 
       <div class="inventario-marco-descargar">
@@ -54,22 +62,24 @@ export default {
   head: {
     title: 'exported project',
   },
-  
+
   data: function () {
     return {
       listadoMarcos: [],
+      listadoSucursales: [],
     }
   },
 
   methods: {
     getData: async function () {
       try {
-
         let response = await this.$axios.get('/marco')
         this.listadoMarcos = response.data
 
+        let sucursales = await this.$axios.get('/sucursal')
+        this.listadoSucursales = sucursales.data
       } catch (error) {
-        console.log('Error al obtener listado marcos',error)
+        console.log('Error al obtener listado marcos', error)
       }
     },
   },
