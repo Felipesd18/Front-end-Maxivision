@@ -303,7 +303,7 @@ export default {
 }
 .Columna2 {
   position: absolute;
-  left: 100px;
+  left: 150px;
   top: 10px;
   width: auto;
   height: auto;
@@ -312,7 +312,7 @@ export default {
 }
 .Columna3 {
   position: absolute;
-  left: 200px;
+  left: 250px;
   top: 10px;
   width: auto;
   height: auto;
@@ -321,7 +321,7 @@ export default {
 }
 .Columna4 {
   position: absolute;
-  left: 300px;
+  left: 380px;
   top: 10px;
   width: auto;
   height: auto;
@@ -330,7 +330,7 @@ export default {
 }
 .Columna5 {
   position: absolute;
-  left: 400px;
+  left: 450px;
   top: 10px;
   width: auto;
   height: auto;
@@ -339,7 +339,7 @@ export default {
 }
 .Columna6 {
   position: absolute;
-  left: 500px;
+  left: 540px;
   top: 10px;
   width: auto;
   height: auto;
@@ -348,7 +348,7 @@ export default {
 }
 .Columna7 {
   position: absolute;
-  left: 600px;
+  left: 650px;
   top: 10px;
   width: auto;
   height: auto;
@@ -357,7 +357,7 @@ export default {
 }
 .Columna8 {
   position: absolute;
-  left: 700px;
+  left: 770px;
   top: 10px;
   width: auto;
   height: auto;
@@ -366,7 +366,7 @@ export default {
 }
 .Columna9 {
   position: absolute;
-  left: 800px;
+  left: 870px;
   top: 10px;
   width: auto;
   height: auto;

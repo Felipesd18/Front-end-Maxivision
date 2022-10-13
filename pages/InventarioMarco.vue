@@ -251,7 +251,7 @@ export default {
 }
 
 .Columnas {
-  width: 1200px;
+  width: 1000px;
   height: 50px;
   display: flex;
   overflow: hidden;
@@ -283,7 +283,7 @@ export default {
 }
 .Columna2 {
   position: absolute;
-  left: 100px;
+  left: 200px;
   top: 10px;
   width: auto;
   height: auto;
@@ -292,7 +292,7 @@ export default {
 }
 .Columna3 {
   position: absolute;
-  left: 200px;
+  left: 400px;
   top: 10px;
   width: auto;
   height: auto;
@@ -301,7 +301,7 @@ export default {
 }
 .Columna4 {
   position: absolute;
-  left: 300px;
+  left: 600px;
   top: 10px;
   width: auto;
   height: auto;
@@ -310,7 +310,7 @@ export default {
 }
 .Columna5 {
   position: absolute;
-  left: 400px;
+  left: 850px;
   top: 10px;
   width: auto;
   height: auto;
