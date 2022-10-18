@@ -19,9 +19,9 @@
 
       <div class="Contenedor">
         <div class="Columnas">
-          <span class="Columna1">Modelo</span>
-          <span class="Columna2">Codigo Color</span>
-          <span class="Columna3">Alias del color</span>
+          <span class="Columna1">Marca</span>
+          <span class="Columna2">Modelo</span>
+          <span class="Columna3">Color</span>
           <span class="Columna4">Estado del marco</span>
           <span class="Columna5">Sucursal</span>
         </div>
@@ -31,14 +31,35 @@
           v-for="(marco, index) in listadoMarcos"
           :key="index"
         >
-          <span class="Columna1">{{ marco.modelo }}</span>
-          <span class="Columna2">{{ marco.codigo_color }}</span>
-          <span class="Columna3">{{ marco.alias_color }}</span>
+          <span
+            class="Columna1"
+            v-for="(marca, indice1) in listadoMarcas"
+            :key="indice1"
+            ><span v-if="marca.id == marco.id_marca_marco">
+              {{ marca.nombre }}</span
+            ></span
+          >
+          <span
+            class="Columna2"
+            v-for="(modelo, indice2) in listadoModelos"
+            :key="indice2"
+            ><span v-if="modelo.id == marco.id_modelo_marca">{{
+              modelo.codigo
+            }}</span></span
+          >
+          <span
+            class="Columna3"
+            v-for="(color, indice3) in listadoColores"
+            :key="indice3"
+            ><span v-if="color.id == marco.id_codigo_color"
+              >{{ color.codigo }}, {{ color.nombre_alias }}</span
+            ></span
+          >
           <span class="Columna4">{{ marco.estado_de_marco }}</span>
           <span
             class="Columna5"
-            v-for="(sucursal, indice) in listadoSucursales"
-            :key="indice"
+            v-for="(sucursal, indice4) in listadoSucursales"
+            :key="indice4"
           >
             <span v-if="sucursal.id == marco.id_sucursal">{{
               sucursal.nombre
@@ -67,23 +88,29 @@ export default {
     return {
       listadoMarcos: [],
       listadoSucursales: [],
+      listadoMarcas: [],
+      listadoModelos: [],
+      listadoColores: [],
     }
   },
-
   methods: {
     getData: async function () {
       try {
         let response = await this.$axios.get('/marco')
         this.listadoMarcos = response.data
-
-        let sucursales = await this.$axios.get('/sucursal')
-        this.listadoSucursales = sucursales.data
+        response = await this.$axios.get('/sucursal')
+        this.listadoSucursales = response.data
+        response = await this.$axios.get('/marca_marco')
+        this.listadoMarcas = response.data
+        response = await this.$axios.get('/modelo_marca')
+        this.listadoModelos = response.data
+        response = await this.$axios.get('/color_marca')
+        this.listadoColores = response.data
       } catch (error) {
-        console.log('Error al obtener listado marcos', error)
+        console.log('Error al obtener los datos', error)
       }
     },
   },
-
   created: function () {
     this.getData()
   },
@@ -289,7 +316,7 @@ export default {
   width: auto;
   height: auto;
   font-size: 20px;
-  font-style: Bold;
+  font-weight: 500;
 }
 .Columna2 {
   position: absolute;
@@ -298,16 +325,16 @@ export default {
   width: auto;
   height: auto;
   font-size: 20px;
-  font-style: Bold;
+  font-weight: 500;
 }
 .Columna3 {
   position: absolute;
-  left: 400px;
+  left: 300px;
   top: 10px;
   width: auto;
   height: auto;
   font-size: 20px;
-  font-style: Bold;
+  font-weight: 500;
 }
 .Columna4 {
   position: absolute;
@@ -316,7 +343,7 @@ export default {
   width: auto;
   height: auto;
   font-size: 20px;
-  font-style: Bold;
+  font-weight: 500;
 }
 .Columna5 {
   position: absolute;
@@ -325,6 +352,6 @@ export default {
   width: auto;
   height: auto;
   font-size: 20px;
-  font-style: Bold;
+  font-weight: 500;
 }
 </style>

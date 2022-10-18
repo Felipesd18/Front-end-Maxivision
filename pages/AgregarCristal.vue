@@ -334,9 +334,9 @@ export default {
   font-size: 24px;
   align-self: auto;
   font-style: Bold;
-  text-align: left;
+  text-align: center;
   font-family: Poppins;
-  font-weight: 700;
+  font-weight: 100;
   line-height: normal;
   font-stretch: normal;
   margin-right: 0;
@@ -357,9 +357,9 @@ export default {
   font-size: 24px;
   align-self: auto;
   font-style: Bold;
-  text-align: left;
+  text-align: center;
   font-family: Poppins;
-  font-weight: 700;
+  font-weight: 100;
   line-height: normal;
   font-stretch: normal;
   margin-right: 0;
