@@ -3,9 +3,9 @@
     <sidebar-menu />
     <div class="agregar-cristal-agregar-cristal">
       <form @submit.prevent="handleSubmitForm">
-        <span class="agregar-cristal-text">
-          <span>Ingreso Cristal a Inventario</span>
-        </span>
+        <div class="agregar-cristal-text">
+          Ingreso Cristal a Inventario
+        </div>
         <span class="agregar-cristal-text02"><span>Tipo</span></span>
         <select class="custom-select" v-model="newCristal.tipo" required>
           <option disabled>Seleccione un tipo de Cristal</option>
@@ -264,10 +264,8 @@ export default {
   background-color: rgba(255, 255, 255, 1);
 }
 .agregar-cristal-text {
-  top: 14px;
-  left: 20px;
-  color: var(--d1-color-texts);
-  width: 900px;
+  color: white;
+  width: 2000px;
   height: auto;
   position: absolute;
   font-size: 64px;
@@ -275,15 +273,17 @@ export default {
   font-style: Bold;
   text-align: left;
   font-family: Poppins;
-  font-weight: 700;
+  font-weight: 500;
   line-height: normal;
   font-stretch: normal;
   margin-right: 0;
+  padding-left: 10%;
   margin-bottom: 0;
   text-decoration: none;
+  background-color: var(--d1-color-texts);
 }
 .agregar-cristal-text02 {
-  top: 152px;
+  top: 120px;
   left: 20px;
   color: var(--d1-color-texts);
   width: 60px;
@@ -302,7 +302,7 @@ export default {
   text-decoration: none;
 }
 .agregar-sucursal {
-  top: 152px;
+  top: 120px;
   left: 470px;
   color: var(--d1-color-texts);
   width: 60px;
@@ -325,7 +325,7 @@ export default {
   border-style: solid;
   border-width: 1px;
   border-radius: 15px;
-  top: 200px;
+  top: 160px;
   left: 20px;
   color: var(--dl-color-default-defaultstroke);
   width: 360px;
@@ -348,7 +348,7 @@ export default {
   border-style: solid;
   border-width: 1px;
   border-radius: 15px;
-  top: 200px;
+  top: 160px;
   left: 470px;
   color: var(--dl-color-default-defaultstroke);
   width: 360px;
@@ -372,50 +372,8 @@ export default {
   display: none;
 }
 
-.select-selected {
-  background-color: var(--dl-color-default-defaultstroke);
-}
-
-.select-selected:after {
-  position: absolute;
-  content: '';
-  top: 14px;
-  right: 10px;
-  width: 0;
-  height: 0;
-  border: 6px solid transparent;
-  border-color: #fff transparent transparent transparent;
-}
-.select-selected.select-arrow-active:after {
-  border-color: transparent transparent #fff transparent;
-  top: 7px;
-}
-.select-items div,
-.select-selected {
-  color: #ffffff;
-  padding: 8px 16px;
-  border: 1px solid transparent;
-  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-  cursor: pointer;
-}
-.select-items {
-  position: absolute;
-  background-color: var(--dl-color-default-defaultstroke);
-  top: 100%;
-  left: 0;
-  right: 0;
-  z-index: 99;
-}
-.select-hide {
-  display: none;
-}
-.select-items div:hover,
-.same-as-selected {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
 .agregar-cristal-tabla-a-d-d {
-  top: 537px;
+  top: 420px;
   left: 10px;
   width: 1203px;
   height: 77px;
@@ -459,18 +417,6 @@ export default {
   border-style: solid;
   border-width: 1px;
 }
-.agregar-cristal-rectangulo1-25 {
-  top: 0px;
-  left: 953px;
-  width: 250px;
-  height: 77px;
-  position: absolute;
-  box-sizing: border-box;
-  border-color: rgba(17, 16, 29, 1);
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 0 15px 15px 0;
-}
 .agregar-cristal-text04 {
   top: 1px;
   left: 1px;
@@ -507,26 +453,9 @@ export default {
   font-stretch: normal;
   text-decoration: none;
 }
-.agregar-cristal-text08 {
-  top: 1px;
-  left: 954px;
-  color: rgba(0, 0, 0, 1);
-  width: 248px;
-  bottom: 1px;
-  height: auto;
-  position: absolute;
-  font-size: 32px;
-  align-self: auto;
-  font-style: Thin;
-  text-align: center;
-  font-family: Poppins;
-  font-weight: 100;
-  line-height: 2;
-  font-stretch: normal;
-  text-decoration: none;
-}
+
 .agregar-cristal-tabla {
-  top: 362px;
+  top: 250px;
   left: 10px;
   width: 1680px;
   height: 136px;
@@ -946,7 +875,7 @@ export default {
   border-radius: 0 0 15px;
 }
 .agregar-cristal-cancelar {
-  top: 658px;
+  top: 550px;
   left: 20px;
   width: 218px;
   height: 83px;
@@ -981,8 +910,8 @@ export default {
   text-decoration: none;
 }
 .agregar-cristal-ingresar {
-  top: 658px;
-  left: 1000px;
+  top: 550px;
+  left: 800px;
   width: 218px;
   height: 83px;
   display: flex;

@@ -89,7 +89,7 @@ export default {
     },
     menuTitle: {
       type: String,
-      default: 'Maxi Vision',
+      default: 'Maxivision',
     },
     menuLogo: {
       type: String,
@@ -116,8 +116,14 @@ export default {
       type: Array,
       default: () => [
         {
+          link:'/',
+          name: 'Home',
+          tooltip:'Home',
+          icon: 'bx-home'
+        },
+        {
           link: '#',
-          name: 'Analíticas',
+          name: 'Analísis de ganancias',
           tooltip: 'Analiticas',
           icon: 'bx-pie-chart-alt-2',
         },
@@ -147,11 +153,7 @@ export default {
         },
       ],
     },
-    //! Search
-    isSearch: {
-      type: Boolean,
-      default: true,
-    },
+    
     searchPlaceholder: {
       type: String,
       default: 'Search...',

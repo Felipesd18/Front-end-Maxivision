@@ -2,17 +2,22 @@
   <div class="inventario-container">
     <sidebar-menu />
     <div class="inventario-inventario">
-      <span class="inventario-text"><span>Inventario</span></span>
+      <div class="inventario-text">
+        <div class="logo">
+        <img src="../assets/logo-01.png" 
+        alt="logo-maxisvision"
+        width="100">
+      </div>
+        Inventario
+      </div>
       <div class="inventario-frame6">
-        <span class="inventario-text02">
-          <span>
-            <span>Inventario</span>
-            <br />
-            <span>Existencias</span>
-            <br />
-            <span>Marcos</span>
-          </span>
-        </span>
+        <div class="inventario-text02">
+          <div class="logo"> 
+          <img src="../assets/logo-marco.png"
+          width="150">
+        </div>
+            Marcos
+        </div>
         <div class="inventario-visualizar">
           <nuxt-link to="/InventarioMarco">
             <span class="inventario-text09"><span>Visualizar</span></span>
@@ -20,15 +25,13 @@
         </div>
       </div>
       <div class="inventario-frame7">
-        <span class="inventario-text11">
-          <span>
-            <span>Inventario</span>
-            <br />
-            <span>Existencias</span>
-            <br />
-            <span>Cristales</span>
-          </span>
-        </span>
+        <div class="inventario-text11">
+          <div class="logo"> 
+          <img src="../assets/logo-lentes.png"
+          width="150">
+        </div>
+          Cristales
+        </div>
         <div class="inventario-visualizar1">
           <nuxt-link to="/InventarioCristales">
             <span class="inventario-text18"><span>Visualizar</span></span>
@@ -69,29 +72,30 @@ export default {
   background-color: rgba(255, 255, 255, 1);
 }
 .inventario-text {
-  top: 14px;
-  left: 19px;
-  color: var(--d1-color-texts);
-  height: auto;
+  top: 0px;
+  left: 0px;
+  width: 2000px;
+  color: white;
+  background-color: var(--d1-color-texts);
+  height: 70px;
   position: absolute;
   font-size: 64px;
   align-self: auto;
   font-style: Bold;
   text-align: left;
   font-family: Poppins;
-  font-weight: 700;
-  line-height: normal;
+  font-weight: 500;
+  line-height: 100%;
   font-stretch: normal;
   margin-right: 0;
   margin-bottom: 0;
   text-decoration: none;
 }
 .inventario-frame6 {
-  top: 213px;
-  left: 314px;
-  width: 571px;
-  height: 654px;
-  display: flex;
+  top: 100px;
+  left: 20px;
+  width: 500px;
+  height: 450px;
   overflow: hidden;
   position: absolute;
   box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.25);
@@ -107,17 +111,16 @@ export default {
   background-color: var(--dl-color-default-formbackground);
 }
 .inventario-text02 {
-  top: 97px;
-  left: 99px;
+  top: 40px;
+  left: 70px;
   color: var(--d1-color-texts);
   height: auto;
-  position: absolute;
-  font-size: 64px;
+  font-size: 55px;
   align-self: auto;
   font-style: Bold;
   text-align: center;
   font-family: Poppins;
-  font-weight: 700;
+  font-weight: 500;
   line-height: normal;
   font-stretch: normal;
   margin-right: 0;
@@ -125,8 +128,8 @@ export default {
   text-decoration: none;
 }
 .inventario-visualizar {
-  top: 449px;
-  left: 177px;
+  top: 300px;
+  left: 150px;
   width: 218px;
   height: 83px;
   display: flex;
@@ -160,11 +163,11 @@ export default {
   text-decoration: none;
 }
 .inventario-frame7 {
-  top: 213px;
-  left: 1034px;
-  width: 571px;
-  height: 654px;
-  display: flex;
+  top: 100px;
+  left: 550px;
+  width: 500px;
+  height: 450px;
+  
   overflow: hidden;
   position: absolute;
   box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.25);
@@ -180,17 +183,16 @@ export default {
   background-color: var(--dl-color-default-formbackground);
 }
 .inventario-text11 {
-  top: 97px;
-  left: 99px;
+  top: 100px;
+  left: 70px;
   color: var(--d1-color-texts);
   height: auto;
-  position: absolute;
-  font-size: 64px;
+  font-size: 55px;
   align-self: auto;
   font-style: Bold;
   text-align: center;
   font-family: Poppins;
-  font-weight: 700;
+  font-weight: 500;
   line-height: normal;
   font-stretch: normal;
   margin-right: 0;
@@ -198,8 +200,8 @@ export default {
   text-decoration: none;
 }
 .inventario-visualizar1 {
-  top: 449px;
-  left: 177px;
+  top: 300px;
+  left: 150px;
   width: 218px;
   height: 83px;
   display: flex;
@@ -231,5 +233,8 @@ export default {
   margin-right: 0;
   margin-bottom: 0;
   text-decoration: none;
+}
+.logo{
+  display:block;
 }
 </style>

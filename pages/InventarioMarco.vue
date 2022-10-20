@@ -329,7 +329,7 @@ export default {
 }
 .Columna3 {
   position: absolute;
-  left: 300px;
+  left: 370px;
   top: 10px;
   width: auto;
   height: auto;

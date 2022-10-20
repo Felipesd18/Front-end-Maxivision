@@ -3,7 +3,7 @@
     <sidebar-menu />
     <div class="agregar-marco-agregar-marco">
       <form @submit.prevent="handleSubmitForm" id="formulario">
-        <span class="agregar-marco-text"><span>Agregar Marco</span></span>
+        <div class="agregar-marco-text"> Agregar un marco</div>
         <div class="grupo-sucursal">
           <span class="marco-sucursal"><span>Sucursal</span></span>
           <select
@@ -198,10 +198,8 @@ export default {
   background-color: rgba(255, 255, 255, 1);
 }
 .agregar-marco-text {
-  top: 14px;
-  left: 19px;
-  color: var(--d1-color-texts);
-  width: 497px;
+  color: white;
+  width: 2000px;
   height: auto;
   position: absolute;
   font-size: 64px;
@@ -209,12 +207,14 @@ export default {
   font-style: Bold;
   text-align: left;
   font-family: Poppins;
-  font-weight: 700;
+  font-weight: 500;
+  padding-left: 25%;
   line-height: normal;
   font-stretch: normal;
   margin-right: 0;
   margin-bottom: 0;
   text-decoration: none;
+  background-color: var(--d1-color-texts);
 }
 .agregar-marco-text02 {
   color: var(--d1-color-texts);
@@ -338,48 +338,6 @@ export default {
 
 .custom-select select {
   display: none;
-}
-
-.select-selected {
-  background-color: var(--dl-color-default-defaultstroke);
-}
-
-.select-selected:after {
-  position: absolute;
-  content: '';
-  top: 14px;
-  right: 10px;
-  width: 0;
-  height: 0;
-  border: 6px solid transparent;
-  border-color: #fff transparent transparent transparent;
-}
-.select-selected.select-arrow-active:after {
-  border-color: transparent transparent #fff transparent;
-  top: 7px;
-}
-.select-items div,
-.select-selected {
-  color: #ffffff;
-  padding: 8px 16px;
-  border: 1px solid transparent;
-  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-  cursor: pointer;
-}
-.select-items {
-  position: absolute;
-  background-color: var(--dl-color-default-defaultstroke);
-  top: 100%;
-  left: 0;
-  right: 0;
-  z-index: 99;
-}
-.select-hide {
-  display: none;
-}
-.select-items div:hover,
-.same-as-selected {
-  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .agregar-marco-text04 {
@@ -543,7 +501,7 @@ export default {
 
 .grupo-modelo {
   top: 250px;
-  left: 470px;
+  left: 400px;
   width: auto;
   height: auto;
   position: absolute;
@@ -567,7 +525,7 @@ export default {
 
 .grupo-color {
   top: 250px;
-  left: 920px;
+  left: 780px;
   width: auto;
   height: auto;
   position: absolute;
