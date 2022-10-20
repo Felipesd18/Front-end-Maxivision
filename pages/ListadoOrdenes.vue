@@ -2,7 +2,16 @@
   <div class="listado-ordenes-container">
     <sidebar-menu />
     <div class="listado-ordenes-listado-ordenes">
-      <span class="listado-ordenes-text"><span>Listado Ordenes</span></span>
+      <div class="encabezado"> 
+        <div class="logo-header">
+        <img src="../assets/logo-01.png" 
+        alt="logo-maxisvision"
+        width="80">
+        </div>
+        <div class="header-texto">
+        Listado de ordenes
+        </div>
+      </div>
       <div class="listado-ordenes-ingresar-marco">
         <nuxt-link to="/Orden">
           <span class="listado-ordenes-text2">
@@ -44,24 +53,7 @@ export default {
   border-radius: 0px 0px 0px 0px;
   background-color: rgba(255, 255, 255, 1);
 }
-.listado-ordenes-text {
-  top: 14px;
-  left: 20px;
-  color: var(--d1-color-texts);
-  height: auto;
-  position: absolute;
-  font-size: 64px;
-  align-self: auto;
-  font-style: Bold;
-  text-align: left;
-  font-family: Poppins;
-  font-weight: 700;
-  line-height: normal;
-  font-stretch: normal;
-  margin-right: 0;
-  margin-bottom: 0;
-  text-decoration: none;
-}
+
 .listado-ordenes-ingresar-marco {
   top: 170px;
   left: 20px;

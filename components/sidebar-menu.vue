@@ -1,4 +1,5 @@
 <template>
+  
   <div class="sidebar" :class="isOpened ? 'open' : ''" :style="cssVars">
     <div class="logo-details" style="margin: 6px 14px 0 14px">
       <img
@@ -117,8 +118,8 @@ export default {
       default: () => [
         {
           link:'/',
-          name: 'Home',
-          tooltip:'Home',
+          name: 'Inicio',
+          tooltip:'Inicio',
           icon: 'bx-home'
         },
         {

@@ -1,6 +1,15 @@
 <template>
   <div >
-    <h1>Operativo</h1>
+    <div class="encabezado"> 
+        <div class="logo-header">
+        <img src="../assets/logo-01.png" 
+        alt="logo-maxisvision"
+        width="80">
+        </div>
+        <div class="header-texto">
+          Operativo
+        </div>
+      </div>
     <sidebar-menu />
   </div>
  

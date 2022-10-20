@@ -1,10 +1,16 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
 <template>
   <div class="inventario-cristales-container">
     <sidebar-menu />
     <div class="inventario-cristales-inventario-cristales">
-      <span class="inventario-cristales-text">
-        <span>Inventario Cristales</span>
-      </span>
+      <div class="encabezado">
+        <div class="logo-header">
+        <img src="../assets/logo-01.png" 
+        alt="logo-maxisvision"
+        width="80">
+        </div>
+        <div class="header-texto">Inventario cristales</div>
+      </div>
       <div class="inventario-cristales-visualizar">
         <nuxt-link to="/Inventario">
           <span class="inventario-cristales-text02"><span>Volver</span></span>
@@ -118,24 +124,7 @@ export default {
   border-radius: 0px 0px 0px 0px;
   background-color: rgba(255, 255, 255, 1);
 }
-.inventario-cristales-text {
-  top: 14px;
-  left: 20px;
-  color: var(--d1-color-texts);
-  height: auto;
-  position: absolute;
-  font-size: 64px;
-  align-self: auto;
-  font-style: Bold;
-  text-align: left;
-  font-family: Poppins;
-  font-weight: 700;
-  line-height: normal;
-  font-stretch: normal;
-  margin-right: 0;
-  margin-bottom: 0;
-  text-decoration: none;
-}
+
 .inventario-cristales-visualizar {
   top: 170px;
   left: 20px;
@@ -208,7 +197,7 @@ export default {
 }
 .inventario-cristales-descargar {
   top: 181px;
-  left: 1121px;
+  left: 900px;
   width: 679px;
   height: 83px;
   display: flex;

@@ -1,14 +1,17 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
 <template>
   <div class="inventario-container">
     <sidebar-menu />
     <div class="inventario-inventario">
-      <div class="inventario-text">
-        <div class="logo">
+      <div class="encabezado"> 
+        <div class="logo-header">
         <img src="../assets/logo-01.png" 
         alt="logo-maxisvision"
-        width="100">
-      </div>
+        width="80">
+        </div>
+        <div class="header-texto">
         Inventario
+        </div>
       </div>
       <div class="inventario-frame6">
         <div class="inventario-text02">
@@ -71,30 +74,11 @@ export default {
   border-radius: 0px 0px 0px 0px;
   background-color: rgba(255, 255, 255, 1);
 }
-.inventario-text {
-  top: 0px;
-  left: 0px;
-  width: 2000px;
-  color: white;
-  background-color: var(--d1-color-texts);
-  height: 70px;
-  position: absolute;
-  font-size: 64px;
-  align-self: auto;
-  font-style: Bold;
-  text-align: left;
-  font-family: Poppins;
-  font-weight: 500;
-  line-height: 100%;
-  font-stretch: normal;
-  margin-right: 0;
-  margin-bottom: 0;
-  text-decoration: none;
-}
+
 .inventario-frame6 {
   top: 100px;
   left: 20px;
-  width: 500px;
+  width: 45%;
   height: 450px;
   overflow: hidden;
   position: absolute;
@@ -128,20 +112,19 @@ export default {
   text-decoration: none;
 }
 .inventario-visualizar {
-  top: 300px;
-  left: 150px;
+  top: 30px;
   width: 218px;
   height: 83px;
-  display: flex;
   overflow: hidden;
-  position: absolute;
+  position:relative;
   box-sizing: border-box;
   align-items: flex-start;
   flex-shrink: 0;
   border-color: transparent;
-  margin-right: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 15px;
-  margin-bottom: 0;
   background-color: var(--dl-color-default-defaultstroke);
 }
 .inventario-text09 {
@@ -164,8 +147,8 @@ export default {
 }
 .inventario-frame7 {
   top: 100px;
-  left: 550px;
-  width: 500px;
+  left: 50%;
+  width: 45%;
   height: 450px;
   
   overflow: hidden;
@@ -200,20 +183,19 @@ export default {
   text-decoration: none;
 }
 .inventario-visualizar1 {
-  top: 300px;
-  left: 150px;
+  top: 30px;
   width: 218px;
   height: 83px;
-  display: flex;
   overflow: hidden;
-  position: absolute;
+  position:relative;
   box-sizing: border-box;
   align-items: flex-start;
   flex-shrink: 0;
   border-color: transparent;
-  margin-right: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 15px;
-  margin-bottom: 0;
   background-color: var(--dl-color-default-defaultstroke);
 }
 .inventario-text18 {

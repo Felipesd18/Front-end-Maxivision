@@ -95,3 +95,33 @@
   text-transform: none;
   text-decoration: none;
 }
+.header-texto {
+  width: 100%;
+  color: white;
+  background-color: var(--d1-color-texts);
+  height: 80px;
+  padding-left: 40%;
+  font-size: 64px;
+  align-self: auto;
+  font-style: Bold;
+  text-align: left;
+  font-family: Poppins;
+  font-weight: 500;
+  line-height: 130%;
+  font-stretch: normal;
+  margin-right: 0;
+  margin-bottom: 0;
+  text-decoration: none;
+}
+.logo-header{
+  position:absolute;
+  top:5px;
+  left:0px;
+}
+.encabezado{
+  width:100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

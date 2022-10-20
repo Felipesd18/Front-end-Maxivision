@@ -24,15 +24,15 @@ export default {
 <style>
 .titulo {
   top: center;
-  left: 60px;
+  
   color: var(--d1-color-texts);
-  width: 1000px;
-  height: 1000px;
+  width: 100%;
+  height: 100%;
   position: relative;
-  font-size: 50px;
+  font-size: 64px;
   align-self: auto;
   font-style: Bold;
-  text-align: left;
+  text-align: center;
   font-family: Poppins;
   font-weight: 200;
   font-stretch: normal;
@@ -43,12 +43,12 @@ export default {
 .panel-superior{
   border-color:var(--d1-color-texts);
   color: var(--d1-color-texts);
-  width:1500px;
+  width:100%;
   background-color:var(--d1-color-texts);
 }
 .logo{
   text-align: center;
-  
+  top:10px;
 }
 
 

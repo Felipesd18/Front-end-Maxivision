@@ -2,7 +2,14 @@
   <div class="inventario-marco-container">
     <sidebar-menu />
     <div class="inventario-marco-inventario-marco">
-      <span class="inventario-marco-text"><span>Inventario Marcos</span></span>
+      <div class="encabezado">
+        <div class="logo-header">
+        <img src="../assets/logo-01.png" 
+        alt="logo-maxisvision"
+        width="80">
+        </div>
+        <div class="header-texto">Inventario Marcos</div>
+      </div>
       <nuxt-link to="/Inventario">
         <div class="inventario-marco-visualizar">
           <span class="inventario-marco-text02"><span>Volver</span></span>
@@ -137,24 +144,7 @@ export default {
   border-radius: 0px 0px 0px 0px;
   background-color: rgba(255, 255, 255, 1);
 }
-.inventario-marco-text {
-  top: 14px;
-  left: 20px;
-  color: var(--d1-color-texts);
-  height: auto;
-  position: absolute;
-  font-size: 64px;
-  align-self: auto;
-  font-style: Bold;
-  text-align: left;
-  font-family: Poppins;
-  font-weight: 700;
-  line-height: normal;
-  font-stretch: normal;
-  margin-right: 0;
-  margin-bottom: 0;
-  text-decoration: none;
-}
+
 .inventario-marco-visualizar {
   top: 170px;
   left: 20px;
@@ -245,7 +235,7 @@ export default {
 }
 .inventario-marco-descargar {
   top: 170px;
-  left: 1121px;
+  left: 900px;
   width: 679px;
   height: 83px;
   display: flex;
@@ -354,4 +344,5 @@ export default {
   font-size: 20px;
   font-weight: 500;
 }
+
 </style>
