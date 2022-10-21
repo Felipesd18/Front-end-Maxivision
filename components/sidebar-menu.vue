@@ -1,5 +1,4 @@
 <template>
-  
   <div class="sidebar" :class="isOpened ? 'open' : ''" :style="cssVars">
     <div class="logo-details" style="margin: 6px 14px 0 14px">
       <img
@@ -31,16 +30,6 @@
     >
       <div id="my-scroll" style="margin: 6px 14px 0 14px">
         <ul class="nav-list" style="overflow: visible">
-          <li v-if="isSearch" @click="isOpened = true">
-            <i class="bx bx-search" />
-            <input
-              type="text"
-              :placeholder="searchPlaceholder"
-              @input="$emit('search-input-emit', $event.target.value)"
-            />
-            <span class="tooltip">{{ searchTooltip }}</span>
-          </li>
-
           <span v-for="(menuItem, index) in menuItems" :key="index">
             <li>
               <a :href="menuItem.link">
@@ -117,10 +106,10 @@ export default {
       type: Array,
       default: () => [
         {
-          link:'/',
+          link: '/',
           name: 'Inicio',
-          tooltip:'Inicio',
-          icon: 'bx-home'
+          tooltip: 'Inicio',
+          icon: 'bx-home',
         },
         {
           link: '#',
@@ -154,7 +143,7 @@ export default {
         },
       ],
     },
-    
+
     searchPlaceholder: {
       type: String,
       default: 'Search...',

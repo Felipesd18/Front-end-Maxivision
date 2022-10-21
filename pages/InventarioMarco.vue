@@ -4,9 +4,7 @@
     <div class="inventario-marco-inventario-marco">
       <div class="encabezado">
         <div class="logo-header">
-        <img src="../assets/logo-01.png" 
-        alt="logo-maxisvision"
-        width="80">
+          <img src="../assets/logo-01.png" alt="logo-maxisvision" width="80" />
         </div>
         <div class="header-texto">Inventario Marcos</div>
       </div>
@@ -35,43 +33,16 @@
 
         <div
           class="Columnas"
-          v-for="(marco, index) in listadoMarcos"
+          v-for="(marco, index) in listadoMarcosFiltrado"
           :key="index"
         >
-          <span
-            class="Columna1"
-            v-for="(marca, indice1) in listadoMarcas"
-            :key="indice1"
-            ><span v-if="marca.id == marco.id_marca_marco">
-              {{ marca.nombre }}</span
-            ></span
-          >
-          <span
-            class="Columna2"
-            v-for="(modelo, indice2) in listadoModelos"
-            :key="indice2"
-            ><span v-if="modelo.id == marco.id_modelo_marca">{{
-              modelo.codigo
-            }}</span></span
-          >
-          <span
-            class="Columna3"
-            v-for="(color, indice3) in listadoColores"
-            :key="indice3"
-            ><span v-if="color.id == marco.id_codigo_color"
-              >{{ color.codigo }}, {{ color.nombre_alias }}</span
-            ></span
-          >
-          <span class="Columna4">{{ marco.estado_de_marco }}</span>
-          <span
-            class="Columna5"
-            v-for="(sucursal, indice4) in listadoSucursales"
-            :key="indice4"
-          >
-            <span v-if="sucursal.id == marco.id_sucursal">{{
-              sucursal.nombre
-            }}</span>
+          <span class="Columna1"> {{ marco.marca.nombre }} </span>
+          <span class="Columna2"> {{ marco.modelo.codigo }} </span>
+          <span class="Columna3">
+            {{ marco.color.codigo }} {{ marco.color.nombre_alias }}
           </span>
+          <span class="Columna4"> {{ marco.estado_marco }} </span>
+          <span class="Columna5"> {{ marco.sucursal.nombre }} </span>
         </div>
       </div>
 
@@ -98,6 +69,7 @@ export default {
       listadoMarcas: [],
       listadoModelos: [],
       listadoColores: [],
+      listadoMarcosFiltrado: [],
     }
   },
   methods: {
@@ -113,6 +85,44 @@ export default {
         this.listadoModelos = response.data
         response = await this.$axios.get('/color_marca')
         this.listadoColores = response.data
+
+        for (let i in this.listadoMarcos) {
+          let marco = {
+            marca: {},
+            modelo: {},
+            color: {},
+            estado_marco: '',
+            sucursal: {},
+          }
+
+          marco.marca = this.listadoMarcas
+            .filter(
+              (marca) => marca.id == this.listadoMarcos.at(i).id_marca_marco
+            )
+            .at(0)
+
+          marco.modelo = this.listadoModelos
+            .filter(
+              (modelo) => modelo.id == this.listadoMarcos.at(i).id_modelo_marca
+            )
+            .at(0)
+
+          marco.color = this.listadoColores
+            .filter(
+              (color) => color.id == this.listadoMarcos.at(i).id_codigo_color
+            )
+            .at(0)
+
+          marco.estado_marco = this.listadoMarcos.at(i).estado_de_marco
+
+          marco.sucursal = this.listadoSucursales
+            .filter(
+              (sucursal) => sucursal.id == this.listadoMarcos.at(i).id_sucursal
+            )
+            .at(0)
+
+          this.listadoMarcosFiltrado.push(marco)
+        }
       } catch (error) {
         console.log('Error al obtener los datos', error)
       }
@@ -344,5 +354,4 @@ export default {
   font-size: 20px;
   font-weight: 500;
 }
-
 </style>
