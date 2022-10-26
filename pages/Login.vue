@@ -120,7 +120,7 @@ export default {}
 
 .boton-ingresar {
   top: 18px;
-  color: rgba(255, 255, 255, 1);
+  color: var(--d1-color-default-label-button);
   height: auto;
   position: relative;
   font-size: 32px;

@@ -2,8 +2,13 @@
   <div class="agregar-marco-container">
     <sidebar-menu />
     <div class="agregar-marco-agregar-marco">
+      <div class="encabezado">
+        <div class="logo-header">
+          <img src="../assets/logo-01.png" alt="logo-maxisvision" width="80" />
+        </div>
+        <div class="header-texto">Agregar un Marco</div>
+      </div>
       <form @submit.prevent="handleSubmitForm" id="formulario">
-        <div class="agregar-marco-text"> Agregar un marco</div>
         <div class="grupo-sucursal">
           <span class="marco-sucursal"><span>Sucursal</span></span>
           <select
@@ -189,7 +194,6 @@ export default {
   overflow-x: auto;
   overflow-y: auto;
   position: relative;
-  max-width: 1920px;
   box-sizing: border-box;
   align-items: flex-start;
   flex-shrink: 0;
@@ -389,13 +393,14 @@ export default {
   border-color: var(--dl-color-default-defaultstroke);
   border-style: solid;
   background-color: var(--dl-color-default-formbackground);
+  resize: both;
 }
 .agregar-marco-text08 {
   border-width: 1px;
   border-radius: 15px;
   color: var(--dl-color-default-defaultstroke);
-  width: 360px;
-  height: 40px;
+  width: 100%;
+  height: 100%;
   font-size: 24px;
   font-style: Thin;
   text-align: center;

@@ -37,6 +37,7 @@
   --dl-color-default-defaultstroke: #1e3d60;
   --dl-space-space-oneandhalfunits: 24px;
   --dl-color-default-formbackground: rgba(255, 255, 255, 1);
+  --d1-color-default-label-button: rgba(255, 255, 255, 1);
 }
 .button {
   color: var(--dl-color-gray-black);
@@ -116,7 +117,7 @@
 .logo-header{
   position:absolute;
   top:5px;
-  left:0px;
+  left:10px;
 }
 .encabezado{
   width:100%;
@@ -124,4 +125,30 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/*Contenedor para paginas que utilicen sidebar, asi su espacio en pantalla puede ser relativo*/
+.contenedor-pagina {
+  width: 100%;
+  height: 100%;
+  position: relative;
+} 
+
+.label-boton {
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--d1-color-default-label-button);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  font-size: 32px;
+  align-self: auto;
+  text-align: center;
+  font-family: Poppins;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  margin-bottom: 0;
+  text-decoration: none;
 }

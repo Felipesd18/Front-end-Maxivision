@@ -230,13 +230,12 @@ export default {
 }
 .orden-orden {
   width: 100%;
-  height: 1442px;
+  height: 1350px;
   display: flex;
   overflow: hidden;
   overflow-x: auto;
   overflow-y: auto;
   position: relative;
-  max-width: 1920px;
   box-sizing: border-box;
   align-items: flex-start;
   flex-shrink: 0;
