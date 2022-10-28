@@ -20,7 +20,16 @@
           </span>
         </div>
       </nuxt-link>
-      <span class="inventario-marco-text06"><span>Listado</span></span>
+      <span class="inventario-marco-text06">
+        <span>Listado
+        <v-btn
+        color = "primary"
+        dark
+        class="boton-descarga"
+        @click="descargarExcel()"
+      > 
+      Descargar inventario</v-btn>
+        </span></span>
 
       <div class="Contenedor">
         <div class="Columnas">
@@ -46,16 +55,13 @@
         </div>
       </div>
 
-      <div class="inventario-marco-descargar">
-        <span class="inventario-marco-text08">
-          <span>Descargar inventario para proovedores</span>
-        </span>
-      </div>
+      
     </div>
   </div>
 </template>
 
 <script>
+import exportXlsFile from "export-from-json"
 export default {
   name: 'InventarioMarco',
   head: {
@@ -126,6 +132,13 @@ export default {
       } catch (error) {
         console.log('Error al obtener los datos', error)
       }
+    },
+    descargarExcel(){
+      
+      const data = this.listadoMarcosFiltrado;
+      const fileName = "Marcos";
+      const exportType = exportXlsFile.types.xls;
+      exportXlsFile({data,fileName,exportType})
     },
   },
   created: function () {
@@ -243,41 +256,12 @@ export default {
   margin-bottom: 0;
   text-decoration: none;
 }
-.inventario-marco-descargar {
-  top: 170px;
-  left: 900px;
-  width: 679px;
-  height: 83px;
-  display: flex;
-  overflow: hidden;
-  position: absolute;
-  box-sizing: border-box;
-  align-items: flex-start;
-  flex-shrink: 0;
-  border-color: transparent;
-  margin-right: 0;
-  border-radius: 15px;
-  margin-bottom: 0;
-  background-color: var(--dl-color-default-defaultstroke);
+.boton-descarga{
+  top:20%;
+  left:75%;
+  
 }
-.inventario-marco-text08 {
-  top: 18px;
-  left: 23px;
-  color: rgba(255, 255, 255, 1);
-  height: auto;
-  position: absolute;
-  font-size: 32px;
-  align-self: auto;
-  font-style: Regular;
-  text-align: center;
-  font-family: Poppins;
-  font-weight: 400;
-  line-height: normal;
-  font-stretch: normal;
-  margin-right: 0;
-  margin-bottom: 0;
-  text-decoration: none;
-}
+
 
 .Contenedor {
   top: 400px;
