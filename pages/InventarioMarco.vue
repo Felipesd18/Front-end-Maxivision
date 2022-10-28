@@ -1,7 +1,7 @@
 <template>
   <div class="inventario-marco-container">
     <sidebar-menu />
-    <div class="inventario-marco-inventario-marco">
+    <div class="contenedor-pagina">
       <div class="encabezado">
         <div class="logo-header">
           <img src="../assets/logo-01.png" alt="logo-maxisvision" width="80" />
@@ -21,15 +21,18 @@
         </div>
       </nuxt-link>
       <span class="inventario-marco-text06">
-        <span>Listado
-        <v-btn
-        color = "primary"
-        dark
-        class="boton-descarga"
-        @click="descargarExcel()"
-      > 
-      Descargar inventario</v-btn>
-        </span></span>
+        <span
+          >Listado
+          <v-btn
+            color="primary"
+            dark
+            class="boton-descarga"
+            @click="descargarExcel()"
+          >
+            Descargar inventario</v-btn
+          >
+        </span></span
+      >
 
       <div class="Contenedor">
         <div class="Columnas">
@@ -54,14 +57,12 @@
           <span class="Columna5"> {{ marco.sucursal.nombre }} </span>
         </div>
       </div>
-
-      
     </div>
   </div>
 </template>
 
 <script>
-import exportXlsFile from "export-from-json"
+import exportXlsFile from 'export-from-json'
 export default {
   name: 'InventarioMarco',
   head: {
@@ -134,48 +135,48 @@ export default {
         console.log('Error al obtener los datos', error)
       }
     },
-    descargarExcel(){
+    descargarExcel() {
       for (let i in this.listadoMarcos) {
-          let marco = {
-            marca: '',
-            modelo: '',
-            color: '',
-            estado_marco: '',
-            sucursal: '',
-          }
-
-          marco.marca = this.listadoMarcas
-            .filter(
-              (marca) => marca.id == this.listadoMarcos.at(i).id_marca_marco
-            )
-            .at(0).nombre
-
-          marco.modelo = this.listadoModelos
-            .filter(
-              (modelo) => modelo.id == this.listadoMarcos.at(i).id_modelo_marca
-            )
-            .at(0).codigo
-
-          marco.color = this.listadoColores
-            .filter(
-              (color) => color.id == this.listadoMarcos.at(i).id_codigo_color
-            )
-            .at(0).codigo
-
-          marco.estado_marco = this.listadoMarcos.at(i).estado_de_marco
-
-          marco.sucursal = this.listadoSucursales
-            .filter(
-              (sucursal) => sucursal.id == this.listadoMarcos.at(i).id_sucursal
-            )
-            .at(0).nombre
-
-          this.listadoMarcosExcel.push(marco)
+        let marco = {
+          marca: '',
+          modelo: '',
+          color: '',
+          estado_marco: '',
+          sucursal: '',
         }
-      const data = this.listadoMarcosExcel;
-      const fileName = "Marcos";
-      const exportType = exportXlsFile.types.xls;
-      exportXlsFile({data,fileName,exportType})
+
+        marco.marca = this.listadoMarcas
+          .filter(
+            (marca) => marca.id == this.listadoMarcos.at(i).id_marca_marco
+          )
+          .at(0).nombre
+
+        marco.modelo = this.listadoModelos
+          .filter(
+            (modelo) => modelo.id == this.listadoMarcos.at(i).id_modelo_marca
+          )
+          .at(0).codigo
+
+        marco.color = this.listadoColores
+          .filter(
+            (color) => color.id == this.listadoMarcos.at(i).id_codigo_color
+          )
+          .at(0).codigo
+
+        marco.estado_marco = this.listadoMarcos.at(i).estado_de_marco
+
+        marco.sucursal = this.listadoSucursales
+          .filter(
+            (sucursal) => sucursal.id == this.listadoMarcos.at(i).id_sucursal
+          )
+          .at(0).nombre
+
+        this.listadoMarcosExcel.push(marco)
+      }
+      const data = this.listadoMarcosExcel
+      const fileName = 'Marcos'
+      const exportType = exportXlsFile.types.xls
+      exportXlsFile({ data, fileName, exportType })
     },
   },
   created: function () {
@@ -187,22 +188,6 @@ export default {
 <style scoped>
 .inventario-marco-container {
   min-height: 100vh;
-}
-.inventario-marco-inventario-marco {
-  width: 100%;
-  height: 1080px;
-  display: flex;
-  overflow: hidden;
-  overflow-x: auto;
-  overflow-y: auto;
-  position: relative;
-  max-width: 1920px;
-  box-sizing: border-box;
-  align-items: flex-start;
-  flex-shrink: 0;
-  border-color: transparent;
-  border-radius: 0px 0px 0px 0px;
-  background-color: rgba(255, 255, 255, 1);
 }
 
 .inventario-marco-visualizar {
@@ -293,12 +278,10 @@ export default {
   margin-bottom: 0;
   text-decoration: none;
 }
-.boton-descarga{
-  top:20%;
-  left:75%;
-  
+.boton-descarga {
+  top: 20%;
+  left: 75%;
 }
-
 
 .Contenedor {
   top: 400px;

@@ -2,12 +2,10 @@
 <template>
   <div class="inventario-cristales-container">
     <sidebar-menu />
-    <div class="inventario-cristales-inventario-cristales">
+    <div class="contenedor-pagina">
       <div class="encabezado">
         <div class="logo-header">
-        <img src="../assets/logo-01.png" 
-        alt="logo-maxisvision"
-        width="80">
+          <img src="../assets/logo-01.png" alt="logo-maxisvision" width="80" />
         </div>
         <div class="header-texto">Inventario cristales</div>
       </div>
@@ -30,9 +28,8 @@
       </div>
       <span class="inventario-cristales-text08"><span>Listado</span></span>
 
-      <div class= "Contenedor">
-
-        <div class= "Columnas">
+      <div class="Contenedor">
+        <div class="Columnas">
           <span class="Columna1">Tipo</span>
           <span class="Columna2">Esferico</span>
           <span class="Columna3">Cilindro</span>
@@ -44,27 +41,36 @@
           <span class="Columna9">Estado</span>
           <span class="Columna10">Sucursal</span>
         </div>
-          <div class= "Columnas" v-for= "(cristal,index) in listadoCristales" :key="index">
-            <span class="Columna1">{{cristal.tipo}}</span>
-            <span class="Columna2">{{cristal.esferico}}</span>
-            <span class="Columna3">{{cristal.cilindro}}</span>
-            <span class="Columna4">{{cristal.eje}}</span>
-            <span class="Columna5">{{cristal.dp}}</span>
-            <span class="Columna6">{{cristal.cr_min}}</span>
-            <span class="Columna7">{{cristal.foto_ar}}</span>
-            <span class="Columna8">{{cristal.add}}</span>
-            <span class="Columna9">{{cristal.estado_proceso}}</span>
-            <span class="Columna10" v-for="(sucursal, indice) in listadoSucursales" :key="indice">
-              <span v-if="sucursal.id == cristal.id_sucursal">{{sucursal.nombre}}</span>
-            </span>
-          </div>
+        <div
+          class="Columnas"
+          v-for="(cristal, index) in listadoCristales"
+          :key="index"
+        >
+          <span class="Columna1">{{ cristal.tipo }}</span>
+          <span class="Columna2">{{ cristal.esferico }}</span>
+          <span class="Columna3">{{ cristal.cilindro }}</span>
+          <span class="Columna4">{{ cristal.eje }}</span>
+          <span class="Columna5">{{ cristal.dp }}</span>
+          <span class="Columna6">{{ cristal.cr_min }}</span>
+          <span class="Columna7">{{ cristal.foto_ar }}</span>
+          <span class="Columna8">{{ cristal.add }}</span>
+          <span class="Columna9">{{ cristal.estado_proceso }}</span>
+          <span
+            class="Columna10"
+            v-for="(sucursal, indice) in listadoSucursales"
+            :key="indice"
+          >
+            <span v-if="sucursal.id == cristal.id_sucursal">{{
+              sucursal.nombre
+            }}</span>
+          </span>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-
 export default {
   name: 'InventarioCristales',
   head: {
@@ -81,16 +87,13 @@ export default {
   methods: {
     getData: async function () {
       try {
-
         let response = await this.$axios.get('/cristal')
         this.listadoCristales = response.data
 
         let sucursales = await this.$axios.get('/sucursal')
         this.listadoSucursales = sucursales.data
-
-
       } catch (error) {
-        console.log('Error al obtener listado cristales',error)
+        console.log('Error al obtener listado cristales', error)
       }
     },
   },
@@ -98,31 +101,12 @@ export default {
   created: function () {
     this.getData()
   },
-
 }
-
-
 </script>
 
 <style scoped>
 .inventario-cristales-container {
   min-height: 100vh;
-}
-.inventario-cristales-inventario-cristales {
-  width: 100%;
-  height: 1080px;
-  display: flex;
-  overflow: hidden;
-  overflow-x: auto;
-  overflow-y: auto;
-  position: relative;
-  max-width: 1920px;
-  box-sizing: border-box;
-  align-items: flex-start;
-  flex-shrink: 0;
-  border-color: transparent;
-  border-radius: 0px 0px 0px 0px;
-  background-color: rgba(255, 255, 255, 1);
 }
 
 .inventario-cristales-visualizar {
@@ -288,7 +272,6 @@ export default {
   height: auto;
   font-size: 20px;
   font-style: Bold;
-  
 }
 .Columna2 {
   position: absolute;
@@ -371,5 +354,4 @@ export default {
   font-size: 20px;
   font-style: Bold;
 }
-
 </style>

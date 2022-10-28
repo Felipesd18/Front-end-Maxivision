@@ -1,16 +1,12 @@
 <template>
   <div class="listado-ordenes-container">
     <sidebar-menu />
-    <div class="listado-ordenes-listado-ordenes">
-      <div class="encabezado"> 
+    <div class="contenedor-pagina">
+      <div class="encabezado">
         <div class="logo-header">
-        <img src="../assets/logo-01.png" 
-        alt="logo-maxisvision"
-        width="80">
+          <img src="../assets/logo-01.png" alt="logo-maxisvision" width="80" />
         </div>
-        <div class="header-texto">
-        Listado de ordenes
-        </div>
+        <div class="header-texto">Listado de ordenes</div>
       </div>
       <div class="listado-ordenes-ingresar-marco">
         <nuxt-link to="/Orden">
@@ -36,22 +32,6 @@ export default {
 <style scoped>
 .listado-ordenes-container {
   min-height: 100vh;
-}
-.listado-ordenes-listado-ordenes {
-  width: 100%;
-  height: 1080px;
-  display: flex;
-  overflow: hidden;
-  overflow-x: auto;
-  overflow-y: auto;
-  position: relative;
-  max-width: 1920px;
-  box-sizing: border-box;
-  align-items: flex-start;
-  flex-shrink: 0;
-  border-color: transparent;
-  border-radius: 0px 0px 0px 0px;
-  background-color: rgba(255, 255, 255, 1);
 }
 
 .listado-ordenes-ingresar-marco {

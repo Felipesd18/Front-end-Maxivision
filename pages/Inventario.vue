@@ -2,24 +2,19 @@
 <template>
   <div class="inventario-container">
     <sidebar-menu />
-    <div class="inventario-inventario">
-      <div class="encabezado"> 
+    <div class="contenedor-pagina">
+      <div class="encabezado">
         <div class="logo-header">
-        <img src="../assets/logo-01.png" 
-        alt="logo-maxisvision"
-        width="80">
+          <img src="../assets/logo-01.png" alt="logo-maxisvision" width="80" />
         </div>
-        <div class="header-texto">
-        Inventario
-        </div>
+        <div class="header-texto">Inventario</div>
       </div>
       <div class="inventario-frame6">
         <div class="inventario-text02">
-          <div class="logo"> 
-          <img src="../assets/logo-marco.png"
-          width="150">
-        </div>
-            Marcos
+          <div class="logo">
+            <img src="../assets/logo-marco.png" width="150" />
+          </div>
+          Marcos
         </div>
         <div class="inventario-visualizar">
           <nuxt-link to="/InventarioMarco">
@@ -29,10 +24,9 @@
       </div>
       <div class="inventario-frame7">
         <div class="inventario-text11">
-          <div class="logo"> 
-          <img src="../assets/logo-lentes.png"
-          width="150">
-        </div>
+          <div class="logo">
+            <img src="../assets/logo-lentes.png" width="150" />
+          </div>
           Cristales
         </div>
         <div class="inventario-visualizar1">
@@ -57,22 +51,6 @@ export default {
 <style scoped>
 .inventario-container {
   min-height: 100vh;
-}
-.inventario-inventario {
-  width: 100%;
-  height: 1080px;
-  display: flex;
-  overflow: hidden;
-  overflow-x: auto;
-  overflow-y: auto;
-  position: relative;
-  max-width: 1920px;
-  box-sizing: border-box;
-  align-items: flex-start;
-  flex-shrink: 0;
-  border-color: transparent;
-  border-radius: 0px 0px 0px 0px;
-  background-color: rgba(255, 255, 255, 1);
 }
 
 .inventario-frame6 {
@@ -116,7 +94,7 @@ export default {
   width: 218px;
   height: 83px;
   overflow: hidden;
-  position:relative;
+  position: relative;
   box-sizing: border-box;
   align-items: flex-start;
   flex-shrink: 0;
@@ -150,7 +128,7 @@ export default {
   left: 50%;
   width: 45%;
   height: 450px;
-  
+
   overflow: hidden;
   position: absolute;
   box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.25);
@@ -187,7 +165,7 @@ export default {
   width: 218px;
   height: 83px;
   overflow: hidden;
-  position:relative;
+  position: relative;
   box-sizing: border-box;
   align-items: flex-start;
   flex-shrink: 0;
@@ -216,7 +194,7 @@ export default {
   margin-bottom: 0;
   text-decoration: none;
 }
-.logo{
-  display:block;
+.logo {
+  display: block;
 }
 </style>

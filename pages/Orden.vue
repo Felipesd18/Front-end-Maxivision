@@ -2,7 +2,12 @@
   <div class="orden-container">
     <sidebar-menu />
     <div class="orden-orden">
-      <span class="orden-text"><span>Orden</span></span>
+      <div class="encabezado">
+        <div class="logo-header">
+          <img src="../assets/logo-01.png" alt="logo-maxisvision" width="80" />
+        </div>
+        <div class="header-texto">Ordenes</div>
+      </div>
       <div class="orden-nombre-paciente">
         <span class="orden-text02"><span>Nombre Paciente</span></span>
         <div class="orden-group1">
@@ -241,24 +246,6 @@ export default {
   flex-shrink: 0;
   border-radius: 0px 0px 0px 0px;
   background-color: rgba(255, 255, 255, 1);
-}
-.orden-text {
-  top: 14px;
-  left: 20px;
-  color: rgba(0, 0, 0, 1);
-  height: auto;
-  position: absolute;
-  font-size: 64px;
-  align-self: auto;
-  font-style: Bold;
-  text-align: left;
-  font-family: Poppins;
-  font-weight: 700;
-  line-height: normal;
-  font-stretch: normal;
-  margin-right: 0;
-  margin-bottom: 0;
-  text-decoration: none;
 }
 .orden-nombre-paciente {
   top: 120px;

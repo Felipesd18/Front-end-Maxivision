@@ -1,11 +1,14 @@
 <template>
   <div class="agregar-cristal-container">
     <sidebar-menu />
-    <div class="agregar-cristal-agregar-cristal">
-      <form @submit.prevent="handleSubmitForm">
-        <div class="agregar-cristal-text">
-          Ingreso Cristal a Inventario
+    <div class="contenedor-pagina">
+      <div class="encabezado">
+        <div class="logo-header">
+          <img src="../assets/logo-01.png" alt="logo-maxisvision" width="80" />
         </div>
+        <div class="header-texto">Ingreso Cristal a Inventario</div>
+      </div>
+      <form @submit.prevent="handleSubmitForm">
         <span class="agregar-cristal-text02"><span>Tipo</span></span>
         <select class="custom-select" v-model="newCristal.tipo" required>
           <option disabled>Seleccione un tipo de Cristal</option>
@@ -246,22 +249,6 @@ export default {
 <style scoped>
 .agregar-cristal-container {
   min-height: 100vh;
-}
-.agregar-cristal-agregar-cristal {
-  width: 100%;
-  height: 1080px;
-  display: flex;
-  overflow: hidden;
-  overflow-x: auto;
-  overflow-y: auto;
-  position: relative;
-  max-width: 1920px;
-  box-sizing: border-box;
-  align-items: flex-start;
-  flex-shrink: 0;
-  border-color: transparent;
-  border-radius: 0px 0px 0px 0px;
-  background-color: rgba(255, 255, 255, 1);
 }
 .agregar-cristal-text {
   color: white;
