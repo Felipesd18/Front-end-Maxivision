@@ -76,6 +76,7 @@ export default {
       listadoModelos: [],
       listadoColores: [],
       listadoMarcosFiltrado: [],
+      listadoMarcosExcel: [],
     }
   },
   methods: {
@@ -134,8 +135,44 @@ export default {
       }
     },
     descargarExcel(){
-      
-      const data = this.listadoMarcosFiltrado;
+      for (let i in this.listadoMarcos) {
+          let marco = {
+            marca: '',
+            modelo: '',
+            color: '',
+            estado_marco: '',
+            sucursal: '',
+          }
+
+          marco.marca = this.listadoMarcas
+            .filter(
+              (marca) => marca.id == this.listadoMarcos.at(i).id_marca_marco
+            )
+            .at(0).nombre
+
+          marco.modelo = this.listadoModelos
+            .filter(
+              (modelo) => modelo.id == this.listadoMarcos.at(i).id_modelo_marca
+            )
+            .at(0).codigo
+
+          marco.color = this.listadoColores
+            .filter(
+              (color) => color.id == this.listadoMarcos.at(i).id_codigo_color
+            )
+            .at(0).codigo
+
+          marco.estado_marco = this.listadoMarcos.at(i).estado_de_marco
+
+          marco.sucursal = this.listadoSucursales
+            .filter(
+              (sucursal) => sucursal.id == this.listadoMarcos.at(i).id_sucursal
+            )
+            .at(0).nombre
+
+          this.listadoMarcosExcel.push(marco)
+        }
+      const data = this.listadoMarcosExcel;
       const fileName = "Marcos";
       const exportType = exportXlsFile.types.xls;
       exportXlsFile({data,fileName,exportType})
