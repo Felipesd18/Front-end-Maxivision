@@ -21,14 +21,21 @@
           </span>
         </nuxt-link>
       </div>
-      <div class="inventario-cristales-descargar">
-        <span class="inventario-cristales-text06">
-          <span>Descargar inventario para proovedores</span>
-        </span>
-      </div>
-      <span class="inventario-cristales-text08"><span>Listado</span></span>
+      
+      <span class="inventario-cristales-text08">
+        <span>Listado</span>
+        <v-btn
+            color="primary"
+            class="boton-descarga"
+            dark
+            @click="descargarExcel()"
+          >
+            Descargar inventario</v-btn
+          >
+      </span>
 
       <div class="Contenedor">
+        
         <div class="Columnas">
           <span class="Columna1">Tipo</span>
           <span class="Columna2">Esferico</span>
@@ -72,7 +79,7 @@
 
 <script>
 import authHeader from '../services/auth-header'
-
+import exportXlsFile from 'export-from-json'
 export default {
   name: 'InventarioCristales',
   head: {
@@ -83,6 +90,7 @@ export default {
     return {
       listadoCristales: [],
       listadoSucursales: [],
+      listadoCristalesExcel: [],
     }
   },
 
@@ -101,6 +109,44 @@ export default {
       } catch (error) {
         console.log('Error al obtener listado cristales', error)
       }
+    },
+    descargarExcel() {
+      for (let i in this.listadoCristales) {
+          let cristal = {
+            tipo :'',
+            esferico : '',
+            cilindro:'',
+            eje:'',
+            dp:'',
+            cr_min:'',
+            foto_ar:'',
+            add:'',
+            estado:'',
+            sucursal:'',
+          }
+          cristal.tipo = this.listadoCristales.at(i).tipo
+          cristal.esferico= this.listadoCristales.at(i).esferico
+          cristal.cilindro = this.listadoCristales.at(i).cilindro
+          cristal.eje = this.listadoCristales.at(i).eje
+          cristal.dp = this.listadoCristales.at(i).dp
+          cristal.cr_min= this.listadoCristales.at(i).cr_min
+          cristal.foto_ar = this.listadoCristales.at(i).foto_ar
+          cristal.add = this.listadoCristales.at(i).add
+          cristal.estado = this.listadoCristales.at(i).estado
+          cristal.sucursal = this.listadoSucursales
+            .filter(
+              (sucursal) => sucursal.id == this.listadoCristales.at(i).id_sucursal
+            )
+            .at(0).nombre
+    
+          this.listadoCristalesExcel.push(cristal)
+      }
+      
+      const data = this.listadoCristalesExcel;
+      const fileName = 'Cristales'
+      const exportType = exportXlsFile.types.xls
+      exportXlsFile({ data, fileName, exportType })
+      this.listadoCristalesExcel = [];
     },
   },
 
@@ -196,40 +242,10 @@ export default {
   margin-bottom: 0;
   text-decoration: none;
 }
-.inventario-cristales-descargar {
-  top: 181px;
-  left: 900px;
-  width: 679px;
-  height: 83px;
-  display: flex;
-  overflow: hidden;
-  position: absolute;
-  box-sizing: border-box;
-  align-items: flex-start;
-  flex-shrink: 0;
-  border-color: transparent;
-  margin-right: 0;
-  border-radius: 15px;
-  margin-bottom: 0;
-  background-color: var(--dl-color-default-defaultstroke);
-}
-.inventario-cristales-text06 {
-  top: 18px;
-  left: 23px;
-  color: rgba(255, 255, 255, 1);
-  height: auto;
-  position: absolute;
-  font-size: 32px;
-  align-self: auto;
-  font-style: Regular;
-  text-align: center;
-  font-family: Poppins;
-  font-weight: 400;
-  line-height: normal;
-  font-stretch: normal;
-  margin-right: 0;
-  margin-bottom: 0;
-  text-decoration: none;
+.boton-descarga {
+  top: 20%;
+  left: 75%;
+  
 }
 .inventario-cristales-text08 {
   top: 335px;
