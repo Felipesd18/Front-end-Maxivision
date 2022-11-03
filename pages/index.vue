@@ -1,11 +1,13 @@
 <template>
   <div>
-    <div class="panel-superior"> a</div>
+    <div class="panel-superior">a</div>
     <sidebar-menu />
     <div class="logo">
-      <img src="../assets/logo-maxivision.png" 
-      alt="logo-maxisvision"
-      width="200">
+      <img
+        src="../assets/logo-maxivision.png"
+        alt="logo-maxisvision"
+        width="200"
+      />
     </div>
     <div class="titulo">Bienvenido a Administración Maxivision</div>
   </div>
@@ -15,6 +17,16 @@
 import sidebarMenu from '../components/sidebar-menu.vue'
 export default {
   components: { sidebarMenu },
+  computed: {
+    loggedIn() {
+      return this.$store.state.auth.usuario.status.loggedIn
+    },
+  },
+  mounted() {
+    if (!this.loggedIn) {
+      this.$router.push('/login')
+    }
+  },
   data() {
     return {}
   },
@@ -24,7 +36,7 @@ export default {
 <style>
 .titulo {
   top: center;
-  
+
   color: var(--d1-color-texts);
   width: 100%;
   height: 100%;
@@ -38,20 +50,16 @@ export default {
   font-stretch: normal;
   margin-right: 0;
   margin-bottom: 0;
-  text-decoration:none;
+  text-decoration: none;
 }
-.panel-superior{
-  border-color:var(--d1-color-texts);
+.panel-superior {
+  border-color: var(--d1-color-texts);
   color: var(--d1-color-texts);
-  width:100%;
-  background-color:var(--d1-color-texts);
+  width: 100%;
+  background-color: var(--d1-color-texts);
 }
-.logo{
+.logo {
   text-align: center;
-  top:10px;
+  top: 10px;
 }
-
-
-
-
 </style>

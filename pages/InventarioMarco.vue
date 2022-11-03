@@ -83,15 +83,25 @@ export default {
   methods: {
     getData: async function () {
       try {
-        let response = await this.$axios.get('/marco')
+        let response = await this.$axios.get('/marco', {
+          headers: authHeader(),
+        })
         this.listadoMarcos = response.data
-        response = await this.$axios.get('/sucursal')
+        response = await this.$axios.get('/sucursal', {
+          headers: authHeader(),
+        })
         this.listadoSucursales = response.data
-        response = await this.$axios.get('/marca_marco')
+        response = await this.$axios.get('/marca_marco', {
+          headers: authHeader(),
+        })
         this.listadoMarcas = response.data
-        response = await this.$axios.get('/modelo_marca')
+        response = await this.$axios.get('/modelo_marca', {
+          headers: authHeader(),
+        })
         this.listadoModelos = response.data
-        response = await this.$axios.get('/color_marca')
+        response = await this.$axios.get('/color_marca', {
+          headers: authHeader(),
+        })
         this.listadoColores = response.data
 
         for (let i in this.listadoMarcos) {
@@ -181,6 +191,17 @@ export default {
   },
   created: function () {
     this.getData()
+  },
+
+  computed: {
+    currentUser() {
+      return this.$store.state.auth.usuario.status.loggedIn
+    },
+  },
+  mounted() {
+    if (!this.currentUser) {
+      this.$router.push('/login')
+    }
   },
 }
 </script>

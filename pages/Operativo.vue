@@ -30,6 +30,16 @@ export default {
   data() {
     return {}
   },
+  computed: {
+    currentUser() {
+      return this.$store.state.auth.usuario.status.loggedIn
+    },
+  },
+  mounted() {
+    if (!this.currentUser) {
+      this.$router.push('/login')
+    }
+  },
 }
 </script>
 

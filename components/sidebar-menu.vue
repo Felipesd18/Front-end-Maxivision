@@ -50,7 +50,7 @@
           <i v-else class="bx bxs-user-rectangle" />
           <div class="name_job">
             <div class="name">
-              {{ profileName }}
+              {{ currentUser.username }}
             </div>
             <div class="job">
               {{ profileRole }}
@@ -61,7 +61,7 @@
           v-if="isExitButton"
           class="bx bx-log-out"
           id="log_out"
-          @click.stop="$emit('button-exit-clicked')"
+          @click.stop="logout"
         />
       </div>
     </div>
@@ -220,6 +220,20 @@ export default {
       isOpened: false,
     }
   },
+  methods: {
+    logout() {
+      this.loading = true
+
+      this.$store.dispatch('auth/logout').then(
+        () => {
+          this.$router.push('/Login')
+        },
+        (error) => {
+          alert(error)
+        }
+      )
+    },
+  },
   mounted() {
     this.isOpened = this.isMenuOpen
   },
@@ -238,6 +252,9 @@ export default {
         '--menu-items-text-color': this.menuItemsTextColor,
         '--menu-footer-text-color': this.menuFooterTextColor,
       }
+    },
+    currentUser() {
+      return this.$store.state.auth.usuario.user
     },
   },
   watch: {

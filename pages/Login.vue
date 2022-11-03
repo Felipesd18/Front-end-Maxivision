@@ -1,13 +1,14 @@
 <template>
   <div class="contenedor">
     <div class="rectangulo">
-      <form action="">
+      <form @submit.prevent="handleSubmitForm">
         <span class="titulo">Ingreso</span>
         <div class="contenedor-input-usuario">
           <span class="contenedor-input-label">Usuario</span>
           <input
             class="input"
             type="text"
+            v-model="usuario.username"
             placeholder="Ingrese su nombre usuario"
           />
         </div>
@@ -16,6 +17,7 @@
           <input
             class="input"
             type="password"
+            v-model="usuario.password"
             placeholder="Ingrese su contraseña"
           />
         </div>
@@ -30,7 +32,40 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data: function () {
+    return {
+      usuario: {
+        username: '',
+        password: '',
+      },
+    }
+  },
+  computed: {
+    loggedIn() {
+      return this.$store.state.auth.usuario.status.loggedIn
+    },
+  },
+  created() {
+    if (this.loggedIn) {
+      this.$router.push('/')
+    }
+  },
+  methods: {
+    handleSubmitForm() {
+      this.loading = true
+
+      this.$store.dispatch('auth/login', this.usuario).then(
+        () => {
+          this.$router.push('/')
+        },
+        (error) => {
+          alert(error)
+        }
+      )
+    },
+  },
+}
 </script>
 
 <style>

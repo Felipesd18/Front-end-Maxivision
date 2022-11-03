@@ -226,6 +226,16 @@ export default {
   head: {
     title: 'exported project',
   },
+  computed: {
+    currentUser() {
+      return this.$store.state.auth.usuario.status.loggedIn
+    },
+  },
+  mounted() {
+    if (!this.currentUser) {
+      this.$router.push('/login')
+    }
+  },
 }
 </script>
 

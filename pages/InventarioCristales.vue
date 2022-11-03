@@ -71,6 +71,8 @@
 </template>
 
 <script>
+import authHeader from '../services/auth-header'
+
 export default {
   name: 'InventarioCristales',
   head: {
@@ -87,15 +89,30 @@ export default {
   methods: {
     getData: async function () {
       try {
-        let response = await this.$axios.get('/cristal')
+        let response = await this.$axios.get('/cristal', {
+          headers: authHeader(),
+        })
         this.listadoCristales = response.data
 
-        let sucursales = await this.$axios.get('/sucursal')
+        let sucursales = await this.$axios.get('/sucursal', {
+          headers: authHeader(),
+        })
         this.listadoSucursales = sucursales.data
       } catch (error) {
         console.log('Error al obtener listado cristales', error)
       }
     },
+  },
+
+  computed: {
+    currentUser() {
+      return this.$store.state.auth.usuario.status.loggedIn
+    },
+  },
+  mounted() {
+    if (!this.currentUser) {
+      this.$router.push('/login')
+    }
   },
 
   created: function () {
