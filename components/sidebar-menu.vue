@@ -49,8 +49,11 @@
           <img v-if="profileImg" :src="profileImg" alt="profileImg" />
           <i v-else class="bx bxs-user-rectangle" />
           <div class="name_job">
-            <div class="name">
+            <div class="name" v-if="currentUser !== null">
               {{ currentUser.username }}
+            </div>
+            <div class="name" v-else>
+              {{ profileName }}
             </div>
             <div class="job">
               {{ profileRole }}
