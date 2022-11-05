@@ -106,6 +106,7 @@
 </template>
 
 <script>
+import authHeader from '../services/auth-header'
 export default {
   name: 'AgregarMarco',
   head: {
@@ -136,7 +137,7 @@ export default {
   methods: {
     handleSubmitForm() {
       this.$axios
-        .post('/marco', this.newMarco) //Se realiza post con el objeto newMarco como parametro asimilando el formato json
+        .post('/marco', this.newMarco, { headers: authHeader() }) //Se realiza post con el objeto newMarco como parametro asimilando el formato json
         .then((res) => {
           this.respuesta = 'Se ha agregado correctamente el Marco'
           window.location.reload()
@@ -149,13 +150,21 @@ export default {
     },
     getData: async function () {
       try {
-        let response = await this.$axios.get('/sucursal')
+        let response = await this.$axios.get('/sucursal', {
+          headers: authHeader(),
+        })
         this.sucursales = response.data
-        response = await this.$axios.get('/marca_marco')
+        response = await this.$axios.get('/marca_marco', {
+          headers: authHeader(),
+        })
         this.marcas = response.data
-        response = await this.$axios.get('/modelo_marca')
+        response = await this.$axios.get('/modelo_marca', {
+          headers: authHeader(),
+        })
         this.modelos = response.data
-        response = await this.$axios.get('/color_marca')
+        response = await this.$axios.get('/color_marca', {
+          headers: authHeader(),
+        })
         this.colores = response.data
       } catch (error) {
         console.log('Error al obtener los datos', error)
