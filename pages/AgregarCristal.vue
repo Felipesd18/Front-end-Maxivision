@@ -218,7 +218,7 @@ export default {
   methods: {
     handleSubmitForm() {
       this.$axios
-        .post('/cristal', this.newCristal) //Se realiza post con el objeto newCristal como parametro asimilando el formato json
+        .post('/cristal', this.newCristal, { headers: authHeader() }) //Se realiza post con el objeto newCristal como parametro asimilando el formato json
         .then((res) => {
           this.respuesta = 'Se ha agregado correctamente el Cristal'
           window.location.reload()
@@ -231,7 +231,9 @@ export default {
     },
     getData: async function () {
       try {
-        let response = await this.$axios.get('/sucursal')
+        let response = await this.$axios.get('/sucursal', {
+          headers: authHeader(),
+        })
         this.sucursales = response.data
         // console.log(response) // muestra en consola la data
       } catch (error) {
