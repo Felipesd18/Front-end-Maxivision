@@ -62,6 +62,7 @@
 </template>
 
 <script>
+import authHeader from '../services/auth-header'
 import exportXlsFile from 'export-from-json'
 export default {
   name: 'InventarioMarco',
