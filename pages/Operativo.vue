@@ -16,13 +16,14 @@
       </div>
 
       <div class="contenedor-listado">
-        <label class="listado-label">Lista de Operativos</label>
+        <label class="label-titulo">Lista de Operativos</label>
 
         <div class="fila">
           <span class="columna">Nombre</span>
           <span class="columna">Fecha inicio</span>
           <span class="columna">Fecha Final</span>
           <span class="columna">Sucursal</span>
+          <span class="columna">Acción</span>
         </div>
 
         <div class="fila" v-for="(operativo, index) in operativos" :key="index">
@@ -38,6 +39,11 @@
               {{ sucursal.nombre }}
             </span>
           </span>
+          <div class="columna">
+            <button class="boton-ir" @click="irAOperativo(operativo)">
+              Ir
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -70,6 +76,10 @@ export default {
       } catch (error) {
         console.log('Error al obtener los datos', error)
       }
+    },
+    irAOperativo(operativo) {
+      this.$store.commit('page/setOperativo', operativo)
+      this.$router.push('/InfoOperativo')
     },
   },
   computed: {
@@ -121,6 +131,17 @@ export default {
 }
 
 .columna {
-  width: 350px;
+  width: 300px;
+}
+
+.boton-ir {
+  color: var(--dl-color-gray-black);
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-color: var(--dl-color-gray-black);
+  border-width: 1px;
+  border-radius: 4px;
+  background-color: var(--dl-color-default-defaultstroke);
+  color: var(--d1-color-default-label-button);
 }
 </style>

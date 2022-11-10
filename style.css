@@ -171,14 +171,30 @@
   font-size: 24px;
   font-weight: 400;
   flex-wrap: wrap;
-  justify-content: center;
-  margin: 10px 50px 10px 0px;
+  justify-content: left; /*Donde justificar todo el contenido del div*/
+  margin: 10px 100px 10px 0px;
 }
 
 .columna {
   display: table-cell;
   float: left;
   min-width: 100px;
-  margin: 10px 50px 10px 50px; /*arriba derecha abajo izquierda*/
-  white-space: nowrap; /*Para obligar al texto estar en una linea*/
+  margin: 10px 10px 10px 10px; /*arriba derecha abajo izquierda*/
+  /*white-space: nowrap; Para obligar al texto estar en una linea*/
+}
+
+.label-titulo {
+  order: -1;
+  color: var(--d1-color-texts);
+  height: auto;
+  position: relative;
+  font-size: 40px;
+  align-self: auto;
+  text-align: left;
+  font-family: Poppins;
+  font-weight: 700;
+  line-height: normal;
+  margin-right: 0;
+  margin-bottom: 0;
+  text-decoration: none;
 }
