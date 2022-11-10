@@ -21,6 +21,18 @@
           </span>
         </nuxt-link>
       </div>
+      
+      <span class="inventario-cristales-text08">
+        <span>Listado</span>
+        <v-btn
+            color="primary"
+            class="boton-descarga"
+            dark
+            @click="descargarExcel()"
+          >
+            Descargar inventario</v-btn
+          >
+      </span>
 
       <span class="inventario-cristales-text08">
         <span>Listado</span>
@@ -35,6 +47,7 @@
       </span>
 
       <div class="Contenedor">
+        
         <div class="Columnas">
           <span class="Columna1">Tipo</span>
           <span class="Columna2">Esferico</span>
@@ -111,41 +124,41 @@ export default {
     },
     descargarExcel() {
       for (let i in this.listadoCristales) {
-        let cristal = {
-          tipo: '',
-          esferico: '',
-          cilindro: '',
-          eje: '',
-          dp: '',
-          cr_min: '',
-          foto_ar: '',
-          add: '',
-          estado: '',
-          sucursal: '',
-        }
-        cristal.tipo = this.listadoCristales.at(i).tipo
-        cristal.esferico = this.listadoCristales.at(i).esferico
-        cristal.cilindro = this.listadoCristales.at(i).cilindro
-        cristal.eje = this.listadoCristales.at(i).eje
-        cristal.dp = this.listadoCristales.at(i).dp
-        cristal.cr_min = this.listadoCristales.at(i).cr_min
-        cristal.foto_ar = this.listadoCristales.at(i).foto_ar
-        cristal.add = this.listadoCristales.at(i).add
-        cristal.estado = this.listadoCristales.at(i).estado
-        cristal.sucursal = this.listadoSucursales
-          .filter(
-            (sucursal) => sucursal.id == this.listadoCristales.at(i).id_sucursal
-          )
-          .at(0).nombre
-
-        this.listadoCristalesExcel.push(cristal)
+          let cristal = {
+            tipo :'',
+            esferico : '',
+            cilindro:'',
+            eje:'',
+            dp:'',
+            cr_min:'',
+            foto_ar:'',
+            add:'',
+            estado:'',
+            sucursal:'',
+          }
+          cristal.tipo = this.listadoCristales.at(i).tipo
+          cristal.esferico= this.listadoCristales.at(i).esferico
+          cristal.cilindro = this.listadoCristales.at(i).cilindro
+          cristal.eje = this.listadoCristales.at(i).eje
+          cristal.dp = this.listadoCristales.at(i).dp
+          cristal.cr_min= this.listadoCristales.at(i).cr_min
+          cristal.foto_ar = this.listadoCristales.at(i).foto_ar
+          cristal.add = this.listadoCristales.at(i).add
+          cristal.estado = this.listadoCristales.at(i).estado
+          cristal.sucursal = this.listadoSucursales
+            .filter(
+              (sucursal) => sucursal.id == this.listadoCristales.at(i).id_sucursal
+            )
+            .at(0).nombre
+    
+          this.listadoCristalesExcel.push(cristal)
       }
-
-      const data = this.listadoCristalesExcel
+      
+      const data = this.listadoCristalesExcel;
       const fileName = 'Cristales'
       const exportType = exportXlsFile.types.xls
       exportXlsFile({ data, fileName, exportType })
-      this.listadoCristalesExcel = []
+      this.listadoCristalesExcel = [];
     },
   },
 
@@ -244,6 +257,7 @@ export default {
 .boton-descarga {
   top: 20%;
   left: 75%;
+  
 }
 .inventario-cristales-text08 {
   top: 335px;
