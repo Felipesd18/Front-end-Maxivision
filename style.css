@@ -152,3 +152,33 @@
   margin-bottom: 0;
   text-decoration: none;
 }
+
+.fila {
+  width: auto;
+  height: auto;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  flex-shrink: 0;
+  border-color: var(--dl-color-default-defaultstroke);
+  /*border-style: solid;*/
+  border-width: 1px;
+  border-radius: 15px;
+  background-color: var(--dl-color-default-formbackground);
+  font-family: Poppins;
+  font-size: 24px;
+  font-weight: 400;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px 50px 10px 0px;
+}
+
+.columna {
+  display: table-cell;
+  float: left;
+  min-width: 100px;
+  margin: 10px 50px 10px 50px; /*arriba derecha abajo izquierda*/
+  white-space: nowrap; /*Para obligar al texto estar en una linea*/
+}

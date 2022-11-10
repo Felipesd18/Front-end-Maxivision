@@ -9,53 +9,128 @@
         <div class="header-texto">Iniciar Operativo</div>
       </div>
 
-      <div class="contenedor-fecha-inicio">
-        <label class="label-contenedor">Fecha Inicio</label>
-        <input class="input-fecha" type="date" />
-      </div>
-
-      <div class="contenedor-fecha-final">
-        <label class="label-contenedor">Fecha Final</label>
-        <input class="input-fecha" type="date" />
-      </div>
-
-      <div class="contenedor-nombre-operativo">
-        <label class="label-contenedor">Nombre del Operativo</label>
-        <input
-          class="input-text"
-          type="text"
-          placeholder="Ingrese nombre Operativo"
-        />
-      </div>
-
-      <div class="contenedor-descripcion-operativo">
-        <label class="label-contenedor">Descripción del Operativo</label>
-        <div class="div-rize">
+      <form @submit.prevent="handleSubmitForm">
+        <div class="contenedor-fecha-inicio">
+          <label class="label-contenedor">Fecha Inicio</label>
           <input
-            class="input-text-resize"
-            type="text"
-            placeholder="Ingrese descripción del Operativo"
+            class="input-fecha"
+            type="date"
+            v-model="newOperativo.fecha_inicio"
+            required
           />
         </div>
-      </div>
 
-      <div class="contenedor-boton-cancelar">
-        <nuxt-link to="/Operativo">
-          <label class="label-boton">Cancelar</label>
-        </nuxt-link>
-      </div>
+        <div class="contenedor-fecha-final">
+          <label class="label-contenedor">Fecha Final</label>
+          <input
+            class="input-fecha"
+            type="date"
+            v-model="newOperativo.fecha_final"
+            required
+          />
+        </div>
 
-      <div class="contenedor-boton-ingresar">
-        <label class="label-boton">Ingresar</label>
-      </div>
+        <div class="contenedor-nombre-operativo">
+          <label class="label-contenedor">Nombre del Operativo</label>
+          <input
+            class="input-text"
+            type="text"
+            v-model="newOperativo.nombre"
+            placeholder="Ingrese nombre Operativo"
+            maxlength="32"
+            required
+          />
+        </div>
+        <div class="contenedor-selector-sucursal">
+          <label class="label-contenedor">Sucursal</label>
+          <select
+            class="input-select"
+            v-model="newOperativo.id_sucursal"
+            required
+          >
+            <option disabled>Seleccione una Sucursal</option>
+            <option
+              v-for="(sucursal, index) in sucursales"
+              :key="index"
+              :value="sucursal.id"
+            >
+              {{ sucursal.nombre }}
+            </option>
+          </select>
+        </div>
+
+        <div class="contenedor-descripcion-operativo">
+          <label class="label-contenedor">Descripción del Operativo</label>
+          <div class="div-rize">
+            <input
+              class="input-text-resize"
+              type="text"
+              v-model="newOperativo.descripcion"
+              placeholder="Ingrese descripción del Operativo"
+            />
+          </div>
+        </div>
+
+        <div class="contenedor-boton-cancelar">
+          <nuxt-link to="/Operativo">
+            <label class="label-boton">Cancelar</label>
+          </nuxt-link>
+        </div>
+        <div class="contenedor-boton-ingresar">
+          <button type="submit" class="perimetro-boton-ingresar">
+            Ingresar
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 </template>
 
 <script>
 import sidebarMenu from '../components/sidebar-menu.vue'
+import authHeader from '../services/auth-header'
 export default {
   components: { sidebarMenu },
+  data: function () {
+    return {
+      sucursales: [],
+      newOperativo: {
+        fecha_inicio: '',
+        fecha_final: '',
+        descripcion: '',
+        nombre: '',
+        id_usuario: this.$store.state.auth.usuario.user.id,
+        id_sucursal: '',
+      },
+    }
+  },
+  methods: {
+    getData: async function () {
+      try {
+        let response = await this.$axios.get('/sucursal', {
+          headers: authHeader(),
+        })
+        this.sucursales = response.data
+      } catch (error) {
+        console.log('Error al obtener los datos', error)
+      }
+    },
+    handleSubmitForm() {
+      this.$axios
+        .post('/operativo', this.newOperativo, { headers: authHeader() })
+        .then((res) => {
+          alert('Se ha iniciado un operativo correctamente')
+          this.$router.push('/Operativo')
+        })
+        .catch((error) => {
+          alert(error)
+          console.log(error)
+        })
+    },
+  },
+  created: function () {
+    this.getData()
+  },
   computed: {
     currentUser() {
       return this.$store.state.auth.usuario.status.loggedIn
@@ -65,9 +140,6 @@ export default {
     if (!this.currentUser) {
       this.$router.push('/login')
     }
-  },
-  data() {
-    return {}
   },
 }
 </script>
@@ -88,6 +160,12 @@ export default {
 .contenedor-nombre-operativo {
   top: 250px;
   left: 20px;
+  position: absolute;
+}
+
+.contenedor-selector-sucursal {
+  top: 250px;
+  left: 400px;
   position: absolute;
 }
 
@@ -145,6 +223,19 @@ export default {
   resize: both;
 }
 
+.input-select {
+  top: 10px;
+  width: 360px;
+  height: 40px;
+  text-align: center;
+  position: relative;
+  display: flex;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 15px;
+  font-size: 24px;
+}
+
 .input-text-resize {
   width: 100%;
   height: 100%;
@@ -199,5 +290,22 @@ export default {
   border-radius: 15px;
   border-color: var(--dl-color-default-defaultstroke);
   font-family: Poppins;
+}
+.perimetro-boton-ingresar {
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--d1-color-default-label-button);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  font-size: 32px;
+  align-self: auto;
+  text-align: center;
+  font-family: Poppins;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  margin-bottom: 0;
+  text-decoration: none;
 }
 </style>

@@ -17,6 +17,28 @@
 
       <div class="contenedor-listado">
         <label class="listado-label">Lista de Operativos</label>
+
+        <div class="fila">
+          <span class="columna">Nombre</span>
+          <span class="columna">Fecha inicio</span>
+          <span class="columna">Fecha Final</span>
+          <span class="columna">Sucursal</span>
+        </div>
+
+        <div class="fila" v-for="(operativo, index) in operativos" :key="index">
+          <span class="columna"> {{ operativo.nombre }} </span>
+          <span class="columna">
+            {{ operativo.fecha_inicio.split('T')[0] }}
+          </span>
+          <span class="columna">
+            {{ operativo.fecha_final.split('T')[0] }}
+          </span>
+          <span v-for="(sucursal, indice) in sucursales" :key="indice">
+            <span class="columna" v-if="sucursal.id == operativo.id_sucursal">
+              {{ sucursal.nombre }}
+            </span>
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -25,10 +47,30 @@
 
 <script>
 import sidebarMenu from '../components/sidebar-menu.vue'
+import authHeader from '../services/auth-header'
 export default {
   components: { sidebarMenu },
   data() {
-    return {}
+    return {
+      operativos: [],
+      sucursales: [],
+    }
+  },
+  methods: {
+    getData: async function () {
+      try {
+        let response = await this.$axios.get('/sucursal', {
+          headers: authHeader(),
+        })
+        this.sucursales = response.data
+        response = await this.$axios.get('/operativo', {
+          headers: authHeader(),
+        })
+        this.operativos = response.data
+      } catch (error) {
+        console.log('Error al obtener los datos', error)
+      }
+    },
   },
   computed: {
     currentUser() {
@@ -39,6 +81,9 @@ export default {
     if (!this.currentUser) {
       this.$router.push('/login')
     }
+  },
+  created: function () {
+    this.getData()
   },
 }
 </script>
@@ -73,5 +118,9 @@ export default {
   font-size: 40px;
   font-weight: 700;
   color: var(--d1-color-texts);
+}
+
+.columna {
+  width: 350px;
 }
 </style>

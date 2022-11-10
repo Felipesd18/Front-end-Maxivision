@@ -6,7 +6,7 @@ export default {
     titleTemplate: 'Administracion Maxivision',
     //title: 'Front-end-Maxivision',
     htmlAttrs: {
-      lang: 'en',
+      lang: 'es',
     },
     meta: [
       { charset: 'utf-8' },
