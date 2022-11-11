@@ -1,6 +1,7 @@
 <template>
   <div>
     <sidebar-menu />
+
     <div>
       <div class="encabezado">
         <div class="logo-header">
@@ -59,25 +60,12 @@
             </div>
           </td>
         </tr>
-
+        
         <tr>
           <td>
             <div>
               <h1>Sucursal</h1>
-              <select
-                class="tablaBotSucursal" 
-                v-model="newOrden.idSucursal"
-                required
-              >
-                <option disabled>Selecione una Sucursal</option>
-                <option
-                  v-for="(sucursal, index) in listaSucursales"
-                  :key="index"
-                  :value="sucursal.id"
-                >
-                  {{ sucursal.nombre }}
-                </option>
-              </select>
+              
             </div>
           </td>
 
@@ -430,10 +418,10 @@
         </tr>
       </table>
 
-      <button class="botonEntrada" type="submit">ENTRADA</button>
+      <button class="botonEntrada" type="submit">Ingresar</button>
 
       <nuxt-link to="/ListadoOrdenes">
-        <button class="botonSalida">SALIDA</button>
+        <button class="botonSalida">Cancelar</button>
       </nuxt-link>
     </form>
   </div>
@@ -531,7 +519,7 @@ export default {
           headers: authHeader(),
         })
         this.listaSucursales = response.data
-        
+
       } catch (error) {
         console.log('Error al obtener la informacion', error)
       }
@@ -543,6 +531,21 @@ export default {
       this.newOrden.lote = this.listaOrdenes.length +1
       this.newCristalD.lote = this.listaOrdenes.lenght +1
       this.newCristalI.lote = this.listaOrdenes.lenght +1
+
+      <select
+                class="tablaBotSucursal" 
+                v-model="newOrden.idSucursal"
+                required
+              >
+                <option disabled>Selecione una Sucursal</option>
+                <option
+                  v-for="(sucursal, index) in listaSucursales"
+                  :key="index"
+                  :value="sucursal.id"
+                >
+                  {{ sucursal.nombre }}
+                </option>
+              </select>
       */
 
       this.$axios
