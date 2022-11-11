@@ -15,6 +15,7 @@
           </span>
         </nuxt-link>
       </div>
+
       <span class="listado-ordenes-text4"><span>Listado</span></span>
     </div>
   </div>

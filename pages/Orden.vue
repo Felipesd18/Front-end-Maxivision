@@ -10,314 +10,504 @@
       </div>
     </div>
 
-    <table class="tablaDatos">
-      <tr>
-        <td>
-          <div>
-            <h1>Nombre de Paciente</h1>
-            <input v-model="message" placeholder="Nombre" />
-          </div>
-        </td>
-
-        <td>
-          <div>
-            <h1>Rut</h1>
-            <input v-model="message" placeholder="Rut" />
-          </div>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <div>
-            <h1>Fono</h1>
-            <input v-model="message" placeholder="Fono" />
-          </div>
-        </td>
-        <td>
-          <div>
-            <h1>Fecha de Recepcion</h1>
-            <input v-model="message" placeholder="Ingrese Fecha" type="date" />
-          </div>
-        </td>
-      </tr>
-    </table>
-
-    <h1 class="titulo">Cerca</h1>
-
-    <table class="tablaCercaLejos">
-      <tr>
-        <th></th>
-        <th>Esfera</th>
-        <th>Cilindro</th>
-        <th>Eje</th>
-        <th>DP</th>
-        <th>CR o MIN</th>
-        <th>Foto o AR</th>
-      </tr>
-
-      <tr>
-        <th>OD</th>
-
-        <td>
-          <div>
-            <input v-model="message" placeholder="Input" type="number"/>
-          </div>
-        </td>
-
-        <td>
-          <div>
-             <input v-model="message" placeholder="Input" type="number"/>
-          </div>
-        </td>
-
-        <td>
-          <div>
-             <input v-model="message" placeholder="Input" type="number"/>
-          </div>
-        </td>
-
-        <td>
-          <div>
-             <input v-model="message" placeholder="Input" type="number"/>
-          </div>
-        </td>
-
-        <td>
-          <div>
-             <input v-model="message" placeholder="Input" type="number"/>
-          </div>
-        </td>
-
-        <td>
-          <div>
-             <input v-model="message" placeholder="Input" type="number"/>
-          </div>
-        </td>
-      </tr>
-
-      <tr>
-        <th>OI</th>
-
-        <td>
-          <div>
-             <input v-model="message" placeholder="Input" type="number"/>
-          </div>
-        </td>
-
-        <td>
-          <div>
-             <input v-model="message" placeholder="Input" type="number"/>
-          </div>
-        </td>
-
-        <td>
-          <div>
-             <input v-model="message" placeholder="Input" type="number"/>
-          </div>
-        </td>
-
-        <td>
-          <div>
-             <input v-model="message" placeholder="Input" type="number"/>
-          </div>
-        </td>
-
-        <td>
-          <div>
-             <input v-model="message" placeholder="Input" type="number"/>
-          </div>
-        </td>
-
-        <td>
-          <div>
-             <input v-model="message" placeholder="Input" type="number"/>
-          </div>
-        </td>
-      </tr>
-    </table>
-
-    <!-- Tabla ADD-->
-    <table class="tablaCercaLejos">
-      <tr>
-        <th>ADD</th>
-
-        <td>
-          <div>
-            <input v-model="message" placeholder="Input" />
-          </div>
-        </td>
-
-        <td>
-          <div>
-            <input v-model="message" placeholder="Input" />
-          </div>
-        </td>
-      </tr>
-    </table>
-
-    <h1 class="titulo">Lejos</h1>
-
-    <table class="tablaCercaLejos">
-      <tr>
-        <th></th>
-        <th>Esfera</th>
-        <th>Cilindro</th>
-        <th>Eje</th>
-        <th>DP</th>
-        <th>CR o MIN</th>
-        <th>Foto o AR</th>
-      </tr>
-
-      <tr>
-        <th>OD</th>
-
-        <td>
-          <div>
-            <input v-model="message" placeholder="Input" type="number" />
-          </div>
-        </td>
-
-        <td>
-          <div>
-            <input v-model="message" placeholder="Input" type="number" />
-          </div>
-        </td>
-
-        <td>
-          <div>
-            <input v-model="message" placeholder="Input" type="number" />
-          </div>
-        </td>
-
-        <td>
-          <div>
-            <input v-model="message" placeholder="Input" type="number" />
-          </div>
-        </td>
-
-        <td>
-          <div>
-            <input v-model="message" placeholder="Input" type="number" />
-          </div>
-        </td>
-
-        <td>
-          <div>
-            <input v-model="message" placeholder="Input" type="number" />
-          </div>
-        </td>
-      </tr>
-
-      <tr>
-        <th>OI</th>
-
-        <td>
-          <div>
-            <input v-model="message" placeholder="Input" type="number" />
-          </div>
-        </td>
-
-        <td>
-          <div>
-            <input v-model="message" placeholder="Input" type="number" />
-          </div>
-        </td>
-
-        <td>
-          <div>
-            <input v-model="message" placeholder="Input" type="number" />
-          </div>
-        </td>
-
-        <td>
-          <div>
-            <input v-model="message" placeholder="Input" type="number" />
-          </div>
-        </td>
-
-        <td>
-          <div>
-            <input v-model="message" placeholder="Input" type="number" />
-          </div>
-        </td>
-
-        <td>
-          <div>
-            <input v-model="message" placeholder="Input" type="number" />
-          </div>
-        </td>
-      </tr>
-    </table>
-
-    <!-- Tabla ADD-->
-    <table class="tablaCercaLejos">
-      <tr>
-        <th>ADD</th>
-
-        <td>
-          <div>
-            <input v-model="message" placeholder="Input" />
-          </div>
-        </td>
-
-        <td>
-          <div>
-            <input v-model="message" placeholder="Input" />
-          </div>
-        </td>
-      </tr>
-    </table>
-
-    <!-- OBSERVACIONES -->
-    <table class="tablaObs">
-      <tr>
-        <td>
-          <div>
-            <h1 class="titulo"> Observaciones</h1>
-            <input class="Obs" v-model="message" placeholder="Observaciones" />
-          </div>
-        </td>
-
-        <td>
-
-          <tr>
-            <div >
-              <h1>Total</h1>
-              <input class="money" v-model="message" placeholder="Ingrese Total" />
+    <form @submit.prevent="enviarFormulario">
+      <table class="tablaDatos">
+        <tr>
+          <td>
+            <div>
+              <h1>Nombre de Paciente</h1>
+              <input v-model="newOrden.nombre" placeholder="Nombre" />
             </div>
-          </tr>
+          </td>
 
-          <tr>
-            <div >
-              <h1>Abono</h1>
-              <input class="money" v-model="message" placeholder="Ingrese Abono" />
+          <td>
+            <div>
+              <h1>Rut</h1>
+              <input v-model="newOrden.rut" placeholder="Rut" />
             </div>
-          </tr>
+          </td>
 
-          <tr>
-            <div >
-              <h1>Saldo</h1>
-              <input class="money" v-model="message" placeholder="Ingrese Saldo" />
+          <td>
+            <div>
+              <h1>Edad</h1>
+              <input v-model="newOrden.edad" placeholder="Edad" />
             </div>
-          </tr>
+          </td>
+        </tr>
 
-        </td>
-        
-      </tr>
+        <tr>
+          <td>
+            <div>
+              <h1>Profesional</h1>
+              <input v-model="newOrden.profesional" placeholder="Profesional" />
+            </div>
+          </td>
+          <td>
+            <div>
+              <h1>Fecha de Recepcion</h1>
+              <input
+                v-model="newOrden.fechaRecepcion"
+                placeholder="Ingrese Fecha"
+                type="date"
+              />
+            </div>
+          </td>
+          <td>
+            <div>
+              <h1>Fono</h1>
+              <input v-model="newOrden.fono" placeholder="fono" />
+            </div>
+          </td>
+        </tr>
 
-      
-    </table>
+        <tr>
+          <td>
+            <div>
+              <h1>Sucursal</h1>
+              <select
+                class="tablaBotSucursal" 
+                v-model="newOrden.idSucursal"
+                required
+              >
+                <option disabled>Selecione una Sucursal</option>
+                <option
+                  v-for="(sucursal, index) in listaSucursales"
+                  :key="index"
+                  :value="sucursal.id"
+                >
+                  {{ sucursal.nombre }}
+                </option>
+              </select>
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <h1>Ubicacion</h1>
+              <input
+                v-model="newOrden.ubicacion"
+                placeholder="Ingrese ubicacion"
+              />
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <h1 class="titulo">Cerca</h1>
+
+      <table class="tablaCercaLejos">
+        <tr>
+          <th></th>
+          <th>Esfera</th>
+          <th>Cilindro</th>
+          <th>Eje</th>
+          <th>DP</th>
+          <th>CR o MIN</th>
+          <th>Foto o AR</th>
+        </tr>
+
+        <tr>
+          <th>OD</th>
+
+          <td>
+            <div>
+              <input
+                v-model="newCristalD.esferico"
+                placeholder="Input1"
+                type="number"
+              />
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <input
+                v-model="newCristalD.cilindro"
+                placeholder="Input"
+                type="number"
+              />
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <input
+                v-model="newCristalD.eje"
+                placeholder="Input"
+                type="number"
+              />
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <input
+                v-model="newCristalD.dp"
+                placeholder="Input"
+                type="number"
+              />
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <input
+                v-model="newCristalD.cr_min"
+                placeholder="Input"
+                type="number"
+              />
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <input
+                v-model="newCristalD.foto_ar"
+                placeholder="Input"
+                type="number"
+              />
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <th>OI</th>
+
+          <td>
+            <div>
+              <input
+                v-model="newCristalI.esferico"
+                placeholder="Input"
+                type="number"
+              />
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <input
+                v-model="newCristalI.cilindro"
+                placeholder="Input"
+                type="number"
+              />
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <input
+                v-model="newCristalI.eje"
+                placeholder="Input"
+                type="number"
+              />
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <input
+                v-model="newCristalI.dp"
+                placeholder="Input"
+                type="number"
+              />
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <input
+                v-model="newCristalI.cr_min"
+                placeholder="Input"
+                type="number"
+              />
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <input
+                v-model="newCristalI.foto_ar"
+                placeholder="Input"
+                type="number"
+              />
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <!-- Tabla ADD-->
+      <table class="tablaCercaLejos">
+        <tr>
+          <th>ADD</th>
+
+          <td>
+            <div>
+              <input
+                v-model="newCristalI.add"
+                placeholder="INGRESE ADD IZQUIERDO"
+              />
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <input
+                v-model="newCristalD.add"
+                placeholder="INGRESE ADD DERECHO"
+              />
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <h1 class="titulo">Lejos</h1>
+
+      <table class="tablaCercaLejos">
+        <tr>
+          <th></th>
+          <th>Esfera</th>
+          <th>Cilindro</th>
+          <th>Eje</th>
+          <th>DP</th>
+          <th>CR o MIN</th>
+          <th>Foto o AR</th>
+        </tr>
+
+        <tr>
+          <th>OD</th>
+
+          <td>
+            <div>
+              <input placeholder="Input" type="number" />
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <input placeholder="Input" type="number" />
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <input placeholder="Input" type="number" />
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <input placeholder="Input" type="number" />
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <input placeholder="Input" type="number" />
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <input placeholder="Input" type="number" />
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <th>OI</th>
+
+          <td>
+            <div>
+              <input placeholder="Input" type="number" />
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <input placeholder="Input" type="number" />
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <input placeholder="Input" type="number" />
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <input placeholder="Input" type="number" />
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <input placeholder="Input" type="number" />
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <input placeholder="Input" type="number" />
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <!-- Tabla ADD-->
+      <table class="tablaCercaLejos">
+        <tr>
+          <th>ADD</th>
+
+          <td>
+            <div>
+              <input
+                v-model="newCristalI.add"
+                placeholder="INGRESE ADD IZQUIERDO"
+              />
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <input
+                v-model="newCristalD.add"
+                placeholder="INGRESE ADD DERECHO"
+              />
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <!-- OBSERVACIONES -->
+      <table class="tablaObs">
+        <tr>
+          <td>
+            <div>
+              <h1 class="titulo">Observaciones</h1>
+              <input
+                class="Obs"
+                v-model="newOrden.observaciones"
+                placeholder="Observaciones"
+              />
+            </div>
+          </td>
+
+          <td>
+            <tr>
+              <div>
+                <h1>Total</h1>
+                <input
+                  class="money"
+                  v-model="newOrden.total"
+                  placeholder="Ingrese Total"
+                />
+              </div>
+            </tr>
+
+            <tr>
+              <div>
+                <h1>Abono</h1>
+                <input
+                  class="money"
+                  v-model="newOrden.abono"
+                  placeholder="Ingrese Abono"
+                />
+              </div>
+            </tr>
+
+            <tr>
+              <div>
+                <h1>Saldo</h1>
+                <input
+                  class="money"
+                  v-model="newOrden.saldo"
+                  placeholder="Ingrese Saldo"
+                />
+              </div>
+            </tr>
+          </td>
+        </tr>
+      </table>
+
+      <button class="botonEntrada" type="submit">ENTRADA</button>
+
+      <nuxt-link to="/ListadoOrdenes">
+        <button class="botonSalida">SALIDA</button>
+      </nuxt-link>
+    </form>
   </div>
 </template>
 
 <script>
+import authHeader from '../services/auth-header'
 export default {
   name: 'Orden',
-
   head: {
     title: 'exported project',
   },
+  data: function () {
+    return {
+      listaOrdenes: [],
+      listaSucursales: [],
+
+      newOrden: {
+        rut: '',
+        nombre: '',
+        edad: '',
+        total: 0,
+        abono: 0,
+        saldo: 0,
+        observaciones: '',
+        fono: '',
+        lote: 0,
+        fechaRecepcion: '',
+        fechaEntrega: '',
+        profesional: '',
+        estadoOrden: 'Activo',
+        gasto: 0,
+        ubicacion: '',
+        idSucursal: '',
+        idUsuario: '',
+        idOperativo: '',
+      },
+
+      newCristalI: {
+        tipo: 'Cerca',
+        esferico: null,
+        cilindro: null,
+        eje: null,
+        dp: null,
+        cr_min: '',
+        foto_ar: '',
+        ojo_d_i: 'Izquierdo',
+        add: null,
+        tipo_lejos_cerca: '',
+        estado_proceso: 'En inventario',
+        id_sucursal: '',
+        lote: 0,
+        costo: null,
+      },
+
+      newCristalD: {
+        tipo: 'Cerca',
+        esferico: null,
+        cilindro: null,
+        eje: null,
+        dp: null,
+        cr_min: '',
+        foto_ar: '',
+        ojo_d_i: 'Derecho',
+        add: null,
+        tipo_lejos_cerca: '',
+        estado_proceso: 'En inventario',
+        id_sucursal: '',
+        lote: 0,
+        costo: null,
+      },
+    }
+  },
+
   computed: {
     currentUser() {
       return this.$store.state.auth.usuario.status.loggedIn
@@ -327,6 +517,66 @@ export default {
     if (!this.currentUser) {
       this.$router.push('/login')
     }
+  },
+
+  methods: {
+    getData: async function () {
+      try {
+        let response = await this.$axios.get('/orden', {
+          headers: authHeader(),
+        })
+        this.listaOrdenes = response.data
+
+        response = await this.$axios.get('/sucursal', {
+          headers: authHeader(),
+        })
+        this.listaSucursales = response.data
+        
+      } catch (error) {
+        console.log('Error al obtener la informacion', error)
+      }
+    },
+
+    enviarFormulario() {
+      /* 
+      console.log(this.listaOrdenes.lenght +1)
+      this.newOrden.lote = this.listaOrdenes.length +1
+      this.newCristalD.lote = this.listaOrdenes.lenght +1
+      this.newCristalI.lote = this.listaOrdenes.lenght +1
+      */
+
+      this.$axios
+        .post('/orden', this.newOrden, { headers: authHeader() }) //Se realiza post con el objeto newMarco como parametro asimilando el formato json
+        .then((res) => {})
+        .catch((error) => {
+          alert(error)
+          console.log(error)
+        })
+
+      this.$axios
+        .post('/cristal', this.newCristalD, { headers: authHeader() }) //Se realiza post con el objeto newMarco como parametro asimilando el formato json
+        .then((res) => {})
+        .catch((error) => {
+          alert(error)
+          console.log(error)
+        })
+
+      this.$axios
+        .post('/cristal', this.newCristalI, { headers: authHeader() }) //Se realiza post con el objeto newMarco como parametro asimilando el formato json
+        .then((res) => {})
+        .catch((error) => {
+          alert(error)
+          console.log(error)
+        })
+
+      alert('Se ha ingesado correctamente la orden')
+      window.location.reload()
+    },
+
+    created: function () {
+      /* APENAS EJECUTA LA PAGINA EMPIEZA A PEDIR LOS DATOS */
+      this.getData()
+    },
   },
 }
 </script>
@@ -340,7 +590,6 @@ export default {
   text-align: center;
   width: 90%;
 }
-
 
 .tablaCercaLejos {
   border-collapse: collapse;
@@ -371,20 +620,28 @@ export default {
 }
 
 .tablaDatos {
-  width: 100%;
+  width: 70%;
 }
 
 .tablaDatos tr td div {
-  padding: 20px;
+  padding: 5px;
 }
-
 
 .tablaDatos tr td div input {
   border: solid;
   border-color: gray;
   border-radius: 10px;
   border-width: thin;
-  width: 600px;
+  width: 340px;
+  height: 35px;
+}
+
+.tablaBotSucursal {
+  border: solid;
+  border-color: gray;
+  border-radius: 10px;
+  border-width: thin;
+  width: 340px;
   height: 35px;
 }
 
@@ -414,8 +671,27 @@ export default {
   text-align: center;
 }
 
-.money{
+.money {
   height: 35px;
 }
 
+.botonSalida {
+  border: solid red;
+  color: black;
+  width: 180px;
+  height: 50px;
+  border-radius: 10px;
+  text-align: center;
+  margin: 0 240px;
+}
+
+.botonEntrada {
+  border: solid green;
+  color: black;
+  width: 180px;
+  height: 50px;
+  border-radius: 10px;
+  text-align: center;
+  margin: 0 5px;
+}
 </style>

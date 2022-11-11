@@ -147,7 +147,7 @@ export default {
           alert(error)
           console.log(error)
         })
-    },
+    },  
     getData: async function () {
       try {
         let response = await this.$axios.get('/sucursal', {
