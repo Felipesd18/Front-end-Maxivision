@@ -154,6 +154,7 @@ export default {
           headers: authHeader(),
         })
         this.sucursales = response.data
+        
         response = await this.$axios.get('/marca_marco', {
           headers: authHeader(),
         })

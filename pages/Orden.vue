@@ -7,7 +7,7 @@
         <div class="logo-header">
           <img src="../assets/logo-01.png" alt="logo-maxisvision" width="80" />
         </div>
-        <div class="header-texto">Ordenes</div>
+        <div class="header-texto1">Guia de despacho</div>
       </div>
     </div>
 
@@ -31,7 +31,7 @@
           <td>
             <div>
               <h1>Edad</h1>
-              <input v-model="newOrden.edad" placeholder="Edad" />
+              <input v-model="newOrden.edad" placeholder="Edad" type="number"/>
             </div>
           </td>
         </tr>
@@ -56,16 +56,30 @@
           <td>
             <div>
               <h1>Fono</h1>
-              <input v-model="newOrden.fono" placeholder="fono" />
+              <input v-model="newOrden.fono" placeholder="Ingrese Fono" />
             </div>
           </td>
         </tr>
-        
+
         <tr>
           <td>
             <div>
               <h1>Sucursal</h1>
-              
+
+              <select
+                class="tablaBotSucursal"
+                v-model="newOrden.idSucursal"
+                
+              >
+                <option disabled>Selecione una Sucursal</option>
+                <option
+                  v-for="(sucursal, index) in listaSucursales"
+                  :key="index"
+                  :value="sucursal.id"
+                >
+                  {{ sucursal.nombre }}
+                </option>
+              </select>
             </div>
           </td>
 
@@ -75,6 +89,137 @@
               <input
                 v-model="newOrden.ubicacion"
                 placeholder="Ingrese ubicacion"
+              />
+            </div>
+          </td> 
+
+          <td>
+            <div>
+              <h1>Fecha de Entrega</h1>
+              <input
+                v-model="newOrden.fechaEntrega"
+                placeholder="Ingrese Fecha"
+                type="date"
+              />
+            </div>
+          </td>
+
+        </tr>
+      </table>
+
+      <h1 class="titulo">Lejos</h1>
+
+      <table class="tablaCercaLejos">
+        <tr>
+          <th></th>
+          <th>Esfera</th>
+          <th>Cilindro</th>
+          <th>Eje</th>
+          <th>DP</th>
+          <th>CR o MIN</th>
+          <th>Foto/AR/Focalidad</th>
+        </tr>
+
+        <tr>
+          <th>OD</th>
+
+          <td>
+            <div>
+              <input v-model="newCristalDL.esferico" placeholder="Input" type="number" />
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <input v-model="newCristalDL.cilindro" placeholder="Input" type="number" />
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <input v-model="newCristalDL.eje" placeholder="Input" type="number" />
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <input v-model="newCristalDL.dp" placeholder="Input" type="number" />
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <input v-model="newCristalDL.cr_min" placeholder="Input" type="number" />
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <input v-model="newCristalDL.foto_ar" placeholder="Input" type="number" />
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <th>OI</th>
+
+          <td>
+            <div>
+              <input  v-model="newCristalil.esferico" placeholder="Input" type="number" />
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <input v-model="newCristalil.cilindro" placeholder="Input" type="number" />
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <input v-model="newCristalil.eje" placeholder="Input" type="number" />
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <input v-model="newCristalil.dp" placeholder="Input" type="number" />
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <input v-model="newCristalil.cr_min" placeholder="Input" type="number" />
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <input v-model="newCristalil.foto_ar" placeholder="Input" type="number" />
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <!-- Tabla ADD-->
+      <table class="tablaCercaLejos">
+        <tr>
+          <th>ADD1</th>
+
+          <td>
+            <div>
+              <input
+                v-model="newCristalI.add"
+                placeholder="INGRESE ADD IZQUIERDO"
+              />
+            </div>
+          </td>
+
+          <td>
+            <div>
+              <input
+                v-model="newCristalD.add"
+                placeholder="INGRESE ADD DERECHO"
               />
             </div>
           </td>
@@ -91,7 +236,7 @@
           <th>Eje</th>
           <th>DP</th>
           <th>CR o MIN</th>
-          <th>Foto o AR</th>
+          <th>Foto/AR/Focalidad</th>
         </tr>
 
         <tr>
@@ -223,149 +368,6 @@
         </tr>
       </table>
 
-      <!-- Tabla ADD-->
-      <table class="tablaCercaLejos">
-        <tr>
-          <th>ADD</th>
-
-          <td>
-            <div>
-              <input
-                v-model="newCristalI.add"
-                placeholder="INGRESE ADD IZQUIERDO"
-              />
-            </div>
-          </td>
-
-          <td>
-            <div>
-              <input
-                v-model="newCristalD.add"
-                placeholder="INGRESE ADD DERECHO"
-              />
-            </div>
-          </td>
-        </tr>
-      </table>
-
-      <h1 class="titulo">Lejos</h1>
-
-      <table class="tablaCercaLejos">
-        <tr>
-          <th></th>
-          <th>Esfera</th>
-          <th>Cilindro</th>
-          <th>Eje</th>
-          <th>DP</th>
-          <th>CR o MIN</th>
-          <th>Foto o AR</th>
-        </tr>
-
-        <tr>
-          <th>OD</th>
-
-          <td>
-            <div>
-              <input placeholder="Input" type="number" />
-            </div>
-          </td>
-
-          <td>
-            <div>
-              <input placeholder="Input" type="number" />
-            </div>
-          </td>
-
-          <td>
-            <div>
-              <input placeholder="Input" type="number" />
-            </div>
-          </td>
-
-          <td>
-            <div>
-              <input placeholder="Input" type="number" />
-            </div>
-          </td>
-
-          <td>
-            <div>
-              <input placeholder="Input" type="number" />
-            </div>
-          </td>
-
-          <td>
-            <div>
-              <input placeholder="Input" type="number" />
-            </div>
-          </td>
-        </tr>
-
-        <tr>
-          <th>OI</th>
-
-          <td>
-            <div>
-              <input placeholder="Input" type="number" />
-            </div>
-          </td>
-
-          <td>
-            <div>
-              <input placeholder="Input" type="number" />
-            </div>
-          </td>
-
-          <td>
-            <div>
-              <input placeholder="Input" type="number" />
-            </div>
-          </td>
-
-          <td>
-            <div>
-              <input placeholder="Input" type="number" />
-            </div>
-          </td>
-
-          <td>
-            <div>
-              <input placeholder="Input" type="number" />
-            </div>
-          </td>
-
-          <td>
-            <div>
-              <input placeholder="Input" type="number" />
-            </div>
-          </td>
-        </tr>
-      </table>
-
-      <!-- Tabla ADD-->
-      <table class="tablaCercaLejos">
-        <tr>
-          <th>ADD</th>
-
-          <td>
-            <div>
-              <input
-                v-model="newCristalI.add"
-                placeholder="INGRESE ADD IZQUIERDO"
-              />
-            </div>
-          </td>
-
-          <td>
-            <div>
-              <input
-                v-model="newCristalD.add"
-                placeholder="INGRESE ADD DERECHO"
-              />
-            </div>
-          </td>
-        </tr>
-      </table>
 
       <!-- OBSERVACIONES -->
       <table class="tablaObs">
@@ -461,7 +463,7 @@ export default {
       },
 
       newCristalI: {
-        tipo: 'Cerca',
+        tipo: '',
         esferico: null,
         cilindro: null,
         eje: null,
@@ -470,7 +472,7 @@ export default {
         foto_ar: '',
         ojo_d_i: 'Izquierdo',
         add: null,
-        tipo_lejos_cerca: '',
+        tipo_lejos_cerca: 'Cerca',
         estado_proceso: 'En inventario',
         id_sucursal: '',
         lote: 0,
@@ -478,7 +480,7 @@ export default {
       },
 
       newCristalD: {
-        tipo: 'Cerca',
+        tipo: '',
         esferico: null,
         cilindro: null,
         eje: null,
@@ -487,7 +489,41 @@ export default {
         foto_ar: '',
         ojo_d_i: 'Derecho',
         add: null,
-        tipo_lejos_cerca: '',
+        tipo_lejos_cerca: 'Cerca',
+        estado_proceso: 'En inventario',
+        id_sucursal: '',
+        lote: 0,
+        costo: null,
+      },
+
+      newCristalDL: {
+        tipo: '',
+        esferico: null,
+        cilindro: null,
+        eje: null,
+        dp: null,
+        cr_min: '',
+        foto_ar: '',
+        ojo_d_i: 'Derecho',
+        add: null,
+        tipo_lejos_cerca: 'Lejos',
+        estado_proceso: 'En inventario',
+        id_sucursal: '',
+        lote: 0,
+        costo: null,
+      },
+
+      newCristalil: {
+        tipo: '',
+        esferico: null,
+        cilindro: null,
+        eje: null,
+        dp: null,
+        cr_min: '',
+        foto_ar: '',
+        ojo_d_i: 'Derecho',
+        add: null,
+        tipo_lejos_cerca: 'Lejos',
         estado_proceso: 'En inventario',
         id_sucursal: '',
         lote: 0,
@@ -519,35 +555,21 @@ export default {
           headers: authHeader(),
         })
         this.listaSucursales = response.data
-
       } catch (error) {
         console.log('Error al obtener la informacion', error)
       }
     },
 
     enviarFormulario() {
-      /* 
-      console.log(this.listaOrdenes.lenght +1)
-      this.newOrden.lote = this.listaOrdenes.length +1
-      this.newCristalD.lote = this.listaOrdenes.lenght +1
-      this.newCristalI.lote = this.listaOrdenes.lenght +1
 
-      <select
-                class="tablaBotSucursal" 
-                v-model="newOrden.idSucursal"
-                required
-              >
-                <option disabled>Selecione una Sucursal</option>
-                <option
-                  v-for="(sucursal, index) in listaSucursales"
-                  :key="index"
-                  :value="sucursal.id"
-                >
-                  {{ sucursal.nombre }}
-                </option>
-              </select>
-      */
+      this.newOrden.lote = this.listaOrdenes.length +1  /* Se crea el lote en el cristal */
+      this.newCristalD.lote = this.listaOrdenes.lenght +1  /* Se crea el lote en el cristal */
+      this.newCristalI.lote = this.listaOrdenes.lenght +1  /* Se crea el lote en el cristal */
+      this.newCristalDL.lote = this.listaOrdenes.lenght +1 /* Se crea el lote en el cristal */
+      this.newCristalil.lote = this.listaOrdenes.lenght +1 /* Se crea el lote en el cristal */
+      this.newCristalI.tipo = this.newCristalD.tipo /* Se copia el mismo tipo en el cristal izquiendo y derecho */
 
+      
       this.$axios
         .post('/orden', this.newOrden, { headers: authHeader() }) //Se realiza post con el objeto newMarco como parametro asimilando el formato json
         .then((res) => {})
@@ -566,6 +588,22 @@ export default {
 
       this.$axios
         .post('/cristal', this.newCristalI, { headers: authHeader() }) //Se realiza post con el objeto newMarco como parametro asimilando el formato json
+        .then((res) => {})
+        .catch((error) => {
+          alert(error)
+          console.log(error)
+        })
+
+      this.$axios
+        .post('/cristal', this.newCristalDL, { headers: authHeader() }) //Se realiza post con el objeto newMarco como parametro asimilando el formato json
+        .then((res) => {})
+        .catch((error) => {
+          alert(error)
+          console.log(error)
+        })
+
+      this.$axios
+        .post('/cristal', this.newCristalil, { headers: authHeader() }) //Se realiza post con el objeto newMarco como parametro asimilando el formato json
         .then((res) => {})
         .catch((error) => {
           alert(error)
@@ -592,6 +630,7 @@ export default {
 .titulo {
   text-align: center;
   width: 90%;
+  color: var(--d1-color-texts);
 }
 
 .tablaCercaLejos {
@@ -639,6 +678,10 @@ export default {
   height: 35px;
 }
 
+.tablaDatos tr td div h1 {
+  color: var(--d1-color-texts);
+}
+
 .tablaBotSucursal {
   border: solid;
   border-color: gray;
@@ -662,6 +705,10 @@ export default {
   border-radius: 10px;
   border-width: thin;
   width: 600px;
+}
+
+.tablaObs tr td div h1 {
+  color: var(--d1-color-texts);
 }
 
 .Obs {
@@ -696,5 +743,24 @@ export default {
   border-radius: 10px;
   text-align: center;
   margin: 0 5px;
+}
+
+.header-texto1 {
+  width: 100%;
+  color: white;
+  background-color: var(--d1-color-texts);
+  height: 80px;
+  padding-left: 25%;
+  font-size: 64px;
+  align-self: auto;
+  font-style: Bold;
+  text-align: left;
+  font-family: Poppins;
+  font-weight: 500;
+  line-height: 130%;
+  font-stretch: normal;
+  margin-right: 0;
+  margin-bottom: 0;
+  text-decoration: none;
 }
 </style>
