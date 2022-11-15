@@ -68,14 +68,15 @@
 
               <select
                 class="tablaBotSucursal"
-                v-model="newOrden.idSucursal"
+                v-model="newOrden.idSucursal">
+                required
                 
-              >
                 <option disabled>Selecione una Sucursal</option>
                 <option
                   v-for="(sucursal, index) in listaSucursales"
                   :key="index"
                   :value="sucursal.id"
+
                 >
                   {{ sucursal.nombre }}
                 </option>
@@ -204,7 +205,7 @@
       <!-- Tabla ADD-->
       <table class="tablaCercaLejos">
         <tr>
-          <th>ADD1</th>
+          <th>ADD</th>
 
           <td>
             <div>
@@ -562,6 +563,7 @@ export default {
 
     enviarFormulario() {
 
+    
       this.newOrden.lote = this.listaOrdenes.length +1  /* Se crea el lote en el cristal */
       this.newCristalD.lote = this.listaOrdenes.lenght +1  /* Se crea el lote en el cristal */
       this.newCristalI.lote = this.listaOrdenes.lenght +1  /* Se crea el lote en el cristal */
@@ -613,12 +615,12 @@ export default {
       alert('Se ha ingesado correctamente la orden')
       window.location.reload()
     },
+  },
 
-    created: function () {
+  created: function() {
       /* APENAS EJECUTA LA PAGINA EMPIEZA A PEDIR LOS DATOS */
       this.getData()
     },
-  },
 }
 </script>
 
