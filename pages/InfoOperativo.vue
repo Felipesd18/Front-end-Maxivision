@@ -50,6 +50,25 @@
 
     <div class="contenedor-listado-ordenes">
       <span class="label-titulo">Lista de Ordenes</span>
+      <nuxt-link to="/OrdenOperativo">
+        <div class="botonIngresar">
+          <span class="texto-botonIngresar">Ingresar Nueva Orden</span>
+        </div>
+      </nuxt-link>
+
+      <div class="fila">
+        <span class="columna">RUT</span>
+        <span class="columna">Nombre Paciente</span>
+        <span class="columna">Fono</span>
+        <span class="columna">Lote</span>
+      </div>
+
+      <div class="fila" v-for="(orden, index) in ordenes" :key="index">
+        <span class="columna"> {{ orden.rut }} </span>
+        <span class="columna"> {{ orden.nombre }} </span>
+        <span class="columna"> {{ orden.fono }} </span>
+        <span class="columna"> {{ orden.lote }} </span>
+      </div>
     </div>
   </div>
 </template>
@@ -73,6 +92,13 @@ export default {
           headers: authHeader(),
         })
         this.sucursales = response.data
+        response = await this.$axios.get(
+          '/orden/operativo/' + this.operativo.id,
+          {
+            headers: authHeader(),
+          }
+        )
+        this.ordenes = response.data
       } catch (error) {
         console.log('Error al obtener los datos', error)
       }
@@ -114,6 +140,19 @@ export default {
   background-color: var(--dl-color-default-defaultstroke);
 }
 
+.botonIngresar {
+  width: auto;
+  height: 85px;
+  position: relative;
+  color: var(--dl-color-gray-black);
+  display: inline-block;
+  margin: 10px;
+  border-color: var(--dl-color-gray-black);
+  border-width: 1px;
+  border-radius: 15px;
+  background-color: var(--dl-color-default-defaultstroke);
+}
+
 .texto-boton {
   left: 50%;
   transform: translateX(-50%);
@@ -129,6 +168,23 @@ export default {
   font-stretch: normal;
   margin-bottom: 0;
   text-decoration: none;
+}
+
+.texto-botonIngresar {
+  top: 15px;
+  position: relative;
+  color: var(--d1-color-default-label-button);
+  height: 100%;
+  width: 100%;
+  font-size: 32px;
+  align-self: auto;
+  text-align: center;
+  font-family: Poppins;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+  margin: 10px;
 }
 
 .label-info {
