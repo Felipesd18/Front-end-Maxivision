@@ -79,17 +79,19 @@
             </option>
           </select>
         </div>
+        <!--
         <div class="grupo-observaciones">
           <span class="agregar-marco-text06"><span>Observaciones</span></span>
           <div class="agregar-marco-frame5">
             <input
               class="agregar-marco-text08"
               id="aliasColor"
-              v-model="newMarco.observaciones"
+              v-model="observaciones"
               placeholder="Ingrese observaciones"
             />
           </div>
         </div>
+        -->
         <nuxt-link to="/InventarioMarco">
           <div class="agregar-marco-cancelar">
             <span class="agregar-marco-text10"><span>Cancelar</span></span>
@@ -124,13 +126,15 @@ export default {
       colores: [],
       newMarco: {
         estado_de_marco: 'En inventario',
-        observaciones: '',
+        observaciones: [],
         costo: 0,
         id_modelo_marca: '',
         id_marca_marco: '',
         id_codigo_color: '',
         id_sucursal: '',
         id_orden: '',
+        cantidad: 1,
+        lotes: [0],
       },
     }
   },
@@ -147,14 +151,14 @@ export default {
           alert(error)
           console.log(error)
         })
-    },  
+    },
     getData: async function () {
       try {
         let response = await this.$axios.get('/sucursal', {
           headers: authHeader(),
         })
         this.sucursales = response.data
-        
+
         response = await this.$axios.get('/marca_marco', {
           headers: authHeader(),
         })
@@ -286,7 +290,7 @@ export default {
   text-align: center;
   font-family: Poppins;
   font-style: Thin;
-  font-weight: 100; /* Agregando o sumando a esta variable da mas o menos grosor a la letra - 100 es thin - 400 es normal - 700 bold - 900 heavy*/
+  font-weight: 400; /* Agregando o sumando a esta variable da mas o menos grosor a la letra - 100 es thin - 400 es normal - 700 bold - 900 heavy*/
   line-height: normal;
   font-stretch: normal;
   margin-right: 0;
@@ -308,7 +312,7 @@ export default {
   text-align: center;
   font-family: Poppins;
   font-style: Thin;
-  font-weight: 100;
+  font-weight: 400;
   line-height: normal;
   font-stretch: normal;
   margin-right: 0;
@@ -330,7 +334,7 @@ export default {
   text-align: center;
   font-family: Poppins;
   font-style: Thin;
-  font-weight: 100;
+  font-weight: 400;
   line-height: normal;
   font-stretch: normal;
   margin-right: 0;
@@ -351,7 +355,7 @@ export default {
   align-self: auto;
   text-align: center;
   font-family: Poppins;
-  font-weight: 100;
+  font-weight: 400;
   line-height: normal;
   font-stretch: normal;
   margin-right: 0;
@@ -418,13 +422,14 @@ export default {
   border-width: 1px;
   border-radius: 15px;
   color: var(--dl-color-default-defaultstroke);
+  min-width: 360px;
   width: 100%;
   height: 100%;
   font-size: 24px;
   font-style: Thin;
   text-align: center;
   font-family: Poppins;
-  font-weight: 100;
+  font-weight: 400;
   line-height: normal;
   font-stretch: normal;
   text-decoration: none;

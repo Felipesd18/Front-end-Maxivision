@@ -121,6 +121,8 @@ export default {
 .contenedor-listado {
   top: 270px;
   left: 20px;
+  width: auto;
+  height: auto;
   position: relative;
 }
 
