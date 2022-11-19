@@ -193,13 +193,16 @@ export default {
     descargarExcel() {
       for (let i in this.listadoMarcos) {
         let marco = {
+          cantidad: '',
           marca: '',
           modelo: '',
           color: '',
-          estado_marco: '',
+          lotes: '',
           sucursal: '',
         }
 
+        marco.cantidad = this.listadoMarcos.at(i).cantidad
+        marco.lotes = this.listadoMarcos.at(i).lotes
         marco.marca = this.listadoMarcas
           .filter(
             (marca) => marca.id == this.listadoMarcos.at(i).id_marca_marco
@@ -218,7 +221,6 @@ export default {
           )
           .at(0).codigo
 
-        marco.estado_marco = this.listadoMarcos.at(i).estado_de_marco
 
         marco.sucursal = this.listadoSucursales
           .filter(
