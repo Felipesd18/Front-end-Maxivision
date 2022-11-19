@@ -20,43 +20,81 @@
           </span>
         </div>
       </nuxt-link>
-      <span class="inventario-marco-text06">
-        <span
-          >Listado
-          <v-btn
-            color="primary"
-            dark
-            class="boton-descarga"
-            @click="descargarExcel()"
-          >
-            Descargar inventario</v-btn
-          >
-        </span></span
-      >
+      <div class="inventario-marco-text06">
+        <span class="label-listado">Listado</span>
+
+        <v-btn
+          color="primary"
+          dark
+          class="boton-descarga"
+          @click="descargarExcel()"
+        >
+          Descargar inventario</v-btn
+        >
+
+        <div class="grupo-selector-sucursal">
+          <span>Sucursal</span>
+          <select class="custom-select" v-model="id_sucursal">
+            <option disabled>Selecione una Sucursal</option>
+            <option>Todas</option>
+            <option
+              v-for="(sucursal, index) in listadoSucursales"
+              :key="index"
+              :value="sucursal.id"
+            >
+              {{ sucursal.nombre }}
+            </option>
+          </select>
+        </div>
+      </div>
 
       <div class="Contenedor">
-        <div class="fila">
-          <span class="columna">Cantidad</span>
-          <span class="columna">Marca</span>
-          <span class="columna">Modelo</span>
-          <span class="columna">Color</span>
-          <span class="columna">Sucursal</span>
-          <span class="columna">Lotes</span>
+        <div v-if="id_sucursal == 'Todas'">
+          <div class="fila">
+            <span class="columna">Cantidad</span>
+            <span class="columna">Marca</span>
+            <span class="columna">Modelo</span>
+            <span class="columna">Color</span>
+            <span class="columna">Sucursal</span>
+            <span class="columna">Lotes</span>
+          </div>
+          <div
+            class="fila"
+            v-for="(marco, index) in listadoMarcosFiltrado"
+            :key="index"
+          >
+            <span class="columna"> {{ marco.cantidad }} </span>
+            <span class="columna"> {{ marco.marca.nombre }} </span>
+            <span class="columna"> {{ marco.modelo.codigo }} </span>
+            <span class="columna">
+              {{ marco.color.codigo }} {{ marco.color.nombre_alias }}
+            </span>
+            <span class="columna"> {{ marco.sucursal.nombre }} </span>
+            <span class="columna"> {{ marco.lotes.toString() }} </span>
+          </div>
         </div>
 
-        <div
-          class="fila"
-          v-for="(marco, index) in listadoMarcosFiltrado"
-          :key="index"
-        >
-          <span class="columna"> {{ marco.cantidad }} </span>
-          <span class="columna"> {{ marco.marca.nombre }} </span>
-          <span class="columna"> {{ marco.modelo.codigo }} </span>
-          <span class="columna">
-            {{ marco.color.codigo }} {{ marco.color.nombre_alias }}
-          </span>
-          <span class="columna"> {{ marco.sucursal.nombre }} </span>
-          <span class="columna"> {{ marco.lotes.toString() }} </span>
+        <div v-else>
+          <div class="fila">
+            <span class="columna">Cantidad</span>
+            <span class="columna">Marca</span>
+            <span class="columna">Modelo</span>
+            <span class="columna">Color</span>
+            <span class="columna">Lotes</span>
+          </div>
+          <div
+            class="fila"
+            v-for="(marco, index) in filtrarPorSucursal"
+            :key="index"
+          >
+            <span class="columna"> {{ marco.cantidad }} </span>
+            <span class="columna"> {{ marco.marca.nombre }} </span>
+            <span class="columna"> {{ marco.modelo.codigo }} </span>
+            <span class="columna">
+              {{ marco.color.codigo }} {{ marco.color.nombre_alias }}
+            </span>
+            <span class="columna"> {{ marco.lotes.toString() }} </span>
+          </div>
         </div>
       </div>
     </div>
@@ -74,6 +112,7 @@ export default {
 
   data: function () {
     return {
+      id_sucursal: '',
       listadoMarcos: [],
       listadoSucursales: [],
       listadoMarcas: [],
@@ -203,6 +242,14 @@ export default {
     currentUser() {
       return this.$store.state.auth.usuario.status.loggedIn
     },
+    filtrarPorSucursal() {
+      if (this.id_sucursal == 'Todas' || this.id_sucursal == '') {
+        return this.listadoMarcosFiltrado
+      }
+      return this.listadoMarcosFiltrado.filter(
+        (marco) => marco.sucursal.id == this.id_sucursal
+      )
+    },
   },
   mounted() {
     if (!this.currentUser) {
@@ -304,16 +351,41 @@ export default {
   margin-right: 0;
   margin-bottom: 0;
   text-decoration: none;
+  flex-wrap: wrap;
+  display: flex;
 }
+
+.label-listado {
+  display: table-cell;
+  margin: 20px 20px 20px 0px;
+  position: relative;
+}
+
 .boton-descarga {
-  top: 20%;
-  left: 75%;
+  display: table-cell;
+  margin: 20px 20px 20px 20px;
+  position: relative;
+}
+.grupo-selector-sucursal {
+  display: table-cell;
+  margin: 20px 20px 20px 20px;
+  position: relative;
+}
+
+.custom-select {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 15px;
+  font-weight: 400;
+  text-align: center;
+  margin: 10px 10px 10px 10px;
 }
 
 .Contenedor {
   top: 400px;
   left: 20px;
-  position: absolute;
+  margin: 20px 20px 20px 0px;
+  position: relative;
   width: auto;
   height: auto;
 }
