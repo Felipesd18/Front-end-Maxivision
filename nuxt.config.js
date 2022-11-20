@@ -1,4 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
+import authenticated from './middleware/authenticated'
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -15,6 +16,10 @@ export default {
       { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+  },
+
+  router: {
+    middleware: 'authenticated'
   },
 
 

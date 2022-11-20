@@ -109,6 +109,7 @@ export default {
   head: {
     title: 'exported project',
   },
+  middleware: ['authenticated'],
 
   data: function () {
     return {
@@ -221,7 +222,6 @@ export default {
           )
           .at(0).codigo
 
-
         marco.sucursal = this.listadoSucursales
           .filter(
             (sucursal) => sucursal.id == this.listadoMarcos.at(i).id_sucursal
@@ -241,9 +241,6 @@ export default {
   },
 
   computed: {
-    currentUser() {
-      return this.$store.state.auth.usuario.status.loggedIn
-    },
     filtrarPorSucursal() {
       if (this.id_sucursal == 'Todas' || this.id_sucursal == '') {
         return this.listadoMarcosFiltrado
@@ -252,11 +249,6 @@ export default {
         (marco) => marco.sucursal.id == this.id_sucursal
       )
     },
-  },
-  mounted() {
-    if (!this.currentUser) {
-      this.$router.push('/login')
-    }
   },
 }
 </script>

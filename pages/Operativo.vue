@@ -56,6 +56,7 @@ import sidebarMenu from '../components/sidebar-menu.vue'
 import authHeader from '../services/auth-header'
 export default {
   components: { sidebarMenu },
+  middleware: ['authenticated'],
   data() {
     return {
       operativos: [],
@@ -81,16 +82,6 @@ export default {
       this.$store.commit('page/setOperativo', operativo)
       this.$router.push('/InfoOperativo')
     },
-  },
-  computed: {
-    currentUser() {
-      return this.$store.state.auth.usuario.status.loggedIn
-    },
-  },
-  mounted() {
-    if (!this.currentUser) {
-      this.$router.push('/login')
-    }
   },
   created: function () {
     this.getData()

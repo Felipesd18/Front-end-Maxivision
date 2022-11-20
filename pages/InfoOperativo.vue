@@ -76,6 +76,7 @@
 <script>
 import authHeader from '../services/auth-header'
 export default {
+  middleware: ['authenticated'],
   data() {
     return {
       operativo: {},
@@ -107,16 +108,6 @@ export default {
       this.$store.commit('page/setOperativo', {})
       this.$router.push('/Operativo')
     },
-  },
-  computed: {
-    currentUser() {
-      return this.$store.state.auth.usuario.status.loggedIn
-    },
-  },
-  mounted() {
-    if (!this.currentUser) {
-      this.$router.push('/login')
-    }
   },
   created: function () {
     this.getData()

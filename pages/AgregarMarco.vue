@@ -114,6 +114,7 @@ export default {
   head: {
     title: 'exported project',
   },
+  middleware: ['authenticated'],
   data: function () {
     return {
       modeloSeleccionado: '',
@@ -181,10 +182,6 @@ export default {
     this.getData()
   },
   computed: {
-    currentUser() {
-      return this.$store.state.auth.usuario.status.loggedIn
-    },
-
     filtrarModelos() {
       //Funcion que permite filtar los modelos segun el modelo seleccionado
       return this.modelos.filter(
@@ -196,11 +193,6 @@ export default {
         (color) => color.id_marca_marco == this.newMarco.id_marca_marco
       )
     },
-  },
-  mounted() {
-    if (!this.currentUser) {
-      this.$router.push('/login')
-    }
   },
 }
 </script>

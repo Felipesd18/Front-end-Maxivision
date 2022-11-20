@@ -9,16 +9,7 @@
 import sidebarMenu from '../components/sidebar-menu.vue'
 export default {
   components: { sidebarMenu },
-  computed: {
-    currentUser() {
-      return this.$store.state.auth.usuario.status.loggedIn
-    },
-  },
-  mounted() {
-    if (!this.currentUser) {
-      this.$router.push('/login')
-    }
-  },
+  middleware: ['authenticated'],
   data() {
     return {}
   },

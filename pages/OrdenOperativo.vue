@@ -532,6 +532,7 @@ export default {
   head: {
     title: 'exported project',
   },
+  middleware: ['authenticated'],
   data: function () {
     return {
       operativo: {},
@@ -627,17 +628,6 @@ export default {
         lote: 0,
         costo: null,
       },
-    }
-  },
-
-  computed: {
-    currentUser() {
-      return this.$store.state.auth.usuario.status.loggedIn
-    },
-  },
-  mounted() {
-    if (!this.currentUser) {
-      this.$router.push('/login')
     }
   },
 

@@ -91,6 +91,7 @@ import sidebarMenu from '../components/sidebar-menu.vue'
 import authHeader from '../services/auth-header'
 export default {
   components: { sidebarMenu },
+  middleware: ['authenticated'],
   data: function () {
     return {
       sucursales: [],
@@ -130,16 +131,6 @@ export default {
   },
   created: function () {
     this.getData()
-  },
-  computed: {
-    currentUser() {
-      return this.$store.state.auth.usuario.status.loggedIn
-    },
-  },
-  mounted() {
-    if (!this.currentUser) {
-      this.$router.push('/login')
-    }
   },
 }
 </script>

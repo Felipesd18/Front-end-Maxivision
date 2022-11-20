@@ -122,6 +122,7 @@ export default {
   head: {
     title: 'exported project',
   },
+  middleware: ['authenticated'],
 
   data: function () {
     return {
@@ -225,9 +226,6 @@ export default {
   },
 
   computed: {
-    currentUser() {
-      return this.$store.state.auth.usuario.status.loggedIn
-    },
     filtrarPorSucursal() {
       if (this.id_sucursal == 'Todas' || this.id_sucursal == '') {
         return this.listadoCristalesFiltrada
@@ -236,11 +234,6 @@ export default {
         (cristal) => cristal.sucursal.id == this.id_sucursal
       )
     },
-  },
-  mounted() {
-    if (!this.currentUser) {
-      this.$router.push('/login')
-    }
   },
 
   created: function () {

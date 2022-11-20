@@ -19,7 +19,6 @@
       <span class="listado-ordenes-text4"><span>Listado</span></span>
 
       <div class="contenedorElementos">
-        
         <div class="fila1">
           <span class="columna1">Rut</span>
           <span class="columna1">Nombre Paciente</span>
@@ -28,16 +27,12 @@
         </div>
 
         <div class="fila1" v-for="(orden, index) in listaOrdenes" :key="index">
-
           <span class="columna1"> {{ orden.rut }} </span>
-          <span class="columna1"> {{ orden.nombre}} </span>
+          <span class="columna1"> {{ orden.nombre }} </span>
           <span class="columna1"> {{ orden.fono }} </span>
           <span class="columna1"> {{ orden.lote }} </span>
-
         </div>
-
       </div>
-
     </div>
   </div>
 </template>
@@ -50,43 +45,30 @@ export default {
   head: {
     title: 'exported project',
   },
+  middleware: ['authenticated'],
 
-  data: function (){
+  data: function () {
     return {
       listaOrdenes: [],
     }
   },
 
   methods: {
-
     getData: async function () {
       try {
         let response = await this.$axios.get('/orden', {
           headers: authHeader(),
         })
         this.listaOrdenes = response.data
-
       } catch (error) {
         console.log('Error al obtener las ordenes', error)
       }
     },
-
-  },
-
-  computed: {
-    currentUser() {
-      return this.$store.state.auth.usuario.status.loggedIn
-    },
-  },
-  mounted() {
-    if (!this.currentUser) {
-      this.$router.push('/login')
-    }
   },
 
   created: function () {
-      this.getData()
-    },
+    this.getData()
+  },
 }
 </script>
 

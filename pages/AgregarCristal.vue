@@ -195,6 +195,7 @@ export default {
   head: {
     title: 'exported project',
   },
+  middleware: ['authenticated'],
   data: function () {
     return {
       sucursales: [],
@@ -246,16 +247,6 @@ export default {
         console.log('Error al obtener las sucursales', error)
       }
     },
-  },
-  computed: {
-    currentUser() {
-      return this.$store.state.auth.usuario.status.loggedIn
-    },
-  },
-  mounted() {
-    if (!this.currentUser) {
-      this.$router.push('/login')
-    }
   },
   created: function () {
     //Inicia las funciones al cargar la pagina

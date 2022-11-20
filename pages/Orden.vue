@@ -184,20 +184,15 @@
 
           <td>
             <div>
-              <input
-                placeholder="Input"
-              />
+              <input placeholder="Input" />
             </div>
           </td>
 
           <td>
             <div>
-              <input
-                placeholder="Input"
-              />
+              <input placeholder="Input" />
             </div>
           </td>
-          
         </tr>
 
         <tr>
@@ -265,20 +260,15 @@
 
           <td>
             <div>
-              <input
-                placeholder="Input"
-              />
+              <input placeholder="Input" />
             </div>
           </td>
 
           <td>
             <div>
-              <input
-                placeholder="Input"
-              />
+              <input placeholder="Input" />
             </div>
           </td>
-
         </tr>
       </table>
 
@@ -304,7 +294,6 @@
               />
             </div>
           </td>
-          
         </tr>
       </table>
 
@@ -388,17 +377,13 @@
 
           <td>
             <div>
-              <input
-                placeholder="Input"
-              />
+              <input placeholder="Input" />
             </div>
           </td>
 
           <td>
             <div>
-              <input
-                placeholder="Input"
-              />
+              <input placeholder="Input" />
             </div>
           </td>
         </tr>
@@ -468,20 +453,15 @@
 
           <td>
             <div>
-              <input
-                placeholder="Input"
-              />
+              <input placeholder="Input" />
             </div>
           </td>
 
           <td>
             <div>
-              <input
-                placeholder="Input"
-              />
+              <input placeholder="Input" />
             </div>
           </td>
-
         </tr>
       </table>
 
@@ -552,6 +532,7 @@ export default {
   head: {
     title: 'exported project',
   },
+  middleware: ['authenticated'],
   data: function () {
     return {
       listaOrdenes: [],
@@ -649,17 +630,6 @@ export default {
     }
   },
 
-  computed: {
-    currentUser() {
-      return this.$store.state.auth.usuario.status.loggedIn
-    },
-  },
-  mounted() {
-    if (!this.currentUser) {
-      this.$router.push('/login')
-    }
-  },
-
   methods: {
     getData: async function () {
       try {
@@ -678,7 +648,6 @@ export default {
     },
 
     enviarFormulario() {
-
       this.newOrden.lote =
         this.listaOrdenes.length + 1 /* Se crea el lote en el cristal */
       this.newCristalD.lote =
@@ -749,7 +718,7 @@ export default {
             this.newCristalD.dp != null)
         ) {
           alert('Solo puede completar una tabla')
-          valor=0
+          valor = 0
         } else {
           this.$axios
             .post('/cristal', this.newCristalil, { headers: authHeader() }) //Se realiza post con el objeto newMarco como parametro asimilando el formato json
