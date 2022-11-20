@@ -91,7 +91,6 @@ import sidebarMenu from '../components/sidebar-menu.vue'
 import authHeader from '../services/auth-header'
 export default {
   components: { sidebarMenu },
-  middleware: ['authenticated'],
   data: function () {
     return {
       sucursales: [],

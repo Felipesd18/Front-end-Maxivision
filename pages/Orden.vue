@@ -532,7 +532,6 @@ export default {
   head: {
     title: 'exported project',
   },
-  middleware: ['authenticated'],
   data: function () {
     return {
       listaOrdenes: [],
