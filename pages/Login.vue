@@ -33,22 +33,13 @@
 
 <script>
 export default {
+  middleware: ['notauthenticated'],
   data: function () {
     return {
       usuario: {
         username: '',
         password: '',
       },
-    }
-  },
-  computed: {
-    loggedIn() {
-      return this.$store.state.auth.usuario.status.loggedIn
-    },
-  },
-  created() {
-    if (this.loggedIn) {
-      this.$router.push('/')
     }
   },
   methods: {

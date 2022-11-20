@@ -16,8 +16,8 @@
 <script>
 import sidebarMenu from '../components/sidebar-menu.vue'
 export default {
-  components: { sidebarMenu },
   middleware: ['authenticated'],
+  components: { sidebarMenu },
   data() {
     return {}
   },
