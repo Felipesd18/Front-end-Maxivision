@@ -355,9 +355,10 @@ export default {
 }
 
 .boton-descarga {
-  display: table-cell;
+  top: 10px;
+  left: 85%;
   margin: 20px 20px 20px 20px;
-  position: relative;
+  
 }
 .grupo-selector-sucursal {
   display: table-cell;
@@ -379,11 +380,11 @@ export default {
   left: 20px;
   margin: 20px 20px 20px 0px;
   position: relative;
-  width: auto;
+  width: 100%;
   height: auto;
 }
 
 .columna {
-  width: 200px;
+  width: 14%;
 }
 </style>

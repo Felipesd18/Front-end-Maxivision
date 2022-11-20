@@ -55,11 +55,11 @@
             <span class="columna">Cantidad</span>
             <span class="columna">Esferico</span>
             <span class="columna">Cilindro</span>
-            <span class="columna">Eje</span>
-            <span class="columna">DP</span>
+            <span class="columna2">Eje</span>
+            <span class="columna2">DP</span>
             <span class="columna">CR/MIN</span>
             <span class="columna">Foto/Ar</span>
-            <span class="columna">ADD</span>
+            <span class="columna2">ADD</span>
             <span class="columna">Sucursal</span>
             <span class="columna">Lotes</span>
           </div>
@@ -71,11 +71,11 @@
             <span class="columna">{{ cristal.cantidad }}</span>
             <span class="columna">{{ cristal.esferico }}</span>
             <span class="columna">{{ cristal.cilindro }}</span>
-            <span class="columna">{{ cristal.eje }}</span>
-            <span class="columna">{{ cristal.dp }}</span>
+            <span class="columna2">{{ cristal.eje }}</span>
+            <span class="columna2">{{ cristal.dp }}</span>
             <span class="columna">{{ cristal.cr_min }}</span>
             <span class="columna">{{ cristal.foto_ar }}</span>
-            <span class="columna">{{ cristal.add }}</span>
+            <span class="columna2">{{ cristal.add }}</span>
             <span class="columna"> {{ cristal.sucursal.nombre }} </span>
             <span class="columna"> {{ cristal.lotes.toString() }} </span>
           </div>
@@ -86,11 +86,11 @@
             <span class="columna">Cantidad</span>
             <span class="columna">Esferico</span>
             <span class="columna">Cilindro</span>
-            <span class="columna">Eje</span>
-            <span class="columna">DP</span>
+            <span class="columna2">Eje</span>
+            <span class="columna2">DP</span>
             <span class="columna">CR/MIN</span>
             <span class="columna">Foto/Ar</span>
-            <span class="columna">ADD</span>
+            <span class="columna2">ADD</span>
             <span class="columna">Lotes</span>
           </div>
           <div
@@ -101,11 +101,11 @@
             <span class="columna">{{ cristal.cantidad }}</span>
             <span class="columna">{{ cristal.esferico }}</span>
             <span class="columna">{{ cristal.cilindro }}</span>
-            <span class="columna">{{ cristal.eje }}</span>
-            <span class="columna">{{ cristal.dp }}</span>
+            <span class="columna2">{{ cristal.eje }}</span>
+            <span class="columna2">{{ cristal.dp }}</span>
             <span class="columna">{{ cristal.cr_min }}</span>
             <span class="columna">{{ cristal.foto_ar }}</span>
-            <span class="columna">{{ cristal.add }}</span>
+            <span class="columna2">{{ cristal.add }}</span>
             <span class="columna"> {{ cristal.lotes.toString() }} </span>
           </div>
         </div>
@@ -187,7 +187,7 @@ export default {
     descargarExcel() {
       for (let i in this.listadoCristales) {
         let cristal = {
-          tipo: '',
+          cantidad: '',
           esferico: '',
           cilindro: '',
           eje: '',
@@ -195,10 +195,10 @@ export default {
           cr_min: '',
           foto_ar: '',
           add: '',
-          estado: '',
           sucursal: '',
+          lotes: '',
         }
-        cristal.tipo = this.listadoCristales.at(i).tipo
+        cristal.cantidad = this.listadoCristales.at(i).cantidad
         cristal.esferico = this.listadoCristales.at(i).esferico
         cristal.cilindro = this.listadoCristales.at(i).cilindro
         cristal.eje = this.listadoCristales.at(i).eje
@@ -206,7 +206,7 @@ export default {
         cristal.cr_min = this.listadoCristales.at(i).cr_min
         cristal.foto_ar = this.listadoCristales.at(i).foto_ar
         cristal.add = this.listadoCristales.at(i).add
-        cristal.estado = this.listadoCristales.at(i).estado
+        cristal.lotes = this.listadoCristales.at(i).lotes
         cristal.sucursal = this.listadoSucursales
           .filter(
             (sucursal) => sucursal.id == this.listadoCristales.at(i).id_sucursal
@@ -318,21 +318,21 @@ export default {
 }
 
 .label-listado {
-  display: table-cell;
+  top:10px;
   margin: 20px 20px 20px 0px;
-  position: relative;
+  left:10%;
 }
 
 .boton-descarga {
-  display: table-cell;
+  top: 10px;
+  left: 65%;
   margin: 20px 20px 20px 20px;
-  position: relative;
 }
 
 .grupo-selector-sucursal {
-  display: table-cell;
+  top: 10px;
   margin: 20px 20px 20px 20px;
-  position: relative;
+  left:10%;
 }
 
 .custom-select {
@@ -347,6 +347,7 @@ export default {
 .inventario-cristales-text08 {
   top: 335px;
   left: 20px;
+  width:100%;
   color: var(--d1-color-texts);
   height: auto;
   position: absolute;
@@ -368,12 +369,20 @@ export default {
 .Contenedor {
   top: 400px;
   left: 20px;
-  position: absolute;
-  width: auto;
+  margin: 20px 20px 20px 0px;
+  position: relative;
+  width: 100%;
   height: auto;
 }
 
 .columna {
-  width: 120px;
+  font-size:80%;
+  width: 10%;
+}
+
+.columna2 {
+  top:50px;
+  font-size:80%;
+  width: 5%;
 }
 </style>
