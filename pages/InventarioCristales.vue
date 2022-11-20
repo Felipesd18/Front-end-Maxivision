@@ -21,21 +21,9 @@
           </span>
         </nuxt-link>
       </div>
-      
-      <span class="inventario-cristales-text08">
-        <span>Listado</span>
-        <v-btn
-            color="primary"
-            class="boton-descarga"
-            dark
-            @click="descargarExcel()"
-          >
-            Descargar inventario</v-btn
-          >
-      </span>
 
-      <span class="inventario-cristales-text08">
-        <span>Listado</span>
+      <div class="inventario-cristales-text08">
+        <span class="label-listado">Listado</span>
         <v-btn
           color="primary"
           class="boton-descarga"
@@ -44,45 +32,82 @@
         >
           Descargar inventario</v-btn
         >
-      </span>
+
+        <div class="grupo-selector-sucursal">
+          <span>Sucursal</span>
+          <select class="custom-select" v-model="id_sucursal">
+            <option disabled>Selecione una Sucursal</option>
+            <option>Todas</option>
+            <option
+              v-for="(sucursal, index) in listadoSucursales"
+              :key="index"
+              :value="sucursal.id"
+            >
+              {{ sucursal.nombre }}
+            </option>
+          </select>
+        </div>
+      </div>
 
       <div class="Contenedor">
-        
-        <div class="Columnas">
-          <span class="Columna1">Tipo</span>
-          <span class="Columna2">Esferico</span>
-          <span class="Columna3">Cilindro</span>
-          <span class="Columna4">Eje</span>
-          <span class="Columna5">DP</span>
-          <span class="Columna6">CR/MIN</span>
-          <span class="Columna7">Foto/Ar</span>
-          <span class="Columna8">ADD</span>
-          <span class="Columna9">Estado</span>
-          <span class="Columna10">Sucursal</span>
-        </div>
-        <div
-          class="Columnas"
-          v-for="(cristal, index) in listadoCristales"
-          :key="index"
-        >
-          <span class="Columna1">{{ cristal.tipo }}</span>
-          <span class="Columna2">{{ cristal.esferico }}</span>
-          <span class="Columna3">{{ cristal.cilindro }}</span>
-          <span class="Columna4">{{ cristal.eje }}</span>
-          <span class="Columna5">{{ cristal.dp }}</span>
-          <span class="Columna6">{{ cristal.cr_min }}</span>
-          <span class="Columna7">{{ cristal.foto_ar }}</span>
-          <span class="Columna8">{{ cristal.add }}</span>
-          <span class="Columna9">{{ cristal.estado_proceso }}</span>
-          <span
-            class="Columna10"
-            v-for="(sucursal, indice) in listadoSucursales"
-            :key="indice"
+        <div v-if="id_sucursal == 'Todas'">
+          <div class="fila">
+            <span class="columna">Cantidad</span>
+            <span class="columna">Esferico</span>
+            <span class="columna">Cilindro</span>
+            <span class="columna">Eje</span>
+            <span class="columna">DP</span>
+            <span class="columna">CR/MIN</span>
+            <span class="columna">Foto/Ar</span>
+            <span class="columna">ADD</span>
+            <span class="columna">Sucursal</span>
+            <span class="columna">Lotes</span>
+          </div>
+          <div
+            class="fila"
+            v-for="(cristal, index) in listadoCristalesFiltrada"
+            :key="index"
           >
-            <span v-if="sucursal.id == cristal.id_sucursal">{{
-              sucursal.nombre
-            }}</span>
-          </span>
+            <span class="columna">{{ cristal.cantidad }}</span>
+            <span class="columna">{{ cristal.esferico }}</span>
+            <span class="columna">{{ cristal.cilindro }}</span>
+            <span class="columna">{{ cristal.eje }}</span>
+            <span class="columna">{{ cristal.dp }}</span>
+            <span class="columna">{{ cristal.cr_min }}</span>
+            <span class="columna">{{ cristal.foto_ar }}</span>
+            <span class="columna">{{ cristal.add }}</span>
+            <span class="columna"> {{ cristal.sucursal.nombre }} </span>
+            <span class="columna"> {{ cristal.lotes.toString() }} </span>
+          </div>
+        </div>
+
+        <div v-else>
+          <div class="fila">
+            <span class="columna">Cantidad</span>
+            <span class="columna">Esferico</span>
+            <span class="columna">Cilindro</span>
+            <span class="columna">Eje</span>
+            <span class="columna">DP</span>
+            <span class="columna">CR/MIN</span>
+            <span class="columna">Foto/Ar</span>
+            <span class="columna">ADD</span>
+            <span class="columna">Lotes</span>
+          </div>
+          <div
+            class="fila"
+            v-for="(cristal, index) in filtrarPorSucursal"
+            :key="index"
+          >
+            <span class="columna">{{ cristal.cantidad }}</span>
+            <span class="columna">{{ cristal.esferico }}</span>
+            <span class="columna">{{ cristal.cilindro }}</span>
+            <span class="columna">{{ cristal.eje }}</span>
+            <span class="columna">{{ cristal.dp }}</span>
+            <span class="columna">{{ cristal.cr_min }}</span>
+            <span class="columna">{{ cristal.foto_ar }}</span>
+            <span class="columna">{{ cristal.add }}</span>
+            <span class="columna"> {{ cristal.lotes.toString() }} </span>
+          </div>
         </div>
       </div>
     </div>
@@ -100,8 +125,10 @@ export default {
 
   data: function () {
     return {
+      id_sucursal: 'Todas',
       listadoCristales: [],
       listadoSucursales: [],
+      listadoCristalesFiltrada: [],
       listadoCristalesExcel: [],
     }
   },
@@ -118,53 +145,96 @@ export default {
           headers: authHeader(),
         })
         this.listadoSucursales = sucursales.data
+
+        for (let i in this.listadoCristales) {
+          let cristal = {
+            cantidad: 0,
+            esferico: 0,
+            cilindro: 0,
+            eje: 0,
+            dp: 0,
+            cr_min: '',
+            foto_ar: '',
+            add: '',
+            sucursal: {},
+            lotes: [],
+          }
+
+          cristal.cantidad = this.listadoCristales.at(i).cantidad
+          cristal.esferico = this.listadoCristales.at(i).esferico
+          cristal.cilindro = this.listadoCristales.at(i).cilindro
+          cristal.eje = this.listadoCristales.at(i).eje
+          cristal.dp = this.listadoCristales.at(i).dp
+          cristal.cr_min = this.listadoCristales.at(i).cr_min
+          cristal.foto_ar = this.listadoCristales.at(i).foto_ar
+          cristal.add = this.listadoCristales.at(i).add
+
+          cristal.sucursal = this.listadoSucursales
+            .filter(
+              (sucursal) =>
+                sucursal.id == this.listadoCristales.at(i).id_sucursal
+            )
+            .at(0)
+
+          cristal.lotes = this.listadoCristales.at(i).lotes
+
+          this.listadoCristalesFiltrada.push(cristal)
+        }
       } catch (error) {
         console.log('Error al obtener listado cristales', error)
       }
     },
     descargarExcel() {
       for (let i in this.listadoCristales) {
-          let cristal = {
-            tipo :'',
-            esferico : '',
-            cilindro:'',
-            eje:'',
-            dp:'',
-            cr_min:'',
-            foto_ar:'',
-            add:'',
-            estado:'',
-            sucursal:'',
-          }
-          cristal.tipo = this.listadoCristales.at(i).tipo
-          cristal.esferico= this.listadoCristales.at(i).esferico
-          cristal.cilindro = this.listadoCristales.at(i).cilindro
-          cristal.eje = this.listadoCristales.at(i).eje
-          cristal.dp = this.listadoCristales.at(i).dp
-          cristal.cr_min= this.listadoCristales.at(i).cr_min
-          cristal.foto_ar = this.listadoCristales.at(i).foto_ar
-          cristal.add = this.listadoCristales.at(i).add
-          cristal.estado = this.listadoCristales.at(i).estado
-          cristal.sucursal = this.listadoSucursales
-            .filter(
-              (sucursal) => sucursal.id == this.listadoCristales.at(i).id_sucursal
-            )
-            .at(0).nombre
-    
-          this.listadoCristalesExcel.push(cristal)
+        let cristal = {
+          tipo: '',
+          esferico: '',
+          cilindro: '',
+          eje: '',
+          dp: '',
+          cr_min: '',
+          foto_ar: '',
+          add: '',
+          estado: '',
+          sucursal: '',
+        }
+        cristal.tipo = this.listadoCristales.at(i).tipo
+        cristal.esferico = this.listadoCristales.at(i).esferico
+        cristal.cilindro = this.listadoCristales.at(i).cilindro
+        cristal.eje = this.listadoCristales.at(i).eje
+        cristal.dp = this.listadoCristales.at(i).dp
+        cristal.cr_min = this.listadoCristales.at(i).cr_min
+        cristal.foto_ar = this.listadoCristales.at(i).foto_ar
+        cristal.add = this.listadoCristales.at(i).add
+        cristal.estado = this.listadoCristales.at(i).estado
+        cristal.sucursal = this.listadoSucursales
+          .filter(
+            (sucursal) => sucursal.id == this.listadoCristales.at(i).id_sucursal
+          )
+          .at(0).nombre
+
+        this.listadoCristalesExcel.push(cristal)
       }
-      
-      const data = this.listadoCristalesExcel;
+
+      const data = this.listadoCristalesExcel
       const fileName = 'Cristales'
       const exportType = exportXlsFile.types.xls
       exportXlsFile({ data, fileName, exportType })
-      this.listadoCristalesExcel = [];
+      this.listadoCristalesExcel = []
     },
   },
 
   computed: {
     currentUser() {
       return this.$store.state.auth.usuario.status.loggedIn
+    },
+    filtrarPorSucursal() {
+      if (this.id_sucursal == 'Todas' || this.id_sucursal == '') {
+        return this.listadoCristalesFiltrada
+      }
+      return this.listadoCristalesFiltrada.filter(
+        (cristal) => cristal.sucursal.id == this.id_sucursal
+      )
     },
   },
   mounted() {
@@ -254,11 +324,34 @@ export default {
   margin-bottom: 0;
   text-decoration: none;
 }
-.boton-descarga {
-  top: 20%;
-  left: 75%;
-  
+
+.label-listado {
+  display: table-cell;
+  margin: 20px 20px 20px 0px;
+  position: relative;
 }
+
+.boton-descarga {
+  display: table-cell;
+  margin: 20px 20px 20px 20px;
+  position: relative;
+}
+
+.grupo-selector-sucursal {
+  display: table-cell;
+  margin: 20px 20px 20px 20px;
+  position: relative;
+}
+
+.custom-select {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 15px;
+  font-weight: 400;
+  text-align: center;
+  margin: 10px 10px 10px 10px;
+}
+
 .inventario-cristales-text08 {
   top: 335px;
   left: 20px;
@@ -276,6 +369,8 @@ export default {
   margin-right: 0;
   margin-bottom: 0;
   text-decoration: none;
+  flex-wrap: wrap;
+  display: flex;
 }
 
 .Contenedor {
@@ -286,117 +381,7 @@ export default {
   height: auto;
 }
 
-.Columnas {
-  width: 1200px;
-  height: 50px;
-  display: flex;
-  overflow: hidden;
-  position: relative;
-  box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.25);
-  box-sizing: border-box;
-  align-items: flex-start;
-  flex-shrink: 0;
-  border-color: var(--dl-color-default-defaultstroke);
-  /*border-style: solid;*/
-  border-width: 1px;
-  margin-right: 0;
-  border-radius: 15px;
-  margin-bottom: 0;
-  background-color: var(--dl-color-default-formbackground);
-  text-align: left;
-  font-family: Poppins;
-  flex-direction: column;
-  margin: 10px;
-}
-
-.Columna1 {
-  position: absolute;
-  left: 30px;
-  top: 10px;
-  width: auto;
-  height: auto;
-  font-size: 20px;
-  font-style: Bold;
-}
-.Columna2 {
-  position: absolute;
-  left: 150px;
-  top: 10px;
-  width: auto;
-  height: auto;
-  font-size: 20px;
-  font-style: Bold;
-}
-.Columna3 {
-  position: absolute;
-  left: 250px;
-  top: 10px;
-  width: auto;
-  height: auto;
-  font-size: 20px;
-  font-style: Bold;
-}
-.Columna4 {
-  position: absolute;
-  left: 380px;
-  top: 10px;
-  width: auto;
-  height: auto;
-  font-size: 20px;
-  font-style: Bold;
-}
-.Columna5 {
-  position: absolute;
-  left: 450px;
-  top: 10px;
-  width: auto;
-  height: auto;
-  font-size: 20px;
-  font-style: Bold;
-}
-.Columna6 {
-  position: absolute;
-  left: 540px;
-  top: 10px;
-  width: auto;
-  height: auto;
-  font-size: 20px;
-  font-style: Bold;
-}
-.Columna7 {
-  position: absolute;
-  left: 650px;
-  top: 10px;
-  width: auto;
-  height: auto;
-  font-size: 20px;
-  font-style: Bold;
-}
-.Columna8 {
-  position: absolute;
-  left: 770px;
-  top: 10px;
-  width: auto;
-  height: auto;
-  font-size: 20px;
-  font-style: Bold;
-}
-.Columna9 {
-  position: absolute;
-  left: 870px;
-  top: 10px;
-  width: auto;
-  height: auto;
-  font-size: 20px;
-  font-style: Bold;
-}
-.Columna10 {
-  position: absolute;
-  left: 1070px;
-  top: 10px;
-  width: auto;
-  height: auto;
-  font-size: 20px;
-  font-style: Bold;
+.columna {
+  width: 120px;
 }
 </style>

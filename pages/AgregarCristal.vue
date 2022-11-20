@@ -189,6 +189,7 @@
 </template>
 
 <script>
+import authHeader from '../services/auth-header'
 export default {
   name: 'AgregarCristal',
   head: {
@@ -212,11 +213,16 @@ export default {
         id_sucursal: '',
         lote: null,
         costo: null,
+        cantidad: 1,
+        lotes: [0],
       },
     }
   },
   methods: {
     handleSubmitForm() {
+      this.newCristal.cr_min = this.newCristal.cr_min.toUpperCase()
+      this.newCristal.foto_ar = this.newCristal.foto_ar.toUpperCase()
+
       this.$axios
         .post('/cristal', this.newCristal, { headers: authHeader() }) //Se realiza post con el objeto newCristal como parametro asimilando el formato json
         .then((res) => {
@@ -335,7 +341,7 @@ export default {
   font-style: Bold;
   text-align: center;
   font-family: Poppins;
-  font-weight: 100;
+  font-weight: 400;
   line-height: normal;
   font-stretch: normal;
   margin-right: 0;
@@ -358,7 +364,7 @@ export default {
   font-style: Bold;
   text-align: center;
   font-family: Poppins;
-  font-weight: 100;
+  font-weight: 400;
   line-height: normal;
   font-stretch: normal;
   margin-right: 0;
@@ -447,7 +453,7 @@ export default {
   font-style: Thin;
   text-align: center;
   font-family: Poppins;
-  font-weight: 100;
+  font-weight: 400;
   line-height: 2;
   font-stretch: normal;
   text-decoration: none;
@@ -777,7 +783,7 @@ export default {
   font-style: Thin;
   text-align: center;
   font-family: Poppins;
-  font-weight: 100;
+  font-weight: 400;
   line-height: 2;
   font-stretch: normal;
   text-decoration: none;
@@ -795,7 +801,7 @@ export default {
   font-style: Thin;
   text-align: center;
   font-family: Poppins;
-  font-weight: 100;
+  font-weight: 400;
   line-height: 2;
   font-stretch: normal;
   text-decoration: none;
@@ -813,7 +819,7 @@ export default {
   font-style: Thin;
   text-align: center;
   font-family: Poppins;
-  font-weight: 100;
+  font-weight: 400;
   line-height: 2;
   font-stretch: normal;
   text-decoration: none;
@@ -831,7 +837,7 @@ export default {
   font-style: Thin;
   text-align: center;
   font-family: Poppins;
-  font-weight: 100;
+  font-weight: 400;
   line-height: 2;
   font-stretch: normal;
   text-decoration: none;
@@ -849,7 +855,7 @@ export default {
   font-style: Thin;
   text-align: center;
   font-family: Poppins;
-  font-weight: 100;
+  font-weight: 400;
   line-height: 2;
   font-stretch: normal;
   text-decoration: none;
@@ -867,7 +873,7 @@ export default {
   font-style: Thin;
   text-align: center;
   font-family: Poppins;
-  font-weight: 100;
+  font-weight: 400;
   line-height: 2;
   font-stretch: normal;
   text-decoration: none;

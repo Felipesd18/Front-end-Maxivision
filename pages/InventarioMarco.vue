@@ -112,7 +112,7 @@ export default {
 
   data: function () {
     return {
-      id_sucursal: '',
+      id_sucursal: 'Todas',
       listadoMarcos: [],
       listadoSucursales: [],
       listadoMarcas: [],
