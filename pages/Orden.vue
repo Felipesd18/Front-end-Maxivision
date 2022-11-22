@@ -12,6 +12,7 @@
     </div>
 
     <form @submit.prevent="enviarFormulario">
+      <!-- DATOS DEL USUARIO-->
       <table class="tablaDatos">
         <tr>
           <td>
@@ -67,8 +68,6 @@
               <h1>Sucursal</h1>
 
               <select class="tablaBotSucursal" v-model="newOrden.idSucursal">
-                required
-
                 <option disabled>Selecione una Sucursal</option>
                 <option
                   v-for="(sucursal, index) in listaSucursales"
@@ -104,6 +103,8 @@
         </tr>
       </table>
 
+      <!-- Se inicia la tabla de lejos -->
+
       <h1 class="titulo">Lejos</h1>
 
       <table class="tablaCercaLejos">
@@ -124,73 +125,60 @@
 
           <td>
             <div>
-              <input
-                v-model="newCristalDL.esferico"
-                placeholder="Input"
-                type="number"
-              />
+              <input v-model="newCristalDL.esferico" type="number" />
             </div>
           </td>
 
           <td>
             <div>
-              <input
-                v-model="newCristalDL.cilindro"
-                placeholder="Input"
-                type="number"
-              />
+              <input v-model="newCristalDL.cilindro" type="number" />
             </div>
           </td>
 
           <td>
             <div>
-              <input
-                v-model="newCristalDL.eje"
-                placeholder="Input"
-                type="number"
-              />
+              <input v-model="newCristalDL.eje" type="number" />
             </div>
           </td>
 
           <td>
             <div>
-              <input
-                v-model="newCristalDL.dp"
-                placeholder="Input"
-                type="number"
-              />
+              <input v-model="newCristalDL.dp" type="number" />
             </div>
           </td>
 
           <td>
             <div>
-              <input
-                v-model="newCristalDL.cr_min"
-                placeholder="Input"
-                type="number"
-              />
+              <div>
+                <select v-model="newCristalDL.cr_min">
+                  <option>CR</option>
+                  <option>MIN</option>
+                </select>
+              </div>
             </div>
           </td>
 
           <td>
             <div>
-              <input
-                v-model="newCristalDL.foto_ar"
-                placeholder="Input"
-                type="number"
-              />
+              <select v-model="newCristalDL.foto_ar">
+                <option>FOTO</option>
+                <option>AR</option>
+              </select>
             </div>
           </td>
 
           <td>
             <div>
-              <input placeholder="Input" />
+              <select v-model="newCristalDL.focalidad">
+                <option>Bifocal</option>
+                <option>Multifocal</option>
+              </select>
             </div>
           </td>
 
           <td>
             <div>
-              <input placeholder="Input" />
+              <input v-model="newCristalDL.alto_indice" />
             </div>
           </td>
         </tr>
@@ -200,73 +188,63 @@
 
           <td>
             <div>
-              <input
-                v-model="newCristalil.esferico"
-                placeholder="Input"
-                type="number"
-              />
+              <input v-model="newCristalil.esferico" type="number" />
             </div>
           </td>
 
           <td>
             <div>
-              <input
-                v-model="newCristalil.cilindro"
-                placeholder="Input"
-                type="number"
-              />
+              <input v-model="newCristalil.cilindro" type="number" />
             </div>
           </td>
 
           <td>
             <div>
-              <input
-                v-model="newCristalil.eje"
-                placeholder="Input"
-                type="number"
-              />
+              <input v-model="newCristalil.eje" type="number" />
             </div>
           </td>
 
           <td>
             <div>
-              <input
-                v-model="newCristalil.dp"
-                placeholder="Input"
-                type="number"
-              />
+              <input v-model="newCristalil.dp" type="number" />
             </div>
           </td>
 
           <td>
             <div>
-              <input
-                v-model="newCristalil.cr_min"
-                placeholder="Input"
-                type="number"
-              />
+              <div>
+                <select v-model="newCristalil.cr_min">
+                  <option>CR</option>
+                  <option>MIN</option>
+                </select>
+              </div>
             </div>
           </td>
 
           <td>
             <div>
-              <input
-                v-model="newCristalil.foto_ar"
-                placeholder="Input"
-                type="number"
-              />
+              <div>
+                <select v-model="newCristalil.foto_ar">
+                  <option>FOTO</option>
+                  <option>AR</option>
+                </select>
+              </div>
             </div>
           </td>
 
           <td>
             <div>
-              <input placeholder="Input" />
+              <select v-model="newCristalil.focalidad">
+                <option disabled>Selecione focalidad</option>
+                <option>Bifocal</option>
+                <option>Multifocal</option>
+              </select>
             </div>
           </td>
 
           <td>
             <div>
-              <input placeholder="Input" />
+              <input v-model="newCristalil.alto_indice" />
             </div>
           </td>
         </tr>
@@ -297,6 +275,7 @@
         </tr>
       </table>
 
+      <!-- Se inicia la tabla de Cerca -->
       <h1 class="titulo">Cerca</h1>
 
       <table class="tablaCercaLejos">
@@ -317,73 +296,60 @@
 
           <td>
             <div>
-              <input
-                v-model="newCristalD.esferico"
-                placeholder="Input1"
-                type="number"
-              />
+              <input v-model="newCristalD.esferico" type="number" />
             </div>
           </td>
 
           <td>
             <div>
-              <input
-                v-model="newCristalD.cilindro"
-                placeholder="Input"
-                type="number"
-              />
+              <input v-model="newCristalD.cilindro" type="number" />
             </div>
           </td>
 
           <td>
             <div>
-              <input
-                v-model="newCristalD.eje"
-                placeholder="Input"
-                type="number"
-              />
+              <input v-model="newCristalD.eje" type="number" />
             </div>
           </td>
 
           <td>
             <div>
-              <input
-                v-model="newCristalD.dp"
-                placeholder="Input"
-                type="number"
-              />
+              <input v-model="newCristalD.dp" type="number" />
             </div>
           </td>
 
           <td>
             <div>
-              <input
-                v-model="newCristalD.cr_min"
-                placeholder="Input"
-                type="number"
-              />
+              <div>
+                <select v-model="newCristalD.cr_min">
+                  <option>CR</option>
+                  <option>MIN</option>
+                </select>
+              </div>
             </div>
           </td>
 
           <td>
             <div>
-              <input
-                v-model="newCristalD.foto_ar"
-                placeholder="Input"
-                type="number"
-              />
+              <select v-model="newCristalD.foto_ar">
+                <option>Foto</option>
+                <option>AR</option>
+              </select>
             </div>
           </td>
 
           <td>
             <div>
-              <input placeholder="Input" />
+              <select v-model="newCristalD.focalidad">
+                <option>Bifocal</option>
+                <option>Multifocal</option>
+              </select>
             </div>
           </td>
 
           <td>
             <div>
-              <input placeholder="Input" />
+              <input v-model="newCristalD.alto_indice" />
             </div>
           </td>
         </tr>
@@ -393,73 +359,58 @@
 
           <td>
             <div>
-              <input
-                v-model="newCristalI.esferico"
-                placeholder="Input"
-                type="number"
-              />
+              <input v-model="newCristalI.esferico" type="number" />
             </div>
           </td>
 
           <td>
             <div>
-              <input
-                v-model="newCristalI.cilindro"
-                placeholder="Input"
-                type="number"
-              />
+              <input v-model="newCristalI.cilindro" type="number" />
             </div>
           </td>
 
           <td>
             <div>
-              <input
-                v-model="newCristalI.eje"
-                placeholder="Input"
-                type="number"
-              />
+              <input v-model="newCristalI.eje" type="number" />
             </div>
           </td>
 
           <td>
             <div>
-              <input
-                v-model="newCristalI.dp"
-                placeholder="Input"
-                type="number"
-              />
+              <input v-model="newCristalI.dp" type="number" />
             </div>
           </td>
 
           <td>
             <div>
-              <input
-                v-model="newCristalI.cr_min"
-                placeholder="Input"
-                type="number"
-              />
+              <select v-model="newCristalI.cr_min">
+                <option>CR</option>
+                <option>MIN</option>
+              </select>
             </div>
           </td>
 
           <td>
             <div>
-              <input
-                v-model="newCristalI.foto_ar"
-                placeholder="Input"
-                type="number"
-              />
+              <select v-model="newCristalI.foto_ar">
+                <option>FOTO</option>
+                <option>AR</option>
+              </select>
             </div>
           </td>
 
           <td>
             <div>
-              <input placeholder="Input" />
+              <select v-model="newCristalI.focalidad">
+                <option>Bifocal</option>
+                <option>Multifocal</option>
+              </select>
             </div>
           </td>
 
           <td>
             <div>
-              <input placeholder="Input" />
+              <input v-model="newCristalI.alto_indice" />
             </div>
           </td>
         </tr>
@@ -536,7 +487,6 @@ export default {
     return {
       listaOrdenes: [],
       listaSucursales: [],
-      valor: 1,
 
       newOrden: {
         rut: '',
@@ -574,6 +524,8 @@ export default {
         id_sucursal: '',
         lote: 0,
         costo: null,
+        focalidad: '',
+        alto_indice: '',
       },
 
       newCristalD: {
@@ -591,6 +543,8 @@ export default {
         id_sucursal: '',
         lote: 0,
         costo: null,
+        focalidad: '',
+        alto_indice: '',
       },
 
       newCristalDL: {
@@ -608,6 +562,8 @@ export default {
         id_sucursal: '',
         lote: 0,
         costo: null,
+        focalidad: '',
+        alto_indice: '',
       },
 
       newCristalil: {
@@ -625,6 +581,8 @@ export default {
         id_sucursal: '',
         lote: 0,
         costo: null,
+        focalidad: '',
+        alto_indice: '',
       },
     }
   },
@@ -690,7 +648,19 @@ export default {
             console.log(error)
           })
 
+        this.$axios
+          .post('/orden', this.newOrden, { headers: authHeader() }) //Se realiza post con el objeto newMarco como parametro asimilando el formato json
+          .then((res) => {})
+          .catch((error) => {
+            alert(error)
+            console.log(error)
+          })
+
+        alert('Se ha ingesado correctamente la orden')
         alert('Se ha ingesado correctamente tabla de cerca')
+
+        window.location.reload()
+        
       } else {
         /* Se guarda tabla de Lejos */
 
@@ -717,7 +687,8 @@ export default {
             this.newCristalD.dp != null)
         ) {
           alert('Solo puede completar una tabla')
-          valor = 0
+          window.location.reload()
+
         } else {
           this.$axios
             .post('/cristal', this.newCristalil, { headers: authHeader() }) //Se realiza post con el objeto newMarco como parametro asimilando el formato json
@@ -735,21 +706,19 @@ export default {
               console.log(error)
             })
 
+          this.$axios
+            .post('/orden', this.newOrden, { headers: authHeader() }) //Se realiza post con el objeto newMarco como parametro asimilando el formato json
+            .then((res) => {})
+            .catch((error) => {
+              alert(error)
+              console.log(error)
+            })
+
+          alert('Se ha ingesado correctamente la orden')
           alert('Se ha ingesado correctamente tabla de Lejos')
+
+          window.location.reload()
         }
-      }
-
-      if (valor == 1) {
-        this.$axios
-          .post('/orden', this.newOrden, { headers: authHeader() }) //Se realiza post con el objeto newMarco como parametro asimilando el formato json
-          .then((res) => {})
-          .catch((error) => {
-            alert(error)
-            console.log(error)
-          })
-
-        alert('Se ha ingesado correctamente la orden')
-        window.location.reload()
       }
     },
   },
@@ -795,6 +764,12 @@ export default {
 }
 
 .tablaCercaLejos tr td div input {
+  text-align: center;
+  width: 100%;
+  height: 70px;
+}
+
+.tablaCercaLejos tr td div select {
   text-align: center;
   width: 100%;
   height: 70px;

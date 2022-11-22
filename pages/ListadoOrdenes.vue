@@ -19,20 +19,23 @@
       <span class="listado-ordenes-text4"><span>Listado</span></span>
 
       <div class="contenedorElementos">
-        <div class="fila1">
-          <span class="columna1">Rut</span>
-          <span class="columna1">Nombre Paciente</span>
-          <span class="columna1">Fono</span>
-          <span class="columna1">Lote</span>
+
+        <div class="fila">
+          <span class="columna">Rut</span>
+          <span class="columna">Nombre Paciente</span>
+          <span class="columna">Fono</span>
+          <span class="columna">Lote</span>
         </div>
 
-        <div class="fila1" v-for="(orden, index) in listaOrdenes" :key="index">
-          <span class="columna1"> {{ orden.rut }} </span>
-          <span class="columna1"> {{ orden.nombre }} </span>
-          <span class="columna1"> {{ orden.fono }} </span>
-          <span class="columna1"> {{ orden.lote }} </span>
+        <div class="fila" v-for="(orden, index) in listaOrdenes" :key="index">
+          <span class="columna"> {{ orden.rut }} </span>
+          <span class="columna"> {{ orden.nombre }} </span>
+          <span class="columna"> {{ orden.fono }} </span>
+          <span class="columna"> {{ orden.lote }} </span>
         </div>
+
       </div>
+
     </div>
   </div>
 </template>
@@ -77,34 +80,11 @@ export default {
   left: 10px;
   position: relative;
 }
-.columna1 {
-  display: table-cell;
-  float: left;
-  min-width: 10px;
-  margin: 10px 110px 10px 25px; /*arriba derecha abajo izquierda*/
+
+.columna {
+  width: 20%;
 }
 
-.fila1 {
-  width: auto;
-  height: auto;
-  display: flex;
-  overflow: hidden;
-  position: relative;
-  box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.25);
-  box-sizing: border-box;
-  flex-shrink: 0;
-  border-color: var(--dl-color-default-defaultstroke);
-  /*border-style: solid;*/
-  border-width: 1px;
-  border-radius: 15px;
-  background-color: var(--dl-color-default-formbackground);
-  font-family: Poppins;
-  font-size: 24px;
-  font-weight: 400;
-  flex-wrap: wrap;
-  justify-content: left; /*Donde justificar todo el contenido del div*/
-  margin: 10px 350px 10px 0px;
-}
 .listado-ordenes-container {
   min-height: 100vh;
 }
