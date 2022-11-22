@@ -128,7 +128,7 @@ export default {
         },
         {
           link: '/ListadoOrdenes',
-          name: 'Orden',
+          name: 'Guia de Despacho',
           tooltip: 'Orden',
           icon: 'bx-glasses-alt',
         },
