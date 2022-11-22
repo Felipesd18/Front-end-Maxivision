@@ -605,107 +605,160 @@ export default {
     },
 
     enviarFormulario() {
-      this.newOrden.lote =
-        this.listaOrdenes.length + 1 /* Se crea el lote en el cristal */
-      this.newCristalD.lote =
-        this.listaOrdenes.lenght + 1 /* Se crea el lote en el cristal */
-      this.newCristalI.lote =
-        this.listaOrdenes.lenght + 1 /* Se crea el lote en el cristal */
-      this.newCristalDL.lote =
-        this.listaOrdenes.lenght + 1 /* Se crea el lote en el cristal */
-      this.newCristalil.lote =
-        this.listaOrdenes.lenght + 1 /* Se crea el lote en el cristal */
+      /* Se crea el lote en el cristal */
+      this.newOrden.lote = this.listaOrdenes.length + 1
+      this.newCristalD.lote = this.listaOrdenes.lenght + 1
+      this.newCristalI.lote = this.listaOrdenes.lenght + 1
+      this.newCristalDL.lote = this.listaOrdenes.lenght + 1
+      this.newCristalil.lote = this.listaOrdenes.lenght + 1
       this.newCristalI.tipo =
         this.newCristalD.tipo /* Se copia el mismo tipo en el cristal izquiendo y derecho */
 
       if (
-        this.newCristalDL.cilindro == null &&
-        this.newCristalDL.add == null &&
+        this.newCristalD.esferico == null &&
+        this.newCristalD.cilindrico == null &&
+        this.newCristalD.eje == null &&
+        this.newCristalD.dp == null &&
+        this.newCristalD.cr_min == '' &&
+        this.newCristalD.foto_ar == '' &&
+        this.newCristalD.add == null &&
+        this.newCristalI.esferico == null &&
+        this.newCristalI.cilindrico == null &&
+        this.newCristalI.eje == null &&
+        this.newCristalI.dp == null &&
+        this.newCristalI.cr_min == '' &&
+        this.newCristalI.foto_ar == '' &&
+        this.newCristalI.add == null &&
         this.newCristalDL.esferico == null &&
+        this.newCristalDL.cilindrico == null &&
         this.newCristalDL.eje == null &&
         this.newCristalDL.dp == null &&
-        this.newCristalil.cilindro == null &&
-        this.newCristalil.add == null &&
+        this.newCristalDL.cr_min == '' &&
+        this.newCristalDL.foto_ar == '' &&
+        this.newCristalDL.add == null &&
         this.newCristalil.esferico == null &&
+        this.newCristalil.cilindrico == null &&
         this.newCristalil.eje == null &&
-        this.newCristalil.dp == null
+        this.newCristalil.dp == null &&
+        this.newCristalil.cr_min == '' &&
+        this.newCristalil.foto_ar == '' &&
+        this.newCristalil.add == null
       ) {
-        /* Se guarda tabla de Cerca */
+        alert('Ambas tablas vacias')
 
-        this.$axios
-          .post('/cristal', this.newCristalI, { headers: authHeader() }) //Se realiza post con el objeto newMarco como parametro asimilando el formato json
-          .then((res) => {})
-          .catch((error) => {
-            alert(error)
-            console.log(error)
-          })
-
-        this.$axios
-          .post('/cristal', this.newCristalD, { headers: authHeader() }) //Se realiza post con el objeto newMarco como parametro asimilando el formato json
-          .then((res) => {})
-          .catch((error) => {
-            alert(error)
-            console.log(error)
-          })
-
-        this.$axios
-          .post('/orden', this.newOrden, { headers: authHeader() }) //Se realiza post con el objeto newMarco como parametro asimilando el formato json
-          .then((res) => {})
-          .catch((error) => {
-            alert(error)
-            console.log(error)
-          })
-
-        alert('Se ha ingesado correctamente la orden')
-        alert('Se ha ingesado correctamente tabla de cerca')
-
-        window.location.reload()
-        
       } else {
-        /* Se guarda tabla de Lejos */
+        alert('Entre al else 1')
 
         if (
-          (this.newCristalDL.cilindro != null ||
-            this.newCristalDL.add != null ||
-            this.newCristalDL.esferico != null ||
-            this.newCristalDL.eje != null ||
-            this.newCristalDL.dp != null ||
-            this.newCristalil.cilindro != null ||
-            this.newCristalil.add != null ||
-            this.newCristalil.esferico != null ||
-            this.newCristalil.eje != null ||
-            this.newCristalil.dp != null) &&
-          (this.newCristalI.cilindro != null ||
-            this.newCristalI.add != null ||
-            this.newCristalI.esferico != null ||
-            this.newCristalI.eje != null ||
-            this.newCristalI.dp != null ||
-            this.newCristalD.cilindro != null ||
-            this.newCristalD.add != null ||
-            this.newCristalD.esferico != null ||
-            this.newCristalD.eje != null ||
-            this.newCristalD.dp != null)
+
+          (this.newCristalD.esferico != null ||
+          this.newCristalD.cilindrico != null ||
+          this.newCristalD.eje != null ||
+          this.newCristalD.dp != null ||
+          this.newCristalD.cr_min != '' ||
+          this.newCristalD.foto_ar != '' ||
+          this.newCristalI.esferico != null ||
+          this.newCristalI.cilindrico != null ||
+          this.newCristalI.eje != null ||
+          this.newCristalI.dp != null ||
+          this.newCristalI.cr_min != '' ||
+          this.newCristalI.foto_ar != '') ||
+
+          (this.newCristalDL.esferico != null ||
+          this.newCristalDL.cilindrico != null ||
+          this.newCristalDL.eje != null ||
+          this.newCristalDL.dp != null ||
+          this.newCristalDL.cr_min != '' ||
+          this.newCristalDL.foto_ar != '' ||
+          this.newCristalil.esferico != null ||
+          this.newCristalil.cilindrico != null ||
+          this.newCristalil.eje != null ||
+          this.newCristalil.dp != null ||
+          this.newCristalil.cr_min != '' ||
+          this.newCristalil.foto_ar != '')
         ) {
-          alert('Solo puede completar una tabla')
+
+          alert('Ambas tablas llenas')
           window.location.reload()
 
         } else {
-          this.$axios
-            .post('/cristal', this.newCristalil, { headers: authHeader() }) //Se realiza post con el objeto newMarco como parametro asimilando el formato json
-            .then((res) => {})
-            .catch((error) => {
-              alert(error)
-              console.log(error)
-            })
 
-          this.$axios
-            .post('/cristal', this.newCristalDL, { headers: authHeader() }) //Se realiza post con el objeto newMarco como parametro asimilando el formato json
-            .then((res) => {})
-            .catch((error) => {
-              alert(error)
-              console.log(error)
-            })
+          alert('Entre al else 2')
 
+          if (
+            (this.newCristalD.esferico != null ||
+            this.newCristalD.cilindrico != null ||
+            this.newCristalD.eje != null ||
+            this.newCristalD.dp != null ||
+            this.newCristalD.cr_min != '' ||
+            this.newCristalD.foto_ar != '') ||
+            (this.newCristalI.esferico != null ||
+            this.newCristalI.cilindrico != null ||
+            this.newCristalI.eje != null ||
+            this.newCristalI.dp != null ||
+            this.newCristalI.cr_min != '' ||
+            this.newCristalI.foto_ar != '')
+          ) {
+
+            this.$axios
+              .post('/cristal', this.newCristalI, { headers: authHeader() })
+              .then((res) => {})
+              .catch((error) => {
+                alert(error)
+                console.log(error)
+              })
+
+            this.$axios
+              .post('/cristal', this.newCristalD, { headers: authHeader() })
+              .then((res) => {})
+              .catch((error) => {
+                alert(error)
+                console.log(error)
+              })
+            
+            alert('Se ha ingesado correctamente tabla de cerca')
+            window.location.reload()
+          }
+
+          if (
+            (this.newCristalDL.esferico != null ||
+            this.newCristalDL.cilindrico != null ||
+            this.newCristalDL.eje != null ||
+            this.newCristalDL.dp != null ||
+            this.newCristalDL.cr_min != '' ||
+            this.newCristalDL.foto_ar != '' ||
+            this.newCristalDL.add != null) ||
+            (this.newCristalil.esferico != null ||
+            this.newCristalil.cilindrico != null ||
+            this.newCristalil.eje != null ||
+            this.newCristalil.dp != null ||
+            this.newCristalil.cr_min != '' ||
+            this.newCristalil.foto_ar != '' ||
+            this.newCristalil.add != null)
+          ) {
+
+            this.$axios
+              .post('/cristal', this.newCristalil, { headers: authHeader() }) //Se realiza post con el objeto newMarco como parametro asimilando el formato json
+              .then((res) => {})
+              .catch((error) => {
+                alert(error)
+                console.log(error)
+              })
+
+            this.$axios
+              .post('/cristal', this.newCristalDL, { headers: authHeader() }) //Se realiza post con el objeto newMarco como parametro asimilando el formato json
+              .then((res) => {})
+              .catch((error) => {
+                alert(error)
+                console.log(error)
+              })
+
+              alert('Se ha ingesado correctamente tabla de lejos')
+              window.location.reload()
+
+          }
+
+          /*
           this.$axios
             .post('/orden', this.newOrden, { headers: authHeader() }) //Se realiza post con el objeto newMarco como parametro asimilando el formato json
             .then((res) => {})
@@ -715,9 +768,8 @@ export default {
             })
 
           alert('Se ha ingesado correctamente la orden')
-          alert('Se ha ingesado correctamente tabla de Lejos')
-
           window.location.reload()
+          */
         }
       }
     },
