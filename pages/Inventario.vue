@@ -9,30 +9,45 @@
         </div>
         <div class="header-texto">Inventario</div>
       </div>
-      <div class="inventario-frame6">
-        <div class="inventario-text02">
-          <div class="logo">
-            <img src="../assets/logo-marco.png" width="150" />
+      <div class="carrucel">
+        <div class="inventario-frame6">
+          <div class="inventario-text02">
+            <div class="logo">
+              <img src="../assets/logo-marco.png" width="150" />
+            </div>
+            Marcos
           </div>
-          Marcos
-        </div>
-        <div class="inventario-visualizar">
-          <nuxt-link to="/InventarioMarco">
-            <span class="inventario-text09"><span>Visualizar</span></span>
-          </nuxt-link>
-        </div>
-      </div>
-      <div class="inventario-frame7">
-        <div class="inventario-text11">
-          <div class="logo">
-            <img src="../assets/logo-lentes.png" width="150" />
+          <div class="inventario-visualizar">
+            <nuxt-link to="/InventarioMarco">
+              <span class="inventario-text09"><span>Visualizar</span></span>
+            </nuxt-link>
           </div>
-          Cristales
         </div>
-        <div class="inventario-visualizar1">
-          <nuxt-link to="/InventarioCristales">
-            <span class="inventario-text18"><span>Visualizar</span></span>
-          </nuxt-link>
+        <div class="cuadro-cristales-despacho">
+          <div class="inventario-text02">
+            <div class="logo">
+              <img src="../assets/logo-lentes.png" width="150" />
+            </div>
+            Cristales para Despachos
+          </div>
+          <div class="inventario-visualizar1">
+            <nuxt-link to="/InventarioCristalesDespacho">
+              <span class="inventario-text18"><span>Visualizar</span></span>
+            </nuxt-link>
+          </div>
+        </div>
+        <div class="inventario-frame7">
+          <div class="inventario-text11">
+            <div class="logo">
+              <img src="../assets/logo-lentes.png" width="150" />
+            </div>
+            Cristales Maipú
+          </div>
+          <div class="inventario-visualizar1">
+            <nuxt-link to="/InventarioCristales">
+              <span class="inventario-text18"><span>Visualizar</span></span>
+            </nuxt-link>
+          </div>
         </div>
       </div>
     </div>
@@ -45,6 +60,7 @@ export default {
   head: {
     title: 'exported project',
   },
+  middleware: ['authenticated'],
 }
 </script>
 
@@ -53,24 +69,33 @@ export default {
   min-height: 100vh;
 }
 
+.carrucel {
+  top: 30px;
+  width: auto;
+  height: auto;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
 .inventario-frame6 {
-  top: 100px;
-  left: 20px;
   width: 45%;
   height: 450px;
   overflow: hidden;
-  position: absolute;
+  position: relative;
   box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
   align-items: flex-start;
-  flex-shrink: 0;
   border-color: var(--dl-color-default-defaultstroke);
   border-style: solid;
   border-width: 1px;
-  margin-right: 0;
   border-radius: 15px;
-  margin-bottom: 0;
   background-color: var(--dl-color-default-formbackground);
+  display: table-cell;
+  float: left;
+  margin: 20px 20px 20px 20px;
 }
 .inventario-text02 {
   top: 40px;
@@ -124,13 +149,12 @@ export default {
   text-decoration: none;
 }
 .inventario-frame7 {
-  top: 100px;
-  left: 50%;
   width: 45%;
   height: 450px;
+  margin: 20px 20px 20px 20px;
 
   overflow: hidden;
-  position: absolute;
+  position: relative;
   box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
   align-items: flex-start;
@@ -142,7 +166,30 @@ export default {
   border-radius: 15px;
   margin-bottom: 0;
   background-color: var(--dl-color-default-formbackground);
+  display: table-cell;
+  float: left;
 }
+
+.cuadro-cristales-despacho {
+  position: relative;
+  overflow: hidden;
+
+  width: 45%;
+  height: 450px;
+
+  box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  border-color: var(--dl-color-default-defaultstroke);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 15px;
+  background-color: var(--dl-color-default-formbackground);
+
+  display: table-cell;
+  float: left;
+  margin: 20px 20px 20px 20px;
+}
+
 .inventario-text11 {
   top: 100px;
   left: 70px;

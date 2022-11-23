@@ -9,23 +9,6 @@
         <div class="header-texto">Ingreso Cristal a Inventario</div>
       </div>
       <form @submit.prevent="handleSubmitForm">
-        <span class="agregar-cristal-text02"><span>Tipo</span></span>
-        <select class="custom-select" v-model="newCristal.tipo" required>
-          <option disabled>Seleccione un tipo de Cristal</option>
-          <option>Lejos</option>
-          <option>Cerca</option>
-        </select>
-        <span class="agregar-sucursal"><span>Sucursal</span></span>
-        <select class="custom-select-sucursal" v-model="newCristal.id_sucursal">
-          <option disabled>Selecione una Sucursal</option>
-          <option
-            v-for="(sucursal, index) in sucursales"
-            :key="index"
-            :value="sucursal.id"
-          >
-            {{ sucursal.nombre }}
-          </option>
-        </select>
         <!-- Seccion correspondiente a tabla ADD-->
         <div class="agregar-cristal-tabla-a-d-d">
           <img
@@ -195,11 +178,12 @@ export default {
   head: {
     title: 'exported project',
   },
+  middleware: ['authenticated'],
   data: function () {
     return {
       sucursales: [],
       newCristal: {
-        tipo: '',
+        tipo: 'Inventario',
         esferico: null,
         cilindro: null,
         eje: null,
@@ -210,7 +194,7 @@ export default {
         add: null,
         tipo_lejos_cerca: '',
         estado_proceso: 'En inventario',
-        id_sucursal: '',
+        id_sucursal: '6347171fa458d828c91b1cde',
         lote: null,
         costo: null,
         cantidad: 1,

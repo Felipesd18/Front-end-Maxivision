@@ -20,6 +20,7 @@ ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 
 export default {
   name: 'BarChart',
+  middleware: ['authenticated'],
   components: { Bar },
   data: () => ({
     loaded: false,

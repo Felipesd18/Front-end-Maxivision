@@ -109,6 +109,7 @@ export default {
   head: {
     title: 'exported project',
   },
+  middleware: ['authenticated'],
 
   data: function () {
     return {
@@ -358,7 +359,6 @@ export default {
   top: 10px;
   left: 85%;
   margin: 20px 20px 20px 20px;
-  
 }
 .grupo-selector-sucursal {
   display: table-cell;

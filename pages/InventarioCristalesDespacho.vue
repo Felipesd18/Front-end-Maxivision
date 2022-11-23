@@ -6,18 +6,11 @@
         <div class="logo-header">
           <img src="../assets/logo-01.png" alt="logo-maxisvision" width="80" />
         </div>
-        <div class="header-texto">Inventario Cristales Maipú</div>
+        <div class="header-texto">Inventario Cristales Despacho</div>
       </div>
       <div class="inventario-cristales-visualizar">
         <nuxt-link to="/Inventario">
           <span class="inventario-cristales-text02"><span>Volver</span></span>
-        </nuxt-link>
-      </div>
-      <div class="inventario-cristales-ingresar-cristal">
-        <nuxt-link to="/AgregarCristal">
-          <span class="inventario-cristales-text04">
-            <span>Ingresar Nuevo Cristal</span>
-          </span>
         </nuxt-link>
       </div>
 
@@ -31,32 +24,82 @@
         >
           Descargar inventario</v-btn
         >
+
+        <div class="grupo-selector-sucursal">
+          <span>Sucursal</span>
+          <select class="custom-select" v-model="id_sucursal">
+            <option disabled>Selecione una Sucursal</option>
+            <option>Todas</option>
+            <option
+              v-for="(sucursal, index) in listadoSucursales"
+              :key="index"
+              :value="sucursal.id"
+            >
+              {{ sucursal.nombre }}
+            </option>
+          </select>
+        </div>
       </div>
 
       <div class="Contenedor">
-        <div class="fila">
-          <span class="columna">Cantidad</span>
-          <span class="columna">Esferico</span>
-          <span class="columna">Cilindro</span>
-          <span class="columna">Eje</span>
-          <span class="columna">DP</span>
-          <span class="columna">CR/MIN</span>
-          <span class="columna">Foto/Ar</span>
-          <span class="columna">ADD</span>
+        <div v-if="id_sucursal == 'Todas'">
+          <div class="fila">
+            <span class="columna">Cantidad</span>
+            <span class="columna">Esferico</span>
+            <span class="columna">Cilindro</span>
+            <span class="columna">Eje</span>
+            <span class="columna">DP</span>
+            <span class="columna">CR/MIN</span>
+            <span class="columna">Foto/Ar</span>
+            <span class="columna">ADD</span>
+            <span class="columna">Sucursal</span>
+            <span class="columna">Lotes</span>
+          </div>
+          <div
+            class="fila"
+            v-for="(cristal, index) in listadoCristalesFiltrada"
+            :key="index"
+          >
+            <span class="columna">{{ cristal.cantidad }}</span>
+            <span class="columna">{{ cristal.esferico }}</span>
+            <span class="columna">{{ cristal.cilindro }}</span>
+            <span class="columna">{{ cristal.eje }}</span>
+            <span class="columna">{{ cristal.dp }}</span>
+            <span class="columna">{{ cristal.cr_min }}</span>
+            <span class="columna">{{ cristal.foto_ar }}</span>
+            <span class="columna">{{ cristal.add }}</span>
+            <span class="columna"> {{ cristal.sucursal.nombre }} </span>
+            <span class="columna"> {{ cristal.lotes.toString() }} </span>
+          </div>
         </div>
-        <div
-          class="fila"
-          v-for="(cristal, index) in listadoCristales"
-          :key="index"
-        >
-          <span class="columna">{{ cristal.cantidad }}</span>
-          <span class="columna">{{ cristal.esferico }}</span>
-          <span class="columna">{{ cristal.cilindro }}</span>
-          <span class="columna">{{ cristal.eje }}</span>
-          <span class="columna">{{ cristal.dp }}</span>
-          <span class="columna">{{ cristal.cr_min }}</span>
-          <span class="columna">{{ cristal.foto_ar }}</span>
-          <span class="columna">{{ cristal.add }}</span>
+
+        <div v-else>
+          <div class="fila">
+            <span class="columna">Cantidad</span>
+            <span class="columna">Esferico</span>
+            <span class="columna">Cilindro</span>
+            <span class="columna">Eje</span>
+            <span class="columna">DP</span>
+            <span class="columna">CR/MIN</span>
+            <span class="columna">Foto/Ar</span>
+            <span class="columna">ADD</span>
+            <span class="columna">Lotes</span>
+          </div>
+          <div
+            class="fila"
+            v-for="(cristal, index) in filtrarPorSucursal"
+            :key="index"
+          >
+            <span class="columna">{{ cristal.cantidad }}</span>
+            <span class="columna">{{ cristal.esferico }}</span>
+            <span class="columna">{{ cristal.cilindro }}</span>
+            <span class="columna">{{ cristal.eje }}</span>
+            <span class="columna">{{ cristal.dp }}</span>
+            <span class="columna">{{ cristal.cr_min }}</span>
+            <span class="columna">{{ cristal.foto_ar }}</span>
+            <span class="columna">{{ cristal.add }}</span>
+            <span class="columna"> {{ cristal.lotes.toString() }} </span>
+          </div>
         </div>
       </div>
     </div>
@@ -75,17 +118,61 @@ export default {
 
   data: function () {
     return {
+      id_sucursal: 'Todas',
       listadoCristales: [],
+      listadoSucursales: [],
+      listadoCristalesFiltrada: [],
+      listadoCristalesExcel: [],
     }
   },
 
   methods: {
     getData: async function () {
       try {
-        let response = await this.$axios.get('/cristal/tipo/Inventario', {
+        let response = await this.$axios.get('/cristal/tipo/Despacho', {
           headers: authHeader(),
         })
         this.listadoCristales = response.data
+
+        let sucursales = await this.$axios.get('/sucursal', {
+          headers: authHeader(),
+        })
+        this.listadoSucursales = sucursales.data
+
+        for (let i in this.listadoCristales) {
+          let cristal = {
+            cantidad: 0,
+            esferico: 0,
+            cilindro: 0,
+            eje: 0,
+            dp: 0,
+            cr_min: '',
+            foto_ar: '',
+            add: '',
+            sucursal: {},
+            lotes: [],
+          }
+
+          cristal.cantidad = this.listadoCristales.at(i).cantidad
+          cristal.esferico = this.listadoCristales.at(i).esferico
+          cristal.cilindro = this.listadoCristales.at(i).cilindro
+          cristal.eje = this.listadoCristales.at(i).eje
+          cristal.dp = this.listadoCristales.at(i).dp
+          cristal.cr_min = this.listadoCristales.at(i).cr_min
+          cristal.foto_ar = this.listadoCristales.at(i).foto_ar
+          cristal.add = this.listadoCristales.at(i).add
+
+          cristal.sucursal = this.listadoSucursales
+            .filter(
+              (sucursal) =>
+                sucursal.id == this.listadoCristales.at(i).id_sucursal
+            )
+            .at(0)
+
+          cristal.lotes = this.listadoCristales.at(i).lotes
+
+          this.listadoCristalesFiltrada.push(cristal)
+        }
       } catch (error) {
         console.log('Error al obtener listado cristales', error)
       }
@@ -127,6 +214,17 @@ export default {
       const exportType = exportXlsFile.types.xls
       exportXlsFile({ data, fileName, exportType })
       this.listadoCristalesExcel = []
+    },
+  },
+
+  computed: {
+    filtrarPorSucursal() {
+      if (this.id_sucursal == 'Todas' || this.id_sucursal == '') {
+        return this.listadoCristalesFiltrada
+      }
+      return this.listadoCristalesFiltrada.filter(
+        (cristal) => cristal.sucursal.id == this.id_sucursal
+      )
     },
   },
 
@@ -220,7 +318,7 @@ export default {
 
 .boton-descarga {
   top: 10px;
-  left: 10%;
+  left: 65%;
   margin: 20px 20px 20px 20px;
 }
 

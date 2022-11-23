@@ -76,6 +76,7 @@
 <script>
 import authHeader from '../services/auth-header'
 export default {
+  middleware: ['authenticated'],
   data() {
     return {
       operativo: {},

@@ -9,6 +9,7 @@
 import sidebarMenu from '../components/sidebar-menu.vue'
 export default {
   components: { sidebarMenu },
+  middleware: ['authenticated'],
   data() {
     return {}
   },

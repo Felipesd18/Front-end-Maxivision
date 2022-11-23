@@ -19,7 +19,6 @@
       <span class="listado-ordenes-text4"><span>Listado</span></span>
 
       <div class="contenedorElementos">
-
         <div class="fila">
           <span class="columna">Rut</span>
           <span class="columna">Nombre Paciente</span>
@@ -33,9 +32,7 @@
           <span class="columna"> {{ orden.fono }} </span>
           <span class="columna"> {{ orden.lote }} </span>
         </div>
-
       </div>
-
     </div>
   </div>
 </template>
@@ -48,6 +45,7 @@ export default {
   head: {
     title: 'exported project',
   },
+  middleware: ['authenticated'],
 
   data: function () {
     return {

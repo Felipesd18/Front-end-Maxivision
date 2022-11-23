@@ -101,11 +101,10 @@
   color: white;
   background-color: var(--d1-color-texts);
   height: 80px;
-  padding-left: 40%;
   font-size: 64px;
   align-self: auto;
   font-style: Bold;
-  text-align: left;
+  text-align: center;
   font-family: Poppins;
   font-weight: 500;
   line-height: 130%;

@@ -23,6 +23,7 @@ import sidebarMenu from '../components/sidebar-menu.vue'
 
 export default {
   name: 'IndexPage',
+  middleware: ['authenticated'],
   components: {
     LineChart,
     sidebarMenu,

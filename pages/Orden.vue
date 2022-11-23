@@ -483,6 +483,7 @@ export default {
   head: {
     title: 'exported project',
   },
+  middleware: ['authenticated'],
   data: function () {
     return {
       listaOrdenes: [],
@@ -645,13 +646,11 @@ export default {
         this.newCristalil.add == null
       ) {
         alert('Ambas tablas vacias')
-
       } else {
         alert('Entre al else 1')
 
         if (
-
-          (this.newCristalD.esferico != null ||
+          this.newCristalD.esferico != null ||
           this.newCristalD.cilindrico != null ||
           this.newCristalD.eje != null ||
           this.newCristalD.dp != null ||
@@ -662,9 +661,8 @@ export default {
           this.newCristalI.eje != null ||
           this.newCristalI.dp != null ||
           this.newCristalI.cr_min != '' ||
-          this.newCristalI.foto_ar != '') ||
-
-          (this.newCristalDL.esferico != null ||
+          this.newCristalI.foto_ar != '' ||
+          this.newCristalDL.esferico != null ||
           this.newCristalDL.cilindrico != null ||
           this.newCristalDL.eje != null ||
           this.newCristalDL.dp != null ||
@@ -675,31 +673,27 @@ export default {
           this.newCristalil.eje != null ||
           this.newCristalil.dp != null ||
           this.newCristalil.cr_min != '' ||
-          this.newCristalil.foto_ar != '')
+          this.newCristalil.foto_ar != ''
         ) {
-
           alert('Ambas tablas llenas')
           window.location.reload()
-
         } else {
-
           alert('Entre al else 2')
 
           if (
-            (this.newCristalD.esferico != null ||
+            this.newCristalD.esferico != null ||
             this.newCristalD.cilindrico != null ||
             this.newCristalD.eje != null ||
             this.newCristalD.dp != null ||
             this.newCristalD.cr_min != '' ||
-            this.newCristalD.foto_ar != '') ||
-            (this.newCristalI.esferico != null ||
+            this.newCristalD.foto_ar != '' ||
+            this.newCristalI.esferico != null ||
             this.newCristalI.cilindrico != null ||
             this.newCristalI.eje != null ||
             this.newCristalI.dp != null ||
             this.newCristalI.cr_min != '' ||
-            this.newCristalI.foto_ar != '')
+            this.newCristalI.foto_ar != ''
           ) {
-
             this.$axios
               .post('/cristal', this.newCristalI, { headers: authHeader() })
               .then((res) => {})
@@ -715,28 +709,27 @@ export default {
                 alert(error)
                 console.log(error)
               })
-            
+
             alert('Se ha ingesado correctamente tabla de cerca')
             window.location.reload()
           }
 
           if (
-            (this.newCristalDL.esferico != null ||
+            this.newCristalDL.esferico != null ||
             this.newCristalDL.cilindrico != null ||
             this.newCristalDL.eje != null ||
             this.newCristalDL.dp != null ||
             this.newCristalDL.cr_min != '' ||
             this.newCristalDL.foto_ar != '' ||
-            this.newCristalDL.add != null) ||
-            (this.newCristalil.esferico != null ||
+            this.newCristalDL.add != null ||
+            this.newCristalil.esferico != null ||
             this.newCristalil.cilindrico != null ||
             this.newCristalil.eje != null ||
             this.newCristalil.dp != null ||
             this.newCristalil.cr_min != '' ||
             this.newCristalil.foto_ar != '' ||
-            this.newCristalil.add != null)
+            this.newCristalil.add != null
           ) {
-
             this.$axios
               .post('/cristal', this.newCristalil, { headers: authHeader() }) //Se realiza post con el objeto newMarco como parametro asimilando el formato json
               .then((res) => {})
@@ -753,9 +746,8 @@ export default {
                 console.log(error)
               })
 
-              alert('Se ha ingesado correctamente tabla de lejos')
-              window.location.reload()
-
+            alert('Se ha ingesado correctamente tabla de lejos')
+            window.location.reload()
           }
 
           /*
