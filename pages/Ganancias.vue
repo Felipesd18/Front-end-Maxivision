@@ -4,10 +4,12 @@
     <div class="contenedor-pagina">
       <h1 class="titulo">Prueba Graficos</h1>
       <div class="chart-div">
-        <LineChart
-          :chartData="chartData"
+        <line-chart
+          :chartData="listaGanancias"
           :options="chartOptions"
-          class="line-chart"
+          :chartColors="listaGananciaChartColors"
+          :key="listaGanancias.length"
+          label="Ganancias"
         />
       </div>
     </div>
@@ -15,41 +17,45 @@
 </template>
 
 <script>
+import axios from 'axios'
+import LineChart from '../components/LineChart.vue'
 import sidebarMenu from '../components/sidebar-menu.vue'
-import authHeader from '../services/auth-header'
+
 export default {
-  components: { sidebarMenu },
-  middleware: ['authenticated'],
+  name: 'IndexPage',
+  components: {
+    LineChart,
+    sidebarMenu,
+  },
   data: function () {
     return {
-      chartData: {
-        labels: ['Enero', 'Febrero', 'Marzo', 'Abril'],
-        datasets: [
-          {
-            label: 'Numbers',
-            borderColor: '#ea05f2',
-            borderWidth: 4,
-            data: [100, 150, 300, 200],
-          },
-        ],
+      listaGanancias: [],
+      listaGananciaChartColors: {
+        borderColor: '#077187',
+        pointBorderColor: '#0E1428',
+        pointBackgroundColor: '#AFD6AC',
+        backgroundColor: '#74A57F',
       },
       chartOptions: {
-        maintainAspectRatio: false,
         responsive: true,
+        maintainAspectRatio: false,
       },
-      listadoOrdenes: [],
     }
   },
   methods: {
     getData: async function () {
       try {
-        let response = await this.$axios.get('/orden', {
-          headers: authHeader(),
-        })
+        const { data } = await axios.get(
+          'https://run.mocky.io/v3/9b7fd544-0851-4ae8-8953-a21d629c1256'
+        )
 
-        this.listadoOrdenes = response.data
+        data.forEach((d) => {
+          const totalResta = d.total - d.gasto
+          const fecha = d.fecha
+          this.listaGanancias.push({ date: fecha, total: totalResta })
+        })
       } catch (error) {
-        console.log('Error al obtener datos ordenes', error)
+        console.log('Error al obtener los datos', error)
       }
     },
   },
@@ -59,12 +65,4 @@ export default {
 }
 </script>
 
-<style>
-.titulo {
-  color: tomato;
-}
-.line-chart {
-  width: 60vw;
-  height: 50vh;
-}
-</style>
+<style></style>
