@@ -235,7 +235,6 @@
           <td>
             <div>
               <select v-model="newCristalil.focalidad">
-                <option disabled>Selecione focalidad</option>
                 <option>Bifocal</option>
                 <option>Multifocal</option>
               </select>
@@ -647,10 +646,9 @@ export default {
       ) {
         alert('Ambas tablas vacias')
       } else {
-        alert('Entre al else 1')
 
         if (
-          this.newCristalD.esferico != null ||
+        (this.newCristalD.esferico != null ||
           this.newCristalD.cilindrico != null ||
           this.newCristalD.eje != null ||
           this.newCristalD.dp != null ||
@@ -661,8 +659,8 @@ export default {
           this.newCristalI.eje != null ||
           this.newCristalI.dp != null ||
           this.newCristalI.cr_min != '' ||
-          this.newCristalI.foto_ar != '' ||
-          this.newCristalDL.esferico != null ||
+          this.newCristalI.foto_ar != '' ) &&
+          (this.newCristalDL.esferico != null ||
           this.newCristalDL.cilindrico != null ||
           this.newCristalDL.eje != null ||
           this.newCristalDL.dp != null ||
@@ -673,7 +671,7 @@ export default {
           this.newCristalil.eje != null ||
           this.newCristalil.dp != null ||
           this.newCristalil.cr_min != '' ||
-          this.newCristalil.foto_ar != ''
+          this.newCristalil.foto_ar != '')
         ) {
           alert('Ambas tablas llenas')
           window.location.reload()
@@ -730,6 +728,7 @@ export default {
             this.newCristalil.foto_ar != '' ||
             this.newCristalil.add != null
           ) {
+
             this.$axios
               .post('/cristal', this.newCristalil, { headers: authHeader() }) //Se realiza post con el objeto newMarco como parametro asimilando el formato json
               .then((res) => {})
@@ -750,7 +749,6 @@ export default {
             window.location.reload()
           }
 
-          /*
           this.$axios
             .post('/orden', this.newOrden, { headers: authHeader() }) //Se realiza post con el objeto newMarco como parametro asimilando el formato json
             .then((res) => {})
@@ -761,7 +759,7 @@ export default {
 
           alert('Se ha ingesado correctamente la orden')
           window.location.reload()
-          */
+
         }
       }
     },
