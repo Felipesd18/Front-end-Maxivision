@@ -1,4 +1,5 @@
 <template>
+  
   <div class="inventario-marco-container">
     <sidebar-menu />
     <div class="contenedor-pagina">
@@ -31,7 +32,7 @@
         >
           Descargar inventario</v-btn
         >
-
+       
         <div class="grupo-selector-sucursal">
           <span>Sucursal</span>
           <select class="custom-select" v-model="id_sucursal">
@@ -47,7 +48,7 @@
           </select>
         </div>
       </div>
-
+      
       <div class="Contenedor">
         <div v-if="id_sucursal == 'Todas'">
           <div class="fila">
@@ -96,9 +97,19 @@
             <span class="columna"> {{ marco.lotes.toString() }} </span>
           </div>
         </div>
+        <div v-if = "verificarCantidad()">
+            <v-alert  
+            class = "alerta"
+            :value="alert"
+            dense
+            type="info"
+            dismissible
+            >Se ha detectado una baja cantidad de stock</v-alert>
+      </div>
       </div>
     </div>
   </div>
+  
 </template>
 
 <script>
@@ -184,12 +195,19 @@ export default {
             .at(0)
 
           marco.lotes = this.listadoMarcos.at(i).lotes
-
+          
           this.listadoMarcosFiltrado.push(marco)
         }
       } catch (error) {
         console.log('Error al obtener los datos', error)
       }
+    },
+    verificarCantidad(){
+        for (let i in this.listadoMarcos){ 
+          if (this.listadoMarcos.at(i).cantidad < 10){
+            return true;
+          }
+        }
     },
     descargarExcel() {
       for (let i in this.listadoMarcos) {
@@ -387,4 +405,5 @@ export default {
 .columna {
   width: 14%;
 }
+
 </style>

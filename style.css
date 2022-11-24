@@ -198,3 +198,13 @@
   text-decoration: none;
 }
 
+.alerta{
+  color: white;
+  background-color: var(--dl-color-default-defaultstroke);
+  width: 30%;
+  position:fixed;
+  bottom: 0;
+  float:right;
+  margin-right:30px;
+}
+

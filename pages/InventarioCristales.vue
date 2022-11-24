@@ -58,6 +58,15 @@
           <span class="columna">{{ cristal.foto_ar }}</span>
           <span class="columna">{{ cristal.add }}</span>
         </div>
+        <div v-if = "verificarCantidad()">
+            <v-alert  
+            class = "alerta"
+            :value="alert"
+            dense
+            type="info"
+            dismissible
+            >Se ha detectado una baja cantidad de stock</v-alert>
+      </div>
       </div>
     </div>
   </div>
@@ -76,6 +85,7 @@ export default {
   data: function () {
     return {
       listadoCristales: [],
+      listadoCristalesExcel: [],
     }
   },
 
@@ -90,6 +100,13 @@ export default {
         console.log('Error al obtener listado cristales', error)
       }
     },
+    verificarCantidad(){
+        for (let i in this.listadoCristales){ 
+          if (this.listadoCristales.at(i).cantidad < 10){
+            return true;
+          }
+        }
+    },
     descargarExcel() {
       for (let i in this.listadoCristales) {
         let cristal = {
@@ -101,7 +118,6 @@ export default {
           cr_min: '',
           foto_ar: '',
           add: '',
-          sucursal: '',
           lotes: '',
         }
         cristal.cantidad = this.listadoCristales.at(i).cantidad
@@ -113,12 +129,6 @@ export default {
         cristal.foto_ar = this.listadoCristales.at(i).foto_ar
         cristal.add = this.listadoCristales.at(i).add
         cristal.lotes = this.listadoCristales.at(i).lotes
-        cristal.sucursal = this.listadoSucursales
-          .filter(
-            (sucursal) => sucursal.id == this.listadoCristales.at(i).id_sucursal
-          )
-          .at(0).nombre
-
         this.listadoCristalesExcel.push(cristal)
       }
 
