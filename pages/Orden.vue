@@ -510,7 +510,7 @@ export default {
       },
 
       newCristalI: {
-        tipo: '',
+        tipo: 'Despacho',
         esferico: null,
         cilindro: null,
         eje: null,
@@ -529,7 +529,7 @@ export default {
       },
 
       newCristalD: {
-        tipo: '',
+        tipo: 'Despacho',
         esferico: null,
         cilindro: null,
         eje: null,
@@ -548,7 +548,7 @@ export default {
       },
 
       newCristalDL: {
-        tipo: '',
+        tipo: 'Despacho',
         esferico: null,
         cilindro: null,
         eje: null,
@@ -567,7 +567,7 @@ export default {
       },
 
       newCristalil: {
-        tipo: '',
+        tipo: 'Despacho',
         esferico: null,
         cilindro: null,
         eje: null,
@@ -646,32 +646,31 @@ export default {
       ) {
         alert('Ambas tablas vacias')
       } else {
-
         if (
-        (this.newCristalD.esferico != null ||
-          this.newCristalD.cilindrico != null ||
-          this.newCristalD.eje != null ||
-          this.newCristalD.dp != null ||
-          this.newCristalD.cr_min != '' ||
-          this.newCristalD.foto_ar != '' ||
-          this.newCristalI.esferico != null ||
-          this.newCristalI.cilindrico != null ||
-          this.newCristalI.eje != null ||
-          this.newCristalI.dp != null ||
-          this.newCristalI.cr_min != '' ||
-          this.newCristalI.foto_ar != '' ) &&
+          (this.newCristalD.esferico != null ||
+            this.newCristalD.cilindrico != null ||
+            this.newCristalD.eje != null ||
+            this.newCristalD.dp != null ||
+            this.newCristalD.cr_min != '' ||
+            this.newCristalD.foto_ar != '' ||
+            this.newCristalI.esferico != null ||
+            this.newCristalI.cilindrico != null ||
+            this.newCristalI.eje != null ||
+            this.newCristalI.dp != null ||
+            this.newCristalI.cr_min != '' ||
+            this.newCristalI.foto_ar != '') &&
           (this.newCristalDL.esferico != null ||
-          this.newCristalDL.cilindrico != null ||
-          this.newCristalDL.eje != null ||
-          this.newCristalDL.dp != null ||
-          this.newCristalDL.cr_min != '' ||
-          this.newCristalDL.foto_ar != '' ||
-          this.newCristalil.esferico != null ||
-          this.newCristalil.cilindrico != null ||
-          this.newCristalil.eje != null ||
-          this.newCristalil.dp != null ||
-          this.newCristalil.cr_min != '' ||
-          this.newCristalil.foto_ar != '')
+            this.newCristalDL.cilindrico != null ||
+            this.newCristalDL.eje != null ||
+            this.newCristalDL.dp != null ||
+            this.newCristalDL.cr_min != '' ||
+            this.newCristalDL.foto_ar != '' ||
+            this.newCristalil.esferico != null ||
+            this.newCristalil.cilindrico != null ||
+            this.newCristalil.eje != null ||
+            this.newCristalil.dp != null ||
+            this.newCristalil.cr_min != '' ||
+            this.newCristalil.foto_ar != '')
         ) {
           alert('Ambas tablas llenas')
           window.location.reload()
@@ -728,7 +727,6 @@ export default {
             this.newCristalil.foto_ar != '' ||
             this.newCristalil.add != null
           ) {
-
             this.$axios
               .post('/cristal', this.newCristalil, { headers: authHeader() }) //Se realiza post con el objeto newMarco como parametro asimilando el formato json
               .then((res) => {})
@@ -759,7 +757,6 @@ export default {
 
           alert('Se ha ingesado correctamente la orden')
           window.location.reload()
-
         }
       }
     },
