@@ -48,9 +48,9 @@
             <div>
               <h1>Fecha de Recepcion</h1>
               <input
-                v-model="newOrden.fechaRecepcion"
-                placeholder="Ingrese Fecha"
                 type="date"
+                placeholder="Ingrese Fecha"
+                v-model="newOrden.fecha_recepcion"
               />
             </div>
           </td>
@@ -94,9 +94,9 @@
             <div>
               <h1>Fecha de Entrega</h1>
               <input
-                v-model="newOrden.fechaEntrega"
                 placeholder="Ingrese Fecha"
                 type="date"
+                v-model="newOrden.fecha_entrega"
               />
             </div>
           </td>
@@ -498,8 +498,8 @@ export default {
         observaciones: '',
         fono: '',
         lote: 0,
-        fechaRecepcion: '',
-        fechaEntrega: '',
+        fecha_recepcion: '',
+        fecha_entrega: '',
         profesional: '',
         estadoOrden: 'Activo',
         gasto: 0,
@@ -674,6 +674,7 @@ export default {
         ) {
           alert('Ambas tablas llenas')
           window.location.reload()
+
         } else {
           alert('Entre al else 2')
 
@@ -708,7 +709,6 @@ export default {
               })
 
             alert('Se ha ingesado correctamente tabla de cerca')
-            window.location.reload()
           }
 
           if (
@@ -744,7 +744,6 @@ export default {
               })
 
             alert('Se ha ingesado correctamente tabla de lejos')
-            window.location.reload()
           }
 
           this.$axios
