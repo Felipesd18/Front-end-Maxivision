@@ -115,8 +115,8 @@ export default {
           icon: 'bx-home',
         },
         {
-          link: '/Ganancias',
-          name: 'Analísis de ganancias',
+          link: '/GananciasyVentas',
+          name: 'Ganancias y ventas',
           tooltip: 'Analiticas',
           icon: 'bx-pie-chart-alt-2',
         },

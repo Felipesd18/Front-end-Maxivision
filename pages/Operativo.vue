@@ -9,7 +9,7 @@
         <div class="header-texto">Operativos</div>
       </div>
 
-      <div class="contenedor-boton">
+      <div class="boton">
         <nuxt-link to="/IniciarOperativo">
           <label class="label-boton">Iniciar Operativo</label>
         </nuxt-link>
@@ -89,23 +89,14 @@ export default {
 </script>
 
 <style>
-.contenedor-boton {
+.boton {
   top: 140px;
   left: 20px;
-  width: 350px;
-  height: 83px;
-  display: flex;
-  overflow: hidden;
-  float: none;
+  position: relative;
+}
+
+.label-boton {
   position: absolute;
-  box-sizing: border-box;
-  align-items: flex-start;
-  flex-shrink: 0;
-  border-color: transparent;
-  margin-right: 0;
-  border-radius: 15px;
-  margin-bottom: 0;
-  background-color: var(--dl-color-default-defaultstroke);
 }
 
 .contenedor-listado {
