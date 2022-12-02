@@ -98,14 +98,14 @@
           </div>
         </div>
         <div v-if = "verificarCantidad()">
-            <v-alert  
-            class = "alerta"
-            :value="alert"
-            dense
-            type="info"
-            dismissible
-            >Se ha detectado una baja cantidad de stock</v-alert>
-      </div>
+              <v-alert  
+              class = "alerta"
+              :value="alert"
+              dense
+              type="info"
+              dismissible
+              >Se ha detectado una baja cantidad de stock</v-alert>
+            </div>
       </div>
     </div>
   </div>
@@ -404,6 +404,11 @@ export default {
 
 .columna {
   width: 14%;
+}
+
+.alerta{
+  width: 90%;
+  margin-right: 0;
 }
 
 </style>

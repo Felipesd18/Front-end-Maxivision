@@ -82,7 +82,7 @@
 
           <td>
             <div>
-              <h1>Ubicacion</h1>
+              <h1>Ubicación</h1>
               <input
                 v-model="newOrden.ubicacion"
                 placeholder="Ingrese ubicacion"
@@ -421,10 +421,10 @@
           <td>
             <div>
               <h1 class="titulo">Observaciones</h1>
-              <input
+              <textarea
                 class="Obs"
                 v-model="newOrden.observaciones"
-                placeholder="Observaciones"
+                placeholder="Ingrese aquí sus observaciones"
               />
             </div>
           </td>
@@ -914,5 +914,8 @@ export default {
   margin-right: 0;
   margin-bottom: 0;
   text-decoration: none;
+}
+h1{
+  font-size: 20px;
 }
 </style>

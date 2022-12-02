@@ -11,7 +11,7 @@
 
       <div class="contenedor-grupos">
         <div class="contenedor-limite-stock">
-          <label class="label-titulo">Variar Limite Stock</label>
+          <label class="label-titulo">Ajustar limite de stock para alertas</label>
           <div>
             <input type="number" class="input" />
             <button class="boton">
@@ -25,12 +25,15 @@
 </template>
 
 <script>
+
 import sidebarMenu from '../components/sidebar-menu.vue'
 export default {
   components: { sidebarMenu },
   middleware: ['authenticated'],
   data() {
-    return {}
+    return {
+      
+    }
   },
 }
 </script>

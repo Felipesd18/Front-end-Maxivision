@@ -57,8 +57,8 @@
           <span class="columna">{{ cristal.cr_min }}</span>
           <span class="columna">{{ cristal.foto_ar }}</span>
           <span class="columna">{{ cristal.add }}</span>
-        </div>
-        <div v-if = "verificarCantidad()">
+
+          <div v-if = "verificarCantidad(index)">
             <v-alert  
             class = "alerta"
             :value="alert"
@@ -66,7 +66,8 @@
             type="info"
             dismissible
             >Se ha detectado una baja cantidad de stock</v-alert>
-      </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -75,6 +76,7 @@
 <script>
 import authHeader from '../services/auth-header'
 import exportXlsFile from 'export-from-json'
+
 export default {
   name: 'InventarioCristales',
   head: {
@@ -88,7 +90,6 @@ export default {
       listadoCristalesExcel: [],
     }
   },
-
   methods: {
     getData: async function () {
       try {
@@ -100,12 +101,10 @@ export default {
         console.log('Error al obtener listado cristales', error)
       }
     },
-    verificarCantidad(){
-        for (let i in this.listadoCristales){ 
-          if (this.listadoCristales.at(i).cantidad < 10){
+    verificarCantidad( indice){
+          if (this.listadoCristales.at(indice).cantidad < 10){
             return true;
           }
-        }
     },
     descargarExcel() {
       for (let i in this.listadoCristales) {
@@ -234,21 +233,6 @@ export default {
   margin: 20px 20px 20px 20px;
 }
 
-.grupo-selector-sucursal {
-  top: 10px;
-  margin: 20px 20px 20px 20px;
-  left: 10%;
-}
-
-.custom-select {
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 15px;
-  font-weight: 400;
-  text-align: center;
-  margin: 10px 10px 10px 10px;
-}
-
 .inventario-cristales-text08 {
   top: 335px;
   left: 20px;
@@ -283,5 +267,10 @@ export default {
 .columna {
   font-size: 80%;
   width: 100px;
+}
+
+.alerta{
+  width: 90%;
+  margin-right: 0;
 }
 </style>
