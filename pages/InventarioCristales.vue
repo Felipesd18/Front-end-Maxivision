@@ -58,14 +58,10 @@
           <span class="columna">{{ cristal.foto_ar }}</span>
           <span class="columna">{{ cristal.add }}</span>
 
-          <div v-if = "verificarCantidad(index)">
-            <v-alert  
-            class = "alerta"
-            :value="alert"
-            dense
-            type="info"
-            dismissible
-            >Se ha detectado una baja cantidad de stock</v-alert>
+          <div v-if="verificarCantidad(index)">
+            <v-alert class="alerta" :value="alert" dense type="info" dismissible
+              >Se ha detectado una baja cantidad de stock</v-alert
+            >
           </div>
         </div>
       </div>
@@ -101,10 +97,10 @@ export default {
         console.log('Error al obtener listado cristales', error)
       }
     },
-    verificarCantidad( indice){
-          if (this.listadoCristales.at(indice).cantidad < 10){
-            return true;
-          }
+    verificarCantidad(indice) {
+      if (this.listadoCristales.at(indice).cantidad < 10) {
+        return true
+      }
     },
     descargarExcel() {
       for (let i in this.listadoCristales) {
@@ -141,6 +137,32 @@ export default {
 
   created: function () {
     this.getData()
+  },
+  computed: {
+    tokenExpired: async function () {
+      let promise = await this.$axios.post(
+        '/api/auth/tokenExpired',
+        this.$store.state.auth.usuario.user
+      )
+
+      let promiseResolve = Promise.resolve(promise)
+
+      return promiseResolve
+    },
+  },
+  mounted() {
+    this.tokenExpired.then((valor) => {
+      if (valor.data) {
+        this.$store.dispatch('auth/logout').then(
+          () => {
+            this.$router.push('/Login')
+          },
+          (error) => {
+            alert(error)
+          }
+        )
+      }
+    })
   },
 }
 </script>
@@ -269,7 +291,7 @@ export default {
   width: 100px;
 }
 
-.alerta{
+.alerta {
   width: 90%;
   margin-right: 0;
 }

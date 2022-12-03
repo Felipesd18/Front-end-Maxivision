@@ -11,7 +11,9 @@
 
       <div class="contenedor-grupos">
         <div class="contenedor-limite-stock">
-          <label class="label-titulo">Ajustar limite de stock para alertas</label>
+          <label class="label-titulo"
+            >Ajustar limite de stock para alertas</label
+          >
           <div>
             <input type="number" class="input" />
             <button class="boton">
@@ -25,15 +27,38 @@
 </template>
 
 <script>
-
 import sidebarMenu from '../components/sidebar-menu.vue'
 export default {
   components: { sidebarMenu },
   middleware: ['authenticated'],
   data() {
-    return {
-      
-    }
+    return {}
+  },
+  computed: {
+    tokenExpired: async function () {
+      let promise = await this.$axios.post(
+        '/api/auth/tokenExpired',
+        this.$store.state.auth.usuario.user
+      )
+
+      let promiseResolve = Promise.resolve(promise)
+
+      return promiseResolve
+    },
+  },
+  mounted() {
+    this.tokenExpired.then((valor) => {
+      if (valor.data) {
+        this.$store.dispatch('auth/logout').then(
+          () => {
+            this.$router.push('/Login')
+          },
+          (error) => {
+            alert(error)
+          }
+        )
+      }
+    })
   },
 }
 </script>

@@ -4,5 +4,4 @@ export default async function ({store, redirect}) {
         return redirect('/Login')  
     }
     
-    
 }

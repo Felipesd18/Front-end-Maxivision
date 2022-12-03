@@ -21,6 +21,32 @@ export default {
   data() {
     return {}
   },
+  computed: {
+    tokenExpired: async function () {
+      let promise = await this.$axios.post(
+        '/api/auth/tokenExpired',
+        this.$store.state.auth.usuario.user
+      )
+
+      let promiseResolve = Promise.resolve(promise)
+
+      return promiseResolve
+    },
+  },
+  mounted() {
+    this.tokenExpired.then((valor) => {
+      if (valor.data) {
+        this.$store.dispatch('auth/logout').then(
+          () => {
+            this.$router.push('/Login')
+          },
+          (error) => {
+            alert(error)
+          }
+        )
+      }
+    })
+  },
 }
 </script>
 

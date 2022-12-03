@@ -1,5 +1,4 @@
 <template>
-  
   <div class="inventario-marco-container">
     <sidebar-menu />
     <div class="contenedor-pagina">
@@ -32,7 +31,7 @@
         >
           Descargar inventario</v-btn
         >
-       
+
         <div class="grupo-selector-sucursal">
           <span>Sucursal</span>
           <select class="custom-select" v-model="id_sucursal">
@@ -48,7 +47,7 @@
           </select>
         </div>
       </div>
-      
+
       <div class="Contenedor">
         <div v-if="id_sucursal == 'Todas'">
           <div class="fila">
@@ -97,19 +96,14 @@
             <span class="columna"> {{ marco.lotes.toString() }} </span>
           </div>
         </div>
-        <div v-if = "verificarCantidad()">
-              <v-alert  
-              class = "alerta"
-              :value="alert"
-              dense
-              type="info"
-              dismissible
-              >Se ha detectado una baja cantidad de stock</v-alert>
-            </div>
+        <div v-if="verificarCantidad()">
+          <v-alert class="alerta" :value="alert" dense type="info" dismissible
+            >Se ha detectado una baja cantidad de stock</v-alert
+          >
+        </div>
       </div>
     </div>
   </div>
-  
 </template>
 
 <script>
@@ -195,19 +189,19 @@ export default {
             .at(0)
 
           marco.lotes = this.listadoMarcos.at(i).lotes
-          
+
           this.listadoMarcosFiltrado.push(marco)
         }
       } catch (error) {
         console.log('Error al obtener los datos', error)
       }
     },
-    verificarCantidad(){
-        for (let i in this.listadoMarcos){ 
-          if (this.listadoMarcos.at(i).cantidad < 10){
-            return true;
-          }
+    verificarCantidad() {
+      for (let i in this.listadoMarcos) {
+        if (this.listadoMarcos.at(i).cantidad < 10) {
+          return true
         }
+      }
     },
     descargarExcel() {
       for (let i in this.listadoMarcos) {
@@ -267,6 +261,30 @@ export default {
         (marco) => marco.sucursal.id == this.id_sucursal
       )
     },
+    tokenExpired: async function () {
+      let promise = await this.$axios.post(
+        '/api/auth/tokenExpired',
+        this.$store.state.auth.usuario.user
+      )
+
+      let promiseResolve = Promise.resolve(promise)
+
+      return promiseResolve
+    },
+  },
+  mounted() {
+    this.tokenExpired.then((valor) => {
+      if (valor.data) {
+        this.$store.dispatch('auth/logout').then(
+          () => {
+            this.$router.push('/Login')
+          },
+          (error) => {
+            alert(error)
+          }
+        )
+      }
+    })
   },
 }
 </script>
@@ -406,9 +424,8 @@ export default {
   width: 14%;
 }
 
-.alerta{
+.alerta {
   width: 90%;
   margin-right: 0;
 }
-
 </style>
