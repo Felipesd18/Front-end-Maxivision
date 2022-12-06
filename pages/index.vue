@@ -9,7 +9,7 @@
         width="200"
       />
     </div>
-    <div class="titulo">Bienvenido a Administración Maxivision</div>
+    <div class="titulo">Bienvenido a Administración Maxivisión</div>
   </div>
 </template>
 

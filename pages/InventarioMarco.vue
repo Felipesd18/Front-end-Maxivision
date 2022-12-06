@@ -94,13 +94,13 @@
               {{ marco.color.codigo }} {{ marco.color.nombre_alias }}
             </span>
             <span class="columna"> {{ marco.lotes.toString() }} </span>
+            <div v-if="verificarCantidad(index)">
+              <v-alert class="alerta" :value="alert" dense type="info" dismissible
+              >Se ha detectado una baja cantidad de stock</v-alert>
+            </div>
           </div>
         </div>
-        <div v-if="verificarCantidad()">
-          <v-alert class="alerta" :value="alert" dense type="info" dismissible
-            >Se ha detectado una baja cantidad de stock</v-alert
-          >
-        </div>
+        
       </div>
     </div>
   </div>
@@ -196,12 +196,11 @@ export default {
         console.log('Error al obtener los datos', error)
       }
     },
-    verificarCantidad() {
-      for (let i in this.listadoMarcos) {
-        if (this.listadoMarcos.at(i).cantidad < 10) {
-          return true
-        }
+    verificarCantidad(indice) {
+      if (this.listadoMarcos.at(indice).cantidad < 10) {
+        return true
       }
+      
     },
     descargarExcel() {
       for (let i in this.listadoMarcos) {

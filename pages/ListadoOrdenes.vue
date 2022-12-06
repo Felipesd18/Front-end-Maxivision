@@ -6,7 +6,7 @@
         <div class="logo-header">
           <img src="../assets/logo-01.png" alt="logo-maxisvision" width="80" />
         </div>
-        <div class="header-texto1">Listado de guias de despacho</div>
+        <div class="header-texto">Listado de guias de despacho</div>
       </div>
       <div class="listado-ordenes-ingresar-marco">
         <nuxt-link to="/Orden">
@@ -168,22 +168,4 @@ export default {
   text-decoration: none;
 }
 
-.header-texto1 {
-  width: 100%;
-  color: white;
-  background-color: var(--d1-color-texts);
-  height: 80px;
-  padding-left: 20%;
-  font-size: 64px;
-  align-self: auto;
-  font-style: Bold;
-  text-align: left;
-  font-family: Poppins;
-  font-weight: 500;
-  line-height: 130%;
-  font-stretch: normal;
-  margin-right: 0;
-  margin-bottom: 0;
-  text-decoration: none;
-}
 </style>

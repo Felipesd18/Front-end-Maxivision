@@ -26,7 +26,7 @@
         <div class="cuadro-cristales-despacho">
           <div class="inventario-text02">
             <div class="logo">
-              <img src="../assets/logo-lentes.png" width="150" />
+              <img src="../assets/logo-lentes.png" width="200" />
             </div>
             Cristales para Despachos
           </div>
@@ -39,7 +39,7 @@
         <div class="inventario-frame7">
           <div class="inventario-text11">
             <div class="logo">
-              <img src="../assets/logo-lentes.png" width="150" />
+              <img src="../assets/logo-maipu.png" width="150" />
             </div>
             Cristales Maipú
           </div>

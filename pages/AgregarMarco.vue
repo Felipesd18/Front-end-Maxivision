@@ -240,25 +240,7 @@ export default {
   border-radius: 0px 0px 0px 0px;
   background-color: rgba(255, 255, 255, 1);
 }
-.agregar-marco-text {
-  color: white;
-  width: 2000px;
-  height: auto;
-  position: absolute;
-  font-size: 64px;
-  align-self: auto;
-  font-style: Bold;
-  text-align: left;
-  font-family: Poppins;
-  font-weight: 500;
-  padding-left: 25%;
-  line-height: normal;
-  font-stretch: normal;
-  margin-right: 0;
-  margin-bottom: 0;
-  text-decoration: none;
-  background-color: var(--d1-color-texts);
-}
+
 .agregar-marco-text02 {
   color: var(--d1-color-texts);
   height: auto;
@@ -400,58 +382,9 @@ export default {
   margin-bottom: 0;
   text-decoration: none;
 }
-.agregar-marco-text06 {
-  color: var(--d1-color-texts);
-  height: auto;
-  position: absolute;
-  font-size: 24px;
-  align-self: auto;
-  font-style: Bold;
-  text-align: left;
-  font-family: Poppins;
-  font-weight: 700;
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
-}
-.agregar-marco-frame5 {
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 15px;
-  color: var(--dl-color-default-defaultstroke);
-  top: 36px;
-  left: 0px;
-  width: auto;
-  height: auto;
-  display: flex;
-  overflow: hidden;
-  position: absolute;
-  box-sizing: border-box;
-  align-items: flex-start;
-  flex-shrink: 0;
-  border-color: var(--dl-color-default-defaultstroke);
-  border-style: solid;
-  background-color: var(--dl-color-default-formbackground);
-  resize: both;
-}
-.agregar-marco-text08 {
-  border-width: 1px;
-  border-radius: 15px;
-  color: var(--dl-color-default-defaultstroke);
-  min-width: 360px;
-  width: 100%;
-  height: 100%;
-  font-size: 24px;
-  font-style: Thin;
-  text-align: center;
-  font-family: Poppins;
-  font-weight: 400;
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
-}
+
 .agregar-marco-cancelar {
-  top: 650px;
+  top: 40%;
   left: 20px;
   width: 218px;
   height: 83px;
@@ -486,8 +419,8 @@ export default {
   text-decoration: none;
 }
 .agregar-marco-ingresar {
-  top: 650px;
-  left: 800px;
+  top: 40%;
+  left: 50%;
   width: 218px;
   height: 83px;
   display: flex;
@@ -521,28 +454,6 @@ export default {
   text-decoration: none;
 }
 
-.grupo-observaciones {
-  top: 380px;
-  left: 20px;
-  width: 420px;
-  height: 66px;
-  display: flex;
-  padding: 0;
-  position: absolute;
-  align-self: auto;
-  box-sizing: border-box;
-  align-items: flex-start;
-  flex-shrink: 1;
-  border-color: transparent;
-  border-style: none;
-  border-width: 0;
-  margin-right: 0;
-  border-radius: 0px 0px 0px 0px;
-  margin-bottom: 0;
-  flex-direction: row;
-  justify-content: flex-start;
-  background-color: transparent;
-}
 
 .grupo-modelo {
   top: 250px;

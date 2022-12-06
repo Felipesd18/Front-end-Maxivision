@@ -268,117 +268,9 @@ export default {
 .agregar-cristal-container {
   min-height: 100vh;
 }
-.agregar-cristal-text {
-  color: white;
-  width: 2000px;
-  height: auto;
-  position: absolute;
-  font-size: 64px;
-  align-self: auto;
-  font-style: Bold;
-  text-align: left;
-  font-family: Poppins;
-  font-weight: 500;
-  line-height: normal;
-  font-stretch: normal;
-  margin-right: 0;
-  padding-left: 10%;
-  margin-bottom: 0;
-  text-decoration: none;
-  background-color: var(--d1-color-texts);
-}
-.agregar-cristal-text02 {
-  top: 120px;
-  left: 20px;
-  color: var(--d1-color-texts);
-  width: 60px;
-  height: auto;
-  position: absolute;
-  font-size: 24px;
-  align-self: auto;
-  font-style: Bold;
-  text-align: left;
-  font-family: Poppins;
-  font-weight: 700;
-  line-height: normal;
-  font-stretch: normal;
-  margin-right: 0;
-  margin-bottom: 0;
-  text-decoration: none;
-}
-.agregar-sucursal {
-  top: 120px;
-  left: 470px;
-  color: var(--d1-color-texts);
-  width: 60px;
-  height: auto;
-  position: absolute;
-  font-size: 24px;
-  align-self: auto;
-  font-style: Bold;
-  text-align: left;
-  font-family: Poppins;
-  font-weight: 700;
-  line-height: normal;
-  font-stretch: normal;
-  margin-right: 0;
-  margin-bottom: 0;
-  text-decoration: none;
-}
-/*Estilo Selector */
-.custom-select {
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 15px;
-  top: 160px;
-  left: 20px;
-  color: var(--dl-color-default-defaultstroke);
-  width: 360px;
-  height: 40px;
-  position: absolute;
-  font-size: 24px;
-  align-self: auto;
-  font-style: Bold;
-  text-align: center;
-  font-family: Poppins;
-  font-weight: 400;
-  line-height: normal;
-  font-stretch: normal;
-  margin-right: 0;
-  margin-bottom: 0;
-  text-decoration: none;
-}
-
-.custom-select-sucursal {
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 15px;
-  top: 160px;
-  left: 470px;
-  color: var(--dl-color-default-defaultstroke);
-  width: 360px;
-  height: 40px;
-  position: absolute;
-  font-size: 24px;
-  align-self: auto;
-  font-style: Bold;
-  text-align: center;
-  font-family: Poppins;
-  font-weight: 400;
-  line-height: normal;
-  font-stretch: normal;
-  margin-right: 0;
-  margin-bottom: 0;
-  text-decoration: none;
-}
-
-.custom-select select {
-  left: 10px;
-  display: none;
-}
 
 .agregar-cristal-tabla-a-d-d {
-  top: 420px;
+  top: 300px;
   left: 10px;
   width: 1203px;
   height: 77px;
@@ -402,7 +294,7 @@ export default {
 .agregar-cristal-volver {
   top: 0px;
   left: 0px;
-  width: 192px;
+  width: 150px;
   height: 77px;
   position: absolute;
   box-sizing: border-box;
@@ -413,7 +305,7 @@ export default {
 }
 .agregar-cristal-rectangulo1-24 {
   top: 0px;
-  left: 191px;
+  left: 150px;
   width: 763px;
   height: 77px;
   position: absolute;
@@ -421,46 +313,46 @@ export default {
   border-color: rgba(17, 16, 29, 1);
   border-style: solid;
   border-width: 1px;
+  border-radius: 0px 15px 15px 0px;
 }
 .agregar-cristal-text04 {
-  top: 1px;
+  top: 10px;
   left: 1px;
   color: rgba(0, 0, 0, 1);
   width: 150px;
   bottom: 1px;
   height: auto;
   position: absolute;
-  font-size: 36px;
+  font-size: 25px;
   align-self: auto;
-  font-style: ExtraLight;
+  font-style: Medium;
   text-align: center;
   font-family: Poppins;
-  font-weight: 200;
   line-height: 2;
   font-stretch: normal;
   text-decoration: none;
 }
 .agregar-cristal-text06 {
   top: 1px;
-  left: 192px;
+  left: 150px;
   color: rgba(0, 0, 0, 1);
   width: 761px;
   bottom: 1px;
   height: auto;
   position: absolute;
-  font-size: 32px;
+  font-size: 25px;
   align-self: auto;
-  font-style: Thin;
+  font-style: Medium;
   text-align: center;
   font-family: Poppins;
-  font-weight: 400;
   line-height: 2;
   font-stretch: normal;
   text-decoration: none;
+  border-radius: 0px 15px 15px 0px;
 }
 
 .agregar-cristal-tabla {
-  top: 250px;
+  top: 150px;
   left: 10px;
   width: 1680px;
   height: 136px;
@@ -645,127 +537,120 @@ export default {
   border-radius: 0 0 15px;
 }
 .agregar-esfera {
-  top: 1px;
+  top: 10px;
   left: 110px;
   color: rgba(0, 0, 0, 1);
   width: 253px;
   bottom: 77px;
   height: auto;
   position: absolute;
-  font-size: 36px;
+  font-size: 25px;
   align-self: auto;
-  font-style: ExtraLight;
+  font-style: Medium;
   text-align: center;
   font-family: Poppins;
-  font-weight: 200;
   line-height: normal;
   font-stretch: normal;
   text-decoration: none;
 }
 .agregar-cilindro {
-  top: 1px;
+  top: 10px;
   left: 280px;
   color: rgba(0, 0, 0, 1);
   width: 253px;
   bottom: 77px;
   height: auto;
   position: absolute;
-  font-size: 36px;
+  font-size: 25px;
   align-self: auto;
-  font-style: ExtraLight;
+  font-style: Medium;
   text-align: center;
   font-family: Poppins;
-  font-weight: 200;
   line-height: normal;
   font-stretch: normal;
   text-decoration: none;
 }
 .agregar-eje {
-  top: 1px;
+  top: 10px;
   left: 420px;
   color: rgba(0, 0, 0, 1);
   width: 253px;
   bottom: 77px;
   height: auto;
   position: absolute;
-  font-size: 36px;
+  font-size: 25px;
   align-self: auto;
-  font-style: ExtraLight;
+  font-style: Medium;
   text-align: center;
   font-family: Poppins;
-  font-weight: 200;
   line-height: normal;
   font-stretch: normal;
   text-decoration: none;
 }
 .agregar-dp {
-  top: 1px;
+  top: 10px;
   left: 515px;
   color: rgba(0, 0, 0, 1);
   width: 253px;
   bottom: 77px;
   height: auto;
   position: absolute;
-  font-size: 36px;
+  font-size: 25px;
   align-self: auto;
-  font-style: ExtraLight;
+  font-style: Medium;
   text-align: center;
   font-family: Poppins;
-  font-weight: 200;
   line-height: normal;
   font-stretch: normal;
   text-decoration: none;
 }
 .agregar-cr-min {
-  top: 1px;
+  top: 10px;
   left: 660px;
   color: rgba(0, 0, 0, 1);
   width: 252px;
   bottom: 77px;
   height: auto;
   position: absolute;
-  font-size: 36px;
+  font-size: 25px;
   align-self: auto;
-  font-style: ExtraLight;
+  font-style: Medium;
   text-align: center;
   font-family: Poppins;
-  font-weight: 200;
   line-height: normal;
   font-stretch: normal;
   text-decoration: none;
 }
 .agregar-foto-ar {
-  top: 1px;
+  top: 10px;
   left: 870px;
   color: rgba(0, 0, 0, 1);
   width: 220px;
   bottom: 77px;
   height: auto;
   position: absolute;
-  font-size: 36px;
+  font-size: 25px;
   align-self: auto;
-  font-style: ExtraLight;
+  font-style: Medium;
   text-align: center;
   font-family: Poppins;
-  font-weight: 200;
   line-height: normal;
   font-stretch: normal;
   text-decoration: none;
 }
 .agregar-od {
-  top: 59px;
+  top: 70px;
   left: -15px;
   color: rgba(0, 0, 0, 1);
   width: 188px;
   bottom: 1px;
   height: auto;
   position: absolute;
-  font-size: 30px;
+  font-size: 25px;
   align-self: auto;
-  font-style: ExtraLight;
+  font-style: Medium;
   text-align: center;
   font-family: Poppins;
-  font-weight: 200;
   line-height: 2;
   font-stretch: normal;
   text-decoration: none;
@@ -850,12 +735,11 @@ export default {
   bottom: 1px;
   height: auto;
   position: absolute;
-  font-size: 32px;
+  font-size: 25px;
   align-self: auto;
-  font-style: Thin;
+  font-style: Medium;
   text-align: center;
   font-family: Poppins;
-  font-weight: 400;
   line-height: 2;
   font-stretch: normal;
   text-decoration: none;
@@ -868,19 +752,18 @@ export default {
   bottom: 1px;
   height: auto;
   position: absolute;
-  font-size: 32px;
+  font-size: 25px;
   align-self: auto;
-  font-style: Thin;
+  font-style: Medium;
   text-align: center;
   font-family: Poppins;
-  font-weight: 400;
   line-height: 2;
   font-stretch: normal;
   text-decoration: none;
   border-radius: 0 0 15px;
 }
 .agregar-cristal-cancelar {
-  top: 550px;
+  top: 450px;
   left: 20px;
   width: 218px;
   height: 83px;
@@ -915,7 +798,7 @@ export default {
   text-decoration: none;
 }
 .agregar-cristal-ingresar {
-  top: 550px;
+  top: 450px;
   left: 800px;
   width: 218px;
   height: 83px;
