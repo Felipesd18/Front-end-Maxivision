@@ -99,6 +99,11 @@
             <span class="columna">{{ cristal.foto_ar }}</span>
             <span class="columna">{{ cristal.add }}</span>
             <span class="columna"> {{ cristal.lotes.toString() }} </span>
+            <div v-if="verificarCantidad(index)">
+            <v-alert class="alerta" :value="alert" dense type="info" dismissible
+              >Se ha detectado una baja cantidad de stock</v-alert
+            >
+          </div>
           </div>
         </div>
       </div>
@@ -123,11 +128,13 @@ export default {
       listadoSucursales: [],
       listadoCristalesFiltrada: [],
       listadoCristalesExcel: [],
+      limite: null
     }
   },
 
   methods: {
     getData: async function () {
+      this.limite = this.$store.getters['limite/getValor']
       try {
         let response = await this.$axios.get('/cristal/tipo/Despacho', {
           headers: authHeader(),
@@ -175,6 +182,11 @@ export default {
         }
       } catch (error) {
         console.log('Error al obtener listado cristales', error)
+      }
+    },
+    verificarCantidad(indice) {
+      if (this.listadoCristales.at(indice).cantidad < this.limite) {
+        return true
       }
     },
     descargarExcel() {

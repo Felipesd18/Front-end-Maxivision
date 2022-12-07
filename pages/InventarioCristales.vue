@@ -84,10 +84,12 @@ export default {
     return {
       listadoCristales: [],
       listadoCristalesExcel: [],
+      limite: null
     }
   },
   methods: {
     getData: async function () {
+      this.limite = this.$store.getters['limite/getValor']
       try {
         let response = await this.$axios.get('/cristal/tipo/Inventario', {
           headers: authHeader(),
@@ -98,7 +100,7 @@ export default {
       }
     },
     verificarCantidad(indice) {
-      if (this.listadoCristales.at(indice).cantidad < 10) {
+      if (this.listadoCristales.at(indice).cantidad < this.limite) {
         return true
       }
     },

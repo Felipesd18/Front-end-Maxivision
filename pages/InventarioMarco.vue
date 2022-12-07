@@ -94,13 +94,12 @@
               {{ marco.color.codigo }} {{ marco.color.nombre_alias }}
             </span>
             <span class="columna"> {{ marco.lotes.toString() }} </span>
-            <div v-if="verificarCantidad(index)">
+          </div>
+        </div>
+        <div v-if="verificarCantidad()">
               <v-alert class="alerta" :value="alert" dense type="info" dismissible
               >Se ha detectado una baja cantidad de stock</v-alert>
             </div>
-          </div>
-        </div>
-        
       </div>
     </div>
   </div>
@@ -126,10 +125,12 @@ export default {
       listadoColores: [],
       listadoMarcosFiltrado: [],
       listadoMarcosExcel: [],
+      limite: null
     }
   },
   methods: {
     getData: async function () {
+      this.limite = this.$store.getters['limite/getValor']
       try {
         let response = await this.$axios.get('/marco', {
           headers: authHeader(),
@@ -196,9 +197,11 @@ export default {
         console.log('Error al obtener los datos', error)
       }
     },
-    verificarCantidad(indice) {
-      if (this.listadoMarcos.at(indice).cantidad < 10) {
-        return true
+    verificarCantidad() {
+      for(let i in this.listadoMarcosFiltrado){
+        if (this.listadoMarcosFiltrado.at(i).cantidad < this.limite) {
+          return true
+       }
       }
       
     },
@@ -424,7 +427,7 @@ export default {
 }
 
 .alerta {
-  width: 90%;
-  margin-right: 0;
+  width: 30%;
+  margin-left: 0;
 }
 </style>

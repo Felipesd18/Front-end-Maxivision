@@ -15,9 +15,10 @@
             >Ajustar limite de stock para alertas</label
           >
           <div>
-            <input type="number" class="input" />
+            <div> El limite actual definido es {{$store.state.limite.limite}}</div>
+            <input type="number" v-model= "limite" class="input" />
             <button class="boton">
-              <span class="label-boton">Actualizar</span>
+              <span class="label-boton" @click="cambiarLimite()">Actualizar</span>
             </button>
           </div>
         </div>
@@ -28,13 +29,17 @@
 
 <script>
 import sidebarMenu from '../components/sidebar-menu.vue'
+
 export default {
   components: { sidebarMenu },
   middleware: ['authenticated'],
   data() {
-    return {}
+    return {
+       limite: 0
+    
+    }
   },
-  computed: {
+   computed: {
     tokenExpired: async function () {
       let promise = await this.$axios.post(
         '/api/auth/tokenExpired',
@@ -45,6 +50,7 @@ export default {
 
       return promiseResolve
     },
+    
   },
   mounted() {
     this.tokenExpired.then((valor) => {
@@ -60,6 +66,11 @@ export default {
       }
     })
   },
+  methods: {
+    cambiarLimite() {
+      this.$store.commit('limite/setLimite',this.limite)
+    },
+  }
 }
 </script>
 
