@@ -13,7 +13,7 @@
         <div class="recuadro">
           <div><img src="../assets/bx-line-chart.svg" width="150" /></div>
           <span class="label-titulo">Ganancias Sucursales</span>
-          <div class="boton">
+          <div class="botonV">
             <nuxt-link to="/ListadoSucursalGanancia">
               <span class="label-boton">Visualizar</span>
             </nuxt-link>
@@ -23,7 +23,7 @@
         <div class="recuadro">
           <div><img src="../assets/bx-bar-chart-square.svg" width="150" /></div>
           <span class="label-titulo">Ventas Sucursales</span>
-          <div class="boton">
+          <div class="botonV">
             <nuxt-link to="/ListadoSucursalVentas">
               <span class="label-boton">Visualizar</span>
             </nuxt-link>
@@ -105,9 +105,16 @@ export default {
   margin: 40px 0px 40px 0px;
 }
 
-.boton {
+.botonV {
   width: 250px;
   margin: 40px 30% 40px 30%;
+  height: 83px;
+  border-radius: 15px;
+  background-color: var(--dl-color-default-defaultstroke);
+  color: var(--d1-color-default-label-button);
+  font-weight: 400;
+  font-family: Poppins;
+  position: relative;
 }
 
 .label-boton {

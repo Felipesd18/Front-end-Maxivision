@@ -2,7 +2,12 @@
   <div>
     <sidebar-menu />
     <div class="contenedor-pagina">
-      <h1 class="titulo">Prueba Graficos</h1>
+      <div class="encabezado">
+        <div class="logo-header">
+          <img src="../assets/logo-01.png" alt="logo-maxisvision" width="80" />
+        </div>
+        <div class="header-texto">Grafico Ganancias</div>
+      </div>
       <div class="chart-div">
         <line-chart
           :chartData="listaGanancias"
@@ -47,7 +52,7 @@ export default {
     getData: async function () {
       try {
         const { data } = await axios.get(
-          'https://run.mocky.io/v3/9b7fd544-0851-4ae8-8953-a21d629c1256'
+          'https://run.mocky.io/v3/36b116e3-36cd-4718-9c61-72ef6f272e54'
         )
 
         data.forEach((d) => {

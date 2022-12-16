@@ -18,10 +18,44 @@
       <label class="label-titulo">Sucursales</label>
 
       <div class="listado">
-        <div class="fila" v-for="(sucursal, index) in sucursales" :key="index">
-          <span class="columna"> {{ sucursal.nombre }} </span>
+        <div class="fila">
+          <span class="columna"> Caldera </span>
           <div class="columna">
-            <button class="boton">Ir</button>
+            <button class="boton">
+              <nuxt-link to="/GananciasGraficaCaldera" class="label-botonV">
+                Ir
+              </nuxt-link>
+            </button>
+          </div>
+        </div>
+        <div class="fila">
+          <span class="columna"> Maipú </span>
+          <div class="columna">
+            <button class="boton">
+              <nuxt-link to="/GananciasGraficaMaipu" class="label-botonV">
+                Ir
+              </nuxt-link>
+            </button>
+          </div>
+        </div>
+        <div class="fila">
+          <span class="columna"> Marchihue </span>
+          <div class="columna">
+            <button class="boton">
+              <nuxt-link to="/GananciasGraficaMarchihue" class="label-botonV">
+                Ir
+              </nuxt-link>
+            </button>
+          </div>
+        </div>
+        <div class="fila">
+          <span class="columna"> Salamanca </span>
+          <div class="columna">
+            <button class="boton">
+              <nuxt-link to="/GananciasGraficaSalamanca" class="label-botonV">
+                Ir
+              </nuxt-link>
+            </button>
           </div>
         </div>
       </div>
@@ -110,5 +144,27 @@ export default {
   width: 100px;
   margin: 0px;
   position: static;
+}
+
+.label-boton {
+  position: absolute;
+}
+
+.label-botonV {
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--d1-color-default-label-button);
+  height: 100%;
+  width: 100%;
+  font-size: 32px;
+  align-self: auto;
+  text-align: center;
+  font-family: Poppins;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  margin-bottom: 0;
+  text-decoration: none;
 }
 </style>
